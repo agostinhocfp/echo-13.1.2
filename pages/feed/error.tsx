@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import ErrorBoundary from "../../components/organisms/ErrorBoundary/EchoErrorBoundary";
-import { RiHome2Line, RiRefreshLine } from "react-icons/Ri";
+import { RiHome2Line } from "react-icons/Ri";
 import { Typography } from "@mui/material";
 
 import styles from "./error.module.css";
