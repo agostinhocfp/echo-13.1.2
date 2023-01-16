@@ -1,6 +1,5 @@
 import React from "react";
 import { useNextSanityImage } from "next-sanity-image";
-// import Image from "next/future/image";
 import Image from "next/image";
 
 import { client } from "../../sanity_client/config/client";
