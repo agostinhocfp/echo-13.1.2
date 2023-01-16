@@ -4,8 +4,6 @@ import { GrTechnology } from "react-icons/gr";
 import { TiNews } from "react-icons/ti";
 import { MdSportsBasketball } from "react-icons/md";
 import { MdScience } from "react-icons/md";
-// import { MdBusiness } from "react-icons/md";
-import { FaPeopleCarry } from "react-icons/fa";
 import { GiNothingToSay } from "react-icons/gi";
 
 export const MAIN_ROUTES = [
