@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.searchField {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  width: 400px;
+}
+
+.resultsMessageContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.resultsMessage {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #212121;
+  text-align: left;
+}
+
+.postsContainer {
+  margin-top: 20px;
+  padding: 0 20px;
+  width: 100%;
+}

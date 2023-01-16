@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4em 6em;
+  height: 100vh;
+}
+
+.message {
+  margin-bottom: 1em;
+  font-size: 500;
+}
+
+.tryAgainButton {
+  display: flex;
+  justify-content: center;
+}

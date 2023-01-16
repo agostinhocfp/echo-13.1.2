@@ -1,0 +1,93 @@
+.root {
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .root {
+    height: 65px;
+  }
+}
+
+.navbarContainer {
+  max-width: 1536px;
+}
+
+.rootGridContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emptyGridContainer {
+}
+@media screen and (max-width: 900px) {
+  .emptyGridContainer {
+    display: none;
+  }
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+.navbarLogoText {
+  font-family: plaster;
+  font-weight: 700;
+  color: #287271;
+}
+
+.actionButtonsGridContainer {
+  display: flex;
+}
+
+.actionButtonsContainer {
+  display: flex;
+  justify-content: right;
+  flex-grow: 1;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.actionButtonText {
+  font-size: 1.1em;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.actionButtonText:hover {
+  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+.buttonSubscribe {
+  margin: 0 2px;
+}
+
+.searchIcon {
+  font-size: 16px;
+  color: #000;
+  margin-left: 2px;
+  font-weight: 700;
+}
+
+.routesMenuContainer {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0 auto;
+}
+
+.tab {
+  color: #000;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.tab:hover {
+  color: #2a9d8f;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1, 1.1);
+}

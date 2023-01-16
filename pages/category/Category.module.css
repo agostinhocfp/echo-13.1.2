@@ -1,0 +1,134 @@
+.root {
+}
+
+.pageTitle {
+  text-align: justify;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #212121;
+}
+
+.contentGridContainer {
+  display: flex;
+}
+
+.contentContainer {
+  display: flex;
+  margin-top: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.frontPostContainer {
+  width: 100%;
+  margin-bottom: 2em;
+  max-width: 900px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 20px;
+}
+.frontImageContainer {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.frontImage {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.frontTitleContainer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 200px;
+  max-width: 1200px;
+}
+.frontTitle {
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 8px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+  overflow: hidden;
+  max-width: 700px;
+  padding-left: 5px;
+  padding-bottom: 1em;
+  box-sizing: border-box;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+}
+.postContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.postImageContainer {
+  max-width: 220px;
+  max-height: 120px;
+  margin-right: 1em;
+  margin-bottom: 2em;
+}
+.postImage {
+  border-radius: 5px;
+}
+.postTag {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+.postTitle {
+  letter-spacing: 0;
+  padding-right: 20px;
+  font-weight: 500;
+  max-width: 750px;
+  margin-bottom: 5px;
+}
+.postAuthor {
+  font-size: 0.6em;
+}
+.postInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.sideContainer {
+  display: flex;
+  position: relative;
+}
+@media screen and (min-width: 900px) {
+  /* .sideContainer {
+    position: fixed;
+    top: 0;
+    margin-top: 200px;
+    visibility: visible;
+  } */
+}
+.loaderContainer {
+  display: flex;
+  margin-top: 6em;
+}
+
+.titleFig {
+  width: 100%;
+  background-color: #0d2323;
+  text-align: center;
+  padding: 1em;
+  max-height: 120px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 900px) {
+  .titleFig {
+    display: hidden;
+  }
+}
+
+.divider {
+  color: #424242;
+  height: 2px;
+  width: 100%;
+  margin-top: 5px;
+  margin: 20px 0;
+  margin-right: 2em;
+}

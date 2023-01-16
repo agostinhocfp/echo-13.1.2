@@ -1,0 +1,58 @@
+/* scroll snap takes care of restoring scroll position */
+.list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  /* right: 30px; */
+  overflow: hidden;
+}
+/* scrollbar should be hidden */
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.listItem {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  overflow: hidden;
+  height: 380px;
+  max-width: 280px;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: 0.4s ease-out;
+  scroll-snap-align: flex-start;
+}
+.listItem:hover {
+  transform: translate(0px, -4px) scale(1.02);
+}
+.image {
+  width: 100%;
+  background: #333;
+}
+
+.titleContainer {
+}
+.title {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 280px;
+  margin: 0px;
+  padding: 24px;
+  min-height: 66px;
+  box-sizing: border-box;
+  line-height: 1.16em;
+  font-weight: 900;
+  color: white;
+  background-color: #2a9d8f;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.01);
+  overflow: hidden;
+}
+
+.status {
+  margin-top: 6em;
+}

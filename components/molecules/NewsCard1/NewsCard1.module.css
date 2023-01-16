@@ -1,0 +1,95 @@
+.postContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 900px) {
+  .postContainer {
+    height: 180px;
+    width: 100%;
+    padding-right: 20px;
+  }
+
+  .postImageContainer {
+    min-width: 260px;
+    width: 260px;
+    max-width: 300px;
+  }
+  .postImage {
+    width: 100%;
+  }
+  .postInfoContainer {
+    width: 100%;
+    padding-right: 5px;
+  }
+  .postTitle {
+    width: 100%;
+    font-size: 1.4em !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .postContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 320px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .postImageContainer {
+    margin-bottom: 5px;
+  }
+  .postImage {
+  }
+  .postInfoContainer {
+    margin-left: 0 !important;
+    padding: 0 5px;
+  }
+  .postTitle {
+    width: 100%;
+    padding-right: 0 !important;
+  }
+}
+
+.postImageContainer {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 5px !important;
+}
+
+.postImage {
+}
+
+.postInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.postTag {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  color: #212121;
+}
+.postTitle {
+  letter-spacing: 0;
+  padding-right: 5px;
+  font-weight: 600;
+  max-width: 750px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: #212121;
+}
+
+.postAuthor {
+  color: #264653;
+  font-size: 0.8em;
+  font-weight: 700;
+}

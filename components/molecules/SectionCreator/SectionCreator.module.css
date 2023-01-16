@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 1em 0;
+  height: auto;
+  min-width: 100%;
+}
+.title {
+  display: flex;
+  flex-direction: "row";
+  justify-content: "center";
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  margin: 0 10px;
+  color: #212121;
+}
+
+.subtitle {
+  margin: 1em;
+  text-align: center;
+}

@@ -1,0 +1,207 @@
+.root {
+  /* display: flex;
+  justify-content: center;
+  height: auto;
+  max-height: 100%;
+  margin-bottom: 4em; */
+}
+
+.leftContent {
+  margin-top: 5px;
+  padding: 0 5px;
+}
+.leftImageContainer {
+  position: relative;
+}
+.leftImage {
+  cursor: pointer;
+  border-bottom-right-radius: 5px;
+  width: 100%;
+  height: 380px;
+}
+@media screen and (min-width: 900px) {
+  /* .leftImage {
+    height: 420px;
+  } */
+}
+.leftCategoryContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  width: 125px;
+}
+.leftCategory {
+  padding-left: 1px;
+  padding-right: 4px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  /* font-family: plaster; */
+  color: #287271;
+}
+
+.leftTitle {
+  font-weight: 600;
+  margin-top: 5px;
+  text-align: left;
+}
+.leftSubtitleContainer {
+  margin-top: 2px;
+}
+.leftSubtitle {
+  font-weight: 400;
+  padding-right: 3px;
+}
+.leftAuthorContainer {
+  display: flex;
+  align-items: left;
+  align-content: center;
+  align-self: center;
+}
+.leftAuthor {
+  font-size: 0.7em;
+  margin-top: 2px;
+}
+
+.rightContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* overflow: hidden; */
+  /* align-self: flex-start; */
+}
+@media screen and (max-width: 900) {
+  .rightContent {
+  }
+}
+.rightFeaturedContainer {
+  display: flex;
+  justify-content: center;
+}
+.rightFeaturedItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 5px 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 900) {
+  .rightFeaturedContainer {
+  }
+  .rightFeaturedItem {
+    display: none;
+  }
+}
+
+.featuredImageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.featuredImage {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 1200px) {
+  .featuredImage {
+    height: 240px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .featuredImage {
+    height: 170px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .featuredImage {
+    height: 300px;
+  }
+}
+
+.featuredCategoryContainer {
+  display: flex;
+  width: 125px;
+  margin-bottom: -5px;
+}
+.featuredCategory {
+  padding-left: 1px;
+  padding-right: 4px;
+  border-top-right-radius: 5px;
+  background-color: white;
+  /* color: #287271; */
+}
+.featuredTitle {
+  /* font-size: .9em; */
+  overflow: hidden;
+  width: 280px;
+  font-size: 1.1rem;
+  color: #212121;
+  font-weight: 600;
+  line-height: 1.3em;
+}
+.featuredAuthorContainer {
+  display: flex;
+  text-align: left;
+  padding-left: 5px;
+}
+.featuredAuthor {
+  font-size: 0.6em;
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+.divider {
+  color: "#000";
+}
+.rightFeaturedGrid {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  /* align-items: start; */
+  align-items: flex-start;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.rightItemContainer {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2px;
+  padding-bottom: 2px;
+  overflow: hidden;
+}
+@media screen and (min-width: 900px) {
+  .rightItemContainer {
+    height: 70px;
+  }
+}
+@media screen and (max-width: 900px) {
+}
+.rightContainer:nth-last-child(-n + 1) {
+  border-bottom: none;
+}
+
+.rightCategory {
+  color: #287271;
+}
+.rightTitle {
+  color: #212121;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+.rightAuthor {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.6em;
+  margin-top: 5px;
+  align-content: flex-start;
+  align-self: flex-start;
+}

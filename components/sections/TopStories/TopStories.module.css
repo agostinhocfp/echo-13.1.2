@@ -1,0 +1,67 @@
+/* .root {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+} */
+/* .grid {
+  -moz-column-count: 4;
+  -webkit-column-count: 4;
+  column-count: 4;
+} */
+.grid {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: masonry;
+}
+/* .grid {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: column;
+  columns: 3;
+  gap: 1em;
+}
+.grid > * {
+  break-inside: avoid;
+  margin-bottom: 1em;
+} */
+@supports (grid-template-rows: masonry) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: masonry;
+    /* align-tracks: stretch; */
+  }
+  .grid > * {
+    margin-bottom: 0;
+  }
+}
+.featured {
+  grid-column: span 2;
+}
+.gridItem {
+}
+
+.featuredImage {
+  height: 400;
+  width: 100%;
+}
+.title {
+}
+.title:hover {
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.messageContainer {
+  display: flex;
+  justify-content: center;
+}
+.status {
+  display: flex;
+  justify-content: center;
+  margin-top: 12em;
+}

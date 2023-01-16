@@ -1,0 +1,10 @@
+.messageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8em;
+}
+.status {
+  display: flex;
+  justify-content: center;
+  margin-top: 12em;
+}

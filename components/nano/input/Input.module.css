@@ -1,0 +1,46 @@
+.searchBar {
+  height: 40px;
+  width: 100%;
+  max-width: 700px;
+  background: #f9f8f8;
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+.searchBar:hover {
+  background: #bbb5bd;
+  transition: 0.8s ease;
+}
+
+.searchBar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  color: black;
+}
+.searchBar input::placeholder {
+  color: black;
+}
+
+.searchBar button img {
+  width: 25px;
+}
+
+.searchBar button {
+  border: 0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #301934;
+  cursor: pointer;
+  color: white;
+}
+
+.textInput::placeholder {
+  opacity: 0.5;
+  font-style: italic;
+}

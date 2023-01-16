@@ -1,0 +1,36 @@
+.root {
+}
+
+@media screen and (min-width: 1024px) {
+  .root {
+    position: sticky !important;
+  }
+}
+.wrapper {
+  box-sizing: border-box;
+}
+.radarTitle {
+  font-weight: 900;
+  font-size: 1.8em;
+  color: #212121;
+}
+.radarContainer {
+  display: flex;
+  flex-direction: column;
+}
+.radarItemContainer {
+  padding-bottom: 10px;
+}
+.radarContainer:last-child {
+  padding-bottom: 0;
+}
+.rankNumber {
+  color: #264653;
+  font-size: 2em;
+  font-weight: 500;
+}
+.radarItemTitle {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #264653;
+}
