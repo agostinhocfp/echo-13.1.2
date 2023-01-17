@@ -15,6 +15,7 @@ import SectionLayout from "../../layouts/SectionLayout";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useIntersectionObserver from "../../../util/hooks/useIntersectionObserver";
+import SanityImage from "../../../hooks/SanityImage/SanityImage";
 
 const MoreStories = () => {
   const router = useRouter();
@@ -23,8 +24,6 @@ const MoreStories = () => {
 
   const fetchInfinitePosts = async ({ pageParam = "" }) => {
     try {
-      console.log(pageParam);
-
       const response = await client.fetch(
         `*[editorApproved && _type == "post" && (_id > '${pageParam}' )] | order(_id) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
         pageParam
@@ -96,15 +95,16 @@ const MoreStories = () => {
                       >
                         {/* <a> */}
                         <div className={styles.imageContainer}>
-                          <img
-                            className={styles.image}
-                            src={urlFor(story.mainImage)}
+                          <SanityImage
+                            imageRef={story.mainImage}
                             alt={`Article: ${story.title}`}
+                            priority={false}
+                            quality={50}
                             onClick={() =>
-                              router.push(`/story/${story.slug.current}`)
+                              router.push(`/news/${story.slug.current}`)
                             }
                             onKeyDown={() =>
-                              router.push(`/story/${story.slug.current}`)
+                              router.push(`/news/${story.slug.current}`)
                             }
                           />
                         </div>

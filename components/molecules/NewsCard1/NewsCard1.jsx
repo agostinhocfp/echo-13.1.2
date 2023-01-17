@@ -29,14 +29,6 @@ const NewsCard1 = ({ post }) => {
       {post && (
         <div className={styles.postContainer} key={post._id}>
           <div className={styles.postImageContainer}>
-            {/* <img
-                    className={styles.postImage}
-                    src={urlFor(post.mainImage)}
-                    alt={`Image of article: ${post.title}`}
-                    width="100%"
-                    height="100%"
-                    onClick={() => router.push(`/news/${post.slug.current}`)}
-                  /> */}
             <SanityImage
               className={styles.postImage}
               imageRef={post.mainImage}

@@ -21,6 +21,7 @@ import { MAIN_ROUTES } from "../../constants/ROUTES";
 import useWindowSize from "../../util/hooks/useWindowSize";
 import theme from "../../ui/theme";
 import NewsCard1 from "../../components/molecules/NewsCard1/NewsCard1";
+import SanityImage from "../../hooks/SanityImage/SanityImage";
 
 export const getStaticPaths = async () => {
   const query = `*[_type == "category"]{route}`;
@@ -103,8 +104,6 @@ const Category = (props) => {
       if (response.length > 0) {
         pageParam.lastId = response[response.length - 1]._id;
         pageParam.lastCreatedAt = response[response.length - 1]._createdAt;
-
-        console.log(pageParam.lastId, pageParam.lastCreatedAt);
       } else {
         pageParam.lastId = null;
       }
@@ -181,13 +180,11 @@ const Category = (props) => {
                   <div className={styles.frontPostContainer}>
                     <div className={styles.frontImageContainer}>
                       {frontItem && (
-                        <img
-                          className={styles.frontImage}
-                          src={urlFor(frontItem.mainImage)}
-                          // {...GetImageProps(frontItem.mainImage)}
+                        <SanityImage
+                          imageRef={frontItem.mainImage}
                           alt={`Article: ${frontItem.title}`}
-                          width="100%"
-                          height="100%"
+                          priority={true}
+                          quality={50}
                           onClick={() =>
                             router.push(`/news/${frontItem.slug.current}`)
                           }
