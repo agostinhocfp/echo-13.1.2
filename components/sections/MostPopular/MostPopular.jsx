@@ -13,6 +13,7 @@ import SectionLayout from "../../layouts/SectionLayout";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import getData from "../../../util/hooks/GetData";
+import { motion } from "framer-motion";
 
 // const sanityPostQuery =
 //   "*[editorApproved][0...5] | order(views desc){mainImage, title, slug}";
@@ -74,32 +75,46 @@ const MostPopular = () => {
       <>
         {domLoaded && (
           <>
-            {data?.slice(0, 6).map((story) => {
-              return (
-                <div className={styles.listItem} key={story._id}>
-                  <Link
-                    href={`/story/${story.slug.current}`}
-                    aria-label="To article page"
+            <motion.div
+              className={styles.list}
+              variants={parent}
+              initial="hidden"
+              animate="show"
+            >
+              {data?.slice(0, 6).map((story) => {
+                return (
+                  <motion.div
+                    key={story._id}
+                    variants={stat}
+                    whileInView={{ y: [100, 0], opacity: [0, 1] }}
+                    transition={{ duration: 0.5 }}
                   >
-                    {story?.slug.current ? (
-                      <SanityImage
-                        className={styles.image}
-                        alt={`Carousel article: ${story.title}`}
-                        imageRef={story.mainImage}
-                        objectFit="cover"
-                        priority={false}
-                        quality={50}
-                        width={400}
-                        height={400}
-                      />
-                    ) : null}
-                    <div className={styles.title}>
-                      <Typography variant="h7">{story.title}</Typography>
+                    <div className={styles.listItem}>
+                      <Link
+                        href={`/story/${story.slug.current}`}
+                        aria-label="To article page"
+                      >
+                        {story?.slug.current ? (
+                          <SanityImage
+                            className={styles.image}
+                            alt={`Carousel article: ${story.title}`}
+                            imageRef={story.mainImage}
+                            objectFit="cover"
+                            priority={false}
+                            quality={50}
+                            width={400}
+                            height={400}
+                          />
+                        ) : null}
+                        <div className={styles.title}>
+                          <Typography variant="h7">{story.title}</Typography>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                </div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </>
         )}
       </>
@@ -115,7 +130,7 @@ const MostPopular = () => {
           isPlaying
           interval="100"
         >
-          <div className={styles.list}>{renderContent(data)}</div>
+          <div>{renderContent(data)}</div>
         </Carousel>
       </SectionCreator>
     </SectionLayout>

@@ -14,6 +14,7 @@ import theme from "../../../../ui/theme";
 import { formatDate } from "../../../../util/formatDate";
 import SectionLayout from "../../../layouts/SectionLayout";
 import ActiveLink from "../../../../hooks/ActiveLink/ActiveLink";
+import SanityImage from "../../../../hooks/SanityImage/SanityImage";
 
 const FrontPage = ({ newsData }) => {
   const router = useRouter();
@@ -32,11 +33,19 @@ const FrontPage = ({ newsData }) => {
               [theme.breakpoints.down("md")]: { justifyContent: "center" },
             }}
           >
-            <Image
+            {/* <Image
               className={styles.leftImage}
               {...GetImageProps(item.mainImage)}
               alt={`Article: ${item.title}`}
               // layout="fill"
+              priority={false}
+              onClick={() => router.push(`/story/${item.slug.current}`)}
+            /> */}
+            <SanityImage
+              className={styles.leftImage}
+              imageRef={item.mainImage}
+              width={500}
+              height={500}
               priority={false}
               onClick={() => router.push(`/story/${item.slug.current}`)}
             />
@@ -123,29 +132,18 @@ const FrontPage = ({ newsData }) => {
                   key={item._id}
                 >
                   <div className={styles.featuredImageContainer}>
-                    {/* <Link href={`/story/${item.slug.current}`}>
-                    <a> */}
                     <ActiveLink
                       href={`/story/${item.slug.current}`}
                       aria-label="To article page"
                     >
-                      <Image
+                      <SanityImage
                         className={styles.featuredImage}
-                        {...GetImageProps(item.mainImage)}
                         alt={`Image for article: ${item.title}`}
-                        // layout="fill"
+                        imageRef={item.mainImage}
+                        width={300}
+                        height={220}
                       />
                     </ActiveLink>
-                    {/* </a>
-                  </Link> */}
-                    {/* <div className={styles.featuredCategoryContainer}>
-                    <Typography
-                      variant="body2"
-                      className={styles.featuredCategory}
-                    >
-                      {item.categories[0].titlePT}
-                    </Typography>
-                  </div> */}
                   </div>
                   <div className={styles.featuredTitleContainer}>
                     <Link

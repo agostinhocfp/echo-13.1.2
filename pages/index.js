@@ -22,8 +22,8 @@ const Home = () => {
       <Suspense fallback={<Loader />}>
         <MostPopular />
         <TopStories />
-        <LatestNews />
-        <MoreStories />
+        {/* <LatestNews />
+        <MoreStories /> */}
       </Suspense>
     </div>
   );
