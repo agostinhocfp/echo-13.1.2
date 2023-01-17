@@ -49,6 +49,7 @@ const MostPopular = () => {
     }
 
     setDomLoaded(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { data, isError, error, isLoading } = useQuery(

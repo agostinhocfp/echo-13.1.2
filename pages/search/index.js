@@ -33,6 +33,7 @@ const Index = () => {
     return () => {
       queryClient.invalidateQueries({ queryKey: ["searchedPosts"] });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const queryClient = new QueryClient();
