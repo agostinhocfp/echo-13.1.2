@@ -75,7 +75,10 @@ const MostPopular = () => {
             {data?.slice(0, 6).map((story) => {
               return (
                 <div className={styles.listItem} key={story._id}>
-                  <Link href={`/story/${story.slug.current}`}>
+                  <Link
+                    href={`/story/${story.slug.current}`}
+                    aria-label="To article page"
+                  >
                     {story?.slug.current ? (
                       <SanityImage
                         className={styles.image}

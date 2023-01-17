@@ -69,7 +69,10 @@ const LatestNews = () => {
                   className={styles.listItem}
                   key={story._id}
                 >
-                  <Link href={`/story/${story.slug.current}`}>
+                  <Link
+                    href={`/story/${story.slug.current}`}
+                    aria-label="To article page"
+                  >
                     <div className={styles.imageContainer}>
                       <img
                         className={styles.image}

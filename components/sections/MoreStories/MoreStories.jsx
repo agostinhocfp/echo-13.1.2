@@ -90,7 +90,10 @@ const MoreStories = () => {
                       className={styles.listItem}
                       key={story._id}
                     >
-                      <Link href={`/story/${story.slug.current}`}>
+                      <Link
+                        href={`/story/${story.slug.current}`}
+                        aria-label="To article page"
+                      >
                         {/* <a> */}
                         <div className={styles.imageContainer}>
                           <img

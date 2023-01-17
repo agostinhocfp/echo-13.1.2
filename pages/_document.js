@@ -5,7 +5,7 @@ import Favicon from "../public/favicon/Favicon";
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="pt">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

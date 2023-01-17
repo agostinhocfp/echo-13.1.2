@@ -199,7 +199,10 @@ const Category = (props) => {
                       <div className={styles.frontTitleContainer}>
                         {width > 800 ? (
                           <>
-                            <Link href={`/story/${frontItem.slug.current}`}>
+                            <Link
+                              href={`/story/${frontItem.slug.current}`}
+                              aria-label="To article page"
+                            >
                               {/* <a> */}
                               <Typography
                                 className={styles.frontTitle}
@@ -212,7 +215,10 @@ const Category = (props) => {
                           </>
                         ) : (
                           <>
-                            <Link href={`/story/${frontItem.slug.current}`}>
+                            <Link
+                              href={`/story/${frontItem.slug.current}`}
+                              aria-label="To article page"
+                            >
                               <figcaption className={styles.titleFig}>
                                 <Typography
                                   className={styles.frontTitle}

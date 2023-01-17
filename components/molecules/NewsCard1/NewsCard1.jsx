@@ -56,7 +56,10 @@ const NewsCard1 = ({ post }) => {
               >
                 {post.tags[0]?.title}
               </Typography> */}
-            <Link href={`/story/${post.slug.current}`}>
+            <Link
+              href={`/story/${post.slug.current}`}
+              aria-label="To article page"
+            >
               {/* <a> */}
               <Typography
                 className={styles.postTitle}

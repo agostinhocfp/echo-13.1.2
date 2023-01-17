@@ -74,7 +74,7 @@ export default function Navbar() {
 
             {/* Logo  */}
             <Grid item xs={12} md={6}>
-              <Link href="/">
+              <Link href="/" aria-label="To article home page">
                 <div className={styles.logoContainer}>
                   <Typography
                     className={styles.navbarLogoText}
@@ -167,6 +167,7 @@ export default function Navbar() {
                 key={route.index}
                 label={route.titlePT}
                 href={route.link}
+                aria-label="To article page"
                 value={route.index}
                 onClick={() =>
                   value.onCurrentIndexChange({ selectedIndex: route.index })

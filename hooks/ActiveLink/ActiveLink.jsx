@@ -16,7 +16,7 @@ function ActiveLink({ children, href }) {
   };
 
   return (
-    <Link href={href}>
+    <Link href={href} aria-label="To article page">
       {/* <a
         className={styles.root}
         // href={href}

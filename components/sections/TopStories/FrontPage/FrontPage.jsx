@@ -24,7 +24,7 @@ const FrontPage = ({ newsData }) => {
   const renderLeftContent = (item) => {
     return (
       <>
-        <Link href={`/story/${item.slug.current}`}>
+        <Link href={`/story/${item.slug.current}`} aria-label="To article page">
           <Box
             className={styles.leftImageContainer}
             sx={{
@@ -50,7 +50,7 @@ const FrontPage = ({ newsData }) => {
             </div>
           </Box>
         </Link>
-        <Link href={`/story/${item.slug.current}`}>
+        <Link href={`/story/${item.slug.current}`} aria-label="To article page">
           {/* <a> */}
           <Typography variant="h4" className={styles.leftTitle}>
             {item.title}
@@ -125,7 +125,10 @@ const FrontPage = ({ newsData }) => {
                   <div className={styles.featuredImageContainer}>
                     {/* <Link href={`/story/${item.slug.current}`}>
                     <a> */}
-                    <ActiveLink href={`/story/${item.slug.current}`}>
+                    <ActiveLink
+                      href={`/story/${item.slug.current}`}
+                      aria-label="To article page"
+                    >
                       <Image
                         className={styles.featuredImage}
                         {...GetImageProps(item.mainImage)}
@@ -145,7 +148,10 @@ const FrontPage = ({ newsData }) => {
                   </div> */}
                   </div>
                   <div className={styles.featuredTitleContainer}>
-                    <Link href={`/story/${item.slug.current}`}>
+                    <Link
+                      href={`/story/${item.slug.current}`}
+                      aria-label="To article page"
+                    >
                       <Typography variant="h7" className={styles.featuredTitle}>
                         {item.title}
                       </Typography>
@@ -186,7 +192,10 @@ const FrontPage = ({ newsData }) => {
                       {item.categories[0].titlePT}
                     </Typography>
                   </div>
-                  <Link href={`/story/${item.slug.current}`}>
+                  <Link
+                    href={`/story/${item.slug.current}`}
+                    aria-label="To article page"
+                  >
                     {/* <a> */}
                     <Typography variant="h7" className={styles.rightTitle}>
                       {item.title}
