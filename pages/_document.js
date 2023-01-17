@@ -2,6 +2,7 @@ import React from "react";
 import { Html, Head, Main, NextScript } from "next/document";
 
 import Favicon from "../public/favicon/Favicon";
+import Footer from "../components/Footer/Footer";
 
 export default function Document() {
   return (
@@ -29,6 +30,7 @@ export default function Document() {
       </Head>
       <body>
         <Main />
+        <Footer />
         <NextScript />
       </body>
     </Html>

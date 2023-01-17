@@ -7,48 +7,16 @@ import RouteTabContext from "../../contexts/RouteTabContext";
 import useWindowSize from "../../util/hooks/useWindowSize.js";
 import styles from "./Footer.module.css";
 
-export const Footer = () => {
-  const [value, setValue] = React.useState(0);
-  const routeValue = useContext(RouteTabContext);
-
-  const { selectedIndex } = routeValue;
-
+const Footer = () => {
   const width = useWindowSize();
 
   return (
     <>
-      {width < 900 ? (
-        <>
-          <Box className={styles.root}>
-            <Paper
-              sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-              elevation={3}
-            >
-              <BottomNavigation
-                value={selectedIndex == null ? false : selectedIndex}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-                showLabels={false}
-              >
-                {MAIN_ROUTES.map((route) => (
-                  <BottomNavigationAction
-                    key={route.index}
-                    label={route.title}
-                    icon={route.icon}
-                    href={route.link}
-                    onClick={() =>
-                      routeValue.onCurrentIndexChange({
-                        selectIndex: route.index,
-                      })
-                    }
-                  />
-                ))}
-              </BottomNavigation>
-            </Paper>
-          </Box>
-        </>
-      ) : null}
+      <div className={styles.root}>
+        <h3 className={styles.title}>Footer</h3>
+      </div>
     </>
   );
 };
+
+export default Footer;

@@ -18,7 +18,9 @@ import Loader from "../components/nano/Loader/Loader";
 const Home = () => {
   return (
     <div className={styles.container}>
-      <Hero9 />{" "}
+      <Suspense fallback={<Loader />}>
+        <Hero9 />
+      </Suspense>
       <Suspense fallback={<Loader />}>
         <MostPopular />
         <TopStories />

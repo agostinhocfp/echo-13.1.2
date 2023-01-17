@@ -31,6 +31,8 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
+  const { selectedIndex } = value;
+
   const width = useWindowSize();
 
   const { data: session } = useSession();
@@ -55,8 +57,6 @@ export default function Navbar() {
   // };
 
   const mouseOver = (e) => handleClick(e);
-
-  const { selectedIndex } = value;
 
   return (
     <AppBar className={styles.root} elevation={1}>

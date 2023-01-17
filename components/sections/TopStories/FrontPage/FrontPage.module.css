@@ -173,10 +173,12 @@
 .rightItemContainer {
   float: left;
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 0 2px;
   padding-bottom: 2px;
   overflow: hidden;
+  height: 140px;
 }
 @media screen and (min-width: 900px) {
   .rightItemContainer {
