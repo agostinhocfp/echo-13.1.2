@@ -100,6 +100,8 @@ const MoreStories = () => {
                             alt={`Article: ${story.title}`}
                             priority={false}
                             quality={50}
+                            width={360}
+                            height={260}
                             onClick={() =>
                               router.push(`/news/${story.slug.current}`)
                             }
