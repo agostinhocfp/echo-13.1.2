@@ -79,10 +79,11 @@ const Hero9 = () => {
             alt={`Landing page image of article: ${data[0].title}`}
             imageRef={data[0]?.mainImage}
             priority={true}
-            random="random"
+            quality={50}
             blue={true}
-            height={600}
-            width={1400}
+            height={width < 900 ? 300 : 500}
+            width={width < 900 ? 900 : 1400}
+            placeholder={"blur"}
           />
 
           <div className={styles.contentContainer} onClick={handleClick}>

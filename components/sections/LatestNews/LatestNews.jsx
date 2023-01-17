@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Grid, Typography } from "@mui/material";
 import { QueryClient, useQuery } from "@tanstack/react-query";
-import { client, urlFor } from "../../../sanity_client/config/client";
+import { motion } from "framer-motion";
 
+import { client, urlFor } from "../../../sanity_client/config/client";
 import styles from "./LatestNews.module.css";
 import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
@@ -27,6 +28,8 @@ const fetchLatestNews = async () => {
 
 const LatestNews = () => {
   const router = useRouter();
+
+  let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
   useEffect(() => {
     try {
@@ -60,42 +63,51 @@ const LatestNews = () => {
         {data != null ? (
           <>
             <Grid container className={styles.itemList}>
-              {data.map((story) => (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  className={styles.listItem}
-                  key={story._id}
-                >
-                  <Link
-                    href={`/story/${story.slug.current}`}
-                    aria-label="To article page"
+              <motion.div initial="hidden" animate="show">
+                {data.map((story) => (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    lg={3}
+                    className={styles.listItem}
+                    key={story._id}
                   >
-                    <div className={styles.imageContainer}>
-                      <SanityImage
-                        imageRef={story.mainImage}
-                        alt={`Article: ${story.title}`}
-                        priority={false}
-                        quality={50}
-                        width={360}
-                        height={260}
-                        onClick={() =>
-                          router.push(`/news/${story.slug.current}`)
-                        }
-                        onKeyDown={() =>
-                          router.push(`/news/${story.slug.current}`)
-                        }
-                      />
-                    </div>
-                    <Typography className={styles.itemTitle} variant="h6">
-                      {story.title}
-                    </Typography>
-                  </Link>
-                </Grid>
-              ))}
+                    <motion.div
+                      variants={stat}
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.6 }}
+                      className={styles.motionDiv}
+                    >
+                      <Link
+                        href={`/story/${story.slug.current}`}
+                        aria-label="To article page"
+                      >
+                        <div className={styles.imageContainer}>
+                          <SanityImage
+                            imageRef={story.mainImage}
+                            alt={`Article: ${story.title}`}
+                            priority={false}
+                            quality={50}
+                            width={360}
+                            height={260}
+                            onClick={() =>
+                              router.push(`/news/${story.slug.current}`)
+                            }
+                            onKeyDown={() =>
+                              router.push(`/news/${story.slug.current}`)
+                            }
+                          />
+                        </div>
+                        <Typography className={styles.itemTitle} variant="h6">
+                          {story.title}
+                        </Typography>
+                      </Link>
+                    </motion.div>
+                  </Grid>
+                ))}
+              </motion.div>
             </Grid>
           </>
         ) : null}

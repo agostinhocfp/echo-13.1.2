@@ -1,10 +1,16 @@
-import React, { Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import Hero9 from "../components/sections/Hero9/Hero9";
-const TopStories = dynamic(() =>
+
+// const TopStories = dynamic(() =>
+//   import("../components/sections/TopStories/TopStories")
+// );
+
+const TopStories = lazy(() =>
   import("../components/sections/TopStories/TopStories")
 );
+
 const MostPopular = dynamic(() =>
   import("../components/sections/MostPopular/MostPopular")
 );
@@ -21,12 +27,10 @@ const Home = () => {
       <Suspense fallback={<Loader />}>
         <Hero9 />
       </Suspense>
-      <Suspense fallback={<Loader />}>
-        <MostPopular />
-        <TopStories />
-        <LatestNews />
-        <MoreStories />
-      </Suspense>
+      <MostPopular />
+      <TopStories />
+      {/* <LatestNews />
+        <MoreStories /> */}
     </div>
   );
 };

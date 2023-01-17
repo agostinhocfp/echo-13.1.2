@@ -104,6 +104,11 @@
   height: 100%;
 }
 
+@media screen and (max-width: 500px) {
+  .featuredImageContainer {
+  }
+}
+
 .featuredImage {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;

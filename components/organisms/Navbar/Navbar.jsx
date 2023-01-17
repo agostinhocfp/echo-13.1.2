@@ -128,8 +128,12 @@ export default function Navbar() {
                   <IconButton
                     className={styles.searchIconContainer}
                     href="/search"
+                    aria-details="search button"
                   >
-                    <SearchIcon className={styles.searchIcon} />
+                    <SearchIcon
+                      aria-label="search button"
+                      className={styles.searchIcon}
+                    />
                   </IconButton>
                 </Stack>
               </div>
