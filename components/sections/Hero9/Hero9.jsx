@@ -8,9 +8,10 @@ import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
+import logger from "../../../services/logger";
 
 const sanityPostQuery =
-  "*[landingPage]{_id, mainImage, title, subtitle, slug, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+  "*[landingPage][0...1]{_id, mainImage, title, subtitle, slug, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
 
 async function fetchPosts() {
   const response = await client.fetch(sanityPostQuery);
@@ -18,6 +19,7 @@ async function fetchPosts() {
 }
 
 const Hero9 = () => {
+  logger.info(`Request headers: ${JSON.stringify(req.headers)}`);
   const queryClient = useQueryClient();
 
   const router = useRouter();
@@ -27,7 +29,10 @@ const Hero9 = () => {
     try {
       queryClient.prefetchQuery(["hero"], () => fetchPosts());
     } catch (error) {
-      console.log(error);
+      logger.error(error.stack);
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -75,6 +80,7 @@ const Hero9 = () => {
             priority={true}
             random="random"
             blue={true}
+            height={600}
           />
 
           <div className={styles.contentContainer} onClick={handleClick}>

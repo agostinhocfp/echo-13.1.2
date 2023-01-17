@@ -14,6 +14,8 @@ export default function SanityImage({
   height,
   width,
   quality,
+  style,
+  sizes,
   options,
 }) {
   const imageProps = useNextSanityImage(client, imageRef);
@@ -23,13 +25,13 @@ export default function SanityImage({
       {...imageProps}
       alt={alt}
       className={styles.image}
-      // style={{ objectFit: objectFitCover ? "cover" : null }}
-      // style={{ objectFit: objectFit }}
+      style={style}
       quality={quality}
       // width={width}
       // height={height}
       priority={priority ? true : false}
       // placeholder="blur"
+      sizes={sizes}
       {...options}
     />
   );

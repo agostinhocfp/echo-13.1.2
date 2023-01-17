@@ -87,6 +87,8 @@ const MostPopular = () => {
                         objectFit="cover"
                         priority={false}
                         quality={10}
+                        width={"1024px"}
+                        height={"500px"}
                       />
                     ) : null}
                     <div className={styles.title}>
