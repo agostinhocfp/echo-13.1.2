@@ -64,7 +64,7 @@ export default {
       },
     },
     {
-      name: "image2-3",
+      name: "image23",
       title: "Image 2:3",
       type: "image",
       options: {

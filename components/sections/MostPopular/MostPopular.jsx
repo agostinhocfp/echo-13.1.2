@@ -31,6 +31,8 @@ const MostPopular = () => {
 
   const width = useWindowSize();
 
+  let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };
+
   useEffect(() => {
     if (width <= 400) setVisibleSlides(1);
     else if (width < 550) setVisibleSlides(2);
@@ -86,9 +88,9 @@ const MostPopular = () => {
                         imageRef={story.mainImage}
                         objectFit="cover"
                         priority={false}
-                        quality={10}
-                        width={"1024px"}
-                        height={"500px"}
+                        quality={50}
+                        width={400}
+                        height={400}
                       />
                     ) : null}
                     <div className={styles.title}>

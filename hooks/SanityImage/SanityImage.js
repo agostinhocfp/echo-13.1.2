@@ -27,8 +27,8 @@ export default function SanityImage({
       className={styles.image}
       style={style}
       quality={quality}
-      // width={width}
-      // height={height}
+      width={width}
+      height={height}
       priority={priority ? true : false}
       // placeholder="blur"
       sizes={sizes}

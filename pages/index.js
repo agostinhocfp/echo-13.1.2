@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import Hero9 from "../components/sections/Hero9/Hero9";
@@ -13,15 +13,18 @@ const LatestNews = dynamic(() =>
 );
 import styles from "../styles/Home.module.css";
 import MoreStories from "../components/sections/MoreStories/MoreStories";
+import Loader from "../components/nano/Loader/Loader";
 
 const Home = () => {
   return (
     <div className={styles.container}>
-      <Hero9 />
-      <MostPopular />
-      <TopStories />
-      <LatestNews />
-      <MoreStories />
+      <Hero9 />{" "}
+      <Suspense fallback={<Loader />}>
+        <MostPopular />
+        <TopStories />
+        <LatestNews />
+        <MoreStories />
+      </Suspense>
     </div>
   );
 };
