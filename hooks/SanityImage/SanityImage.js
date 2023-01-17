@@ -29,7 +29,7 @@ export default function SanityImage({
       // width={width}
       // height={height}
       priority={priority ? true : false}
-      placeholder={placeholder ? "blur" : "empty"}
+      // placeholder="blur"
       {...options}
     />
   );

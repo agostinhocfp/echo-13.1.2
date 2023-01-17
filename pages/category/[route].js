@@ -206,7 +206,7 @@ const Category = (props) => {
                               {/* <a> */}
                               <Typography
                                 className={styles.frontTitle}
-                                variant={width > 900 ? "h5" : "h6"}
+                                variant={width > 900 ? "h4" : "h5"}
                               >
                                 {frontItem.title}
                               </Typography>

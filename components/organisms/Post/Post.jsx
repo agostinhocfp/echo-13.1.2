@@ -77,7 +77,6 @@ const Post = ({ post }) => {
                     onKeyDown={() =>
                       router.push(`/news/${currentPost.slug.current}`)
                     }
-                    placeholder="blur"
                   />
                 </div>
                 <Grid className={styles.socialsContainer} item xs={12} md={3}>

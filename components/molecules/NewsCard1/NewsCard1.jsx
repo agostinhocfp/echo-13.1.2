@@ -42,7 +42,6 @@ const NewsCard1 = ({ post }) => {
               imageRef={post.mainImage}
               alt={`Article: ${post.title}`}
               // objectFit="cover"
-              placeholder="blur"
               priority={false}
               quality={50}
               onClick={() => router.push(`/story/${currentPost.slug.current}`)}

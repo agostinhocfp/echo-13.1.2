@@ -86,7 +86,6 @@ const MostPopular = () => {
                         imageRef={story.mainImage}
                         objectFit="cover"
                         priority={false}
-                        blur={true}
                         quality={10}
                       />
                     ) : null}
