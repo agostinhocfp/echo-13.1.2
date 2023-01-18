@@ -4,6 +4,7 @@ import { Box, CssBaseline } from "@mui/material";
 
 import styles from "./MainLayout.module.css";
 import Navbar from "../organisms/Navbar/Navbar";
+import Footer from "../Footer/Footer";
 // import { Footer } from "../Fo  oter/Footer";
 
 const MainLayout = ({ children }) => {
@@ -25,9 +26,9 @@ const MainLayout = ({ children }) => {
         {children}
       </main>
 
-      {/* <footer className={styles.footerContainer}>
+      <footer className={styles.footerContainer}>
         <Footer />
-      </footer> */}
+      </footer>
     </Box>
   );
 };

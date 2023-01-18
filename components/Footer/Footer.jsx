@@ -1,18 +1,75 @@
-import React, { useContext } from "react";
-import { Box } from "@mui/material";
-import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
+import React, { useContext, useState } from "react";
 
-import MAIN_ROUTES from "../../constants/ROUTES";
-import RouteTabContext from "../../contexts/RouteTabContext";
-import useWindowSize from "../../util/hooks/useWindowSize.js";
 import styles from "./Footer.module.css";
+import { Tab, Tabs, Typography } from "@mui/material";
+import RouteContextTab from "../../contexts/RouteTabContext";
+import MAIN_ROUTES from "../../constants/ROUTES";
+import { FaLessThanEqual } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
-  const width = useWindowSize();
+  const [value, setValue] = useState(null);
+  const routeValue = useContext(RouteContextTab);
+  const { selectedIndex } = routeValue;
+
+  console.log(selectedIndex);
 
   return (
     <div className={styles.root}>
-      <h3 className={styles.title}>Footer</h3>
+      <Typography className={styles.footerTitle} variant="h5">
+        echo
+      </Typography>
+      {/* <Tabs
+          className={styles.tabs}
+          variant="standard"
+          value={selectedIndex === null ? "home" : selectedIndex}
+          aria-label="navigation tabs"
+        >
+          {MAIN_ROUTES.map((route) => (
+            <>
+              <Tab
+                className={styles.tab}
+                key={route.index}
+                label={route.titlePT}
+              >
+                <div className={styles.tabContainer}>
+                  <Typography className={styles.tabText} variant="body1">
+                    {route.titlePT}
+                  </Typography>
+                </div>
+              </Tab>
+            </>
+          ))}
+        </Tabs> */}
+      <div className={styles.tab2Container}>
+        <div
+          className={`${styles.tab2} ${
+            selectedIndex === null ? styles.selected : ""
+          }`}
+        >
+          <Link href="/">
+            <Typography className={styles.tabText2} variant="body1">
+              Home
+            </Typography>
+          </Link>
+        </div>
+        {MAIN_ROUTES.map((route) => (
+          <Link href={route.link} key={route.index}>
+            <div
+              className={`${styles.tab2} ${
+                selectedIndex === route.index ? styles.selected : ""
+              }`}
+            >
+              <Typography className={styles.tabText2} variant="body1">
+                {route.titlePT}
+              </Typography>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <Typography className={styles.rights} variant="caption">
+        All Rights Reserved
+      </Typography>
     </div>
   );
 };
