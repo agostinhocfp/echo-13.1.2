@@ -1,16 +1,11 @@
-import React, { useState, useContext, Suspense } from "react";
-import {
-  useQuery,
-  useInfiniteQuery,
-  QueryClient,
-  dehydrate,
-} from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 import SectionLayout from "../../components/layouts/SectionLayout";
-import { client, urlFor } from "../../sanity_client/config/client";
+import { client } from "../../sanity_client/config/client";
 import getData from "../../util/hooks/GetData";
 import Loader from "../../components/nano/Loader/Loader";
 import Message from "../../components/molecules/Message/Message";
@@ -59,20 +54,8 @@ const Category = (props) => {
   const router = useRouter();
   const width = useWindowSize();
 
-  let lastCreatedAt = "";
-  let lastId = "";
-
-  const fetchTopCategoryPost = async () => {
-    try {
-      const response = getData(
-        `*['/${props.route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*30] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`
-      );
-
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // let lastCreatedAt = "";
+  // let lastId = "";
 
   const {
     data: topData,
@@ -155,7 +138,6 @@ const Category = (props) => {
   }
 
   let frontItem = props.topPost;
-  let { pages } = data;
 
   const renderContent = () => {
     if (selectedIndex != null) {
@@ -202,14 +184,12 @@ const Category = (props) => {
                               href={`/story/${frontItem.slug.current}`}
                               aria-label="To article page"
                             >
-                              {/* <a> */}
                               <Typography
                                 className={styles.frontTitle}
                                 variant={width > 900 ? "h4" : "h5"}
                               >
                                 {frontItem.title}
                               </Typography>
-                              {/* </a> */}
                             </Link>
                           </>
                         ) : (
