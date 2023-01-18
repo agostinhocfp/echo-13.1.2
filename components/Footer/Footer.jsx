@@ -11,11 +11,9 @@ const Footer = () => {
   const width = useWindowSize();
 
   return (
-    <>
-      <div className={styles.root}>
-        <h3 className={styles.title}>Footer</h3>
-      </div>
-    </>
+    <div className={styles.root}>
+      <h3 className={styles.title}>Footer</h3>
+    </div>
   );
 };
 
