@@ -33,7 +33,8 @@ const NewsCard1 = ({ post }) => {
               className={styles.postImage}
               imageRef={post.mainImage}
               alt={`Article: ${post.title}`}
-              // objectFit="cover"
+              height={180}
+              width={400}
               priority={false}
               quality={50}
               onClick={() => router.push(`/story/${currentPost.slug.current}`)}
