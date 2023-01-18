@@ -32,7 +32,6 @@ export default function SanityImage({
       priority={priority}
       placeholder="blur"
       blurDataURL={`${imageRef}?auto=format,compress&q=1&blur=500&w=2`}
-      // placeholder="blur"
       sizes={sizes}
       {...options}
     />

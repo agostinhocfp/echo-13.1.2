@@ -47,11 +47,7 @@ const MostPopular = () => {
       queryClient.prefetchQuery(["mostPopularNews"], () =>
         fetchMostPopularPosts()
       );
-    } catch (error) {
-      return res
-        .status(400)
-        .json({ code: "oops", message: "there was an error" });
-    }
+    } catch (error) {}
 
     setDomLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,6 +78,7 @@ const MostPopular = () => {
               variants={parent}
               initial="hidden"
               animate="show"
+              role="slider"
             >
               {data?.slice(0, 6).map((story) => {
                 return (
@@ -90,6 +87,7 @@ const MostPopular = () => {
                     variants={stat}
                     whileInView={{ y: [100, 0], opacity: [0, 1] }}
                     transition={{ duration: 0.5 }}
+                    aria-valuetext={`Article: ${story.title}`}
                   >
                     <div className={styles.listItem}>
                       <Link

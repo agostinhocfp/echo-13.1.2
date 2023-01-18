@@ -21,11 +21,7 @@ const fetchLatestNews = async () => {
   try {
     const response = await client.fetch(latestNewsQuery);
     return response;
-  } catch (error) {
-    return res
-      .status(400)
-      .json({ code: "oops", message: "there was an error" });
-  }
+  } catch (error) {}
 };
 
 const LatestNews = () => {

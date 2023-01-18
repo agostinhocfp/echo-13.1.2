@@ -28,9 +28,7 @@ const Hero9 = () => {
     try {
       queryClient.prefetchQuery(["hero"], () => fetchPosts());
     } catch (error) {
-      return res
-        .status(400)
-        .json({ code: "oops", message: "there was an error" });
+      return null;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

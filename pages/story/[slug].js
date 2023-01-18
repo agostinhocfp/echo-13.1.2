@@ -44,11 +44,7 @@ export default function Story(props) {
   useEffect(() => {
     try {
       queryClient.prefetchQuery(["post"], () => getData(sanityPostQuery));
-    } catch (error) {
-      return res
-        .status(400)
-        .json({ code: "oops", message: "there was an error" });
-    }
+    } catch (error) {}
     if (data) {
       setPost(data[0]);
     }
