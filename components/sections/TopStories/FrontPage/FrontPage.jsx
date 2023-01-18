@@ -43,7 +43,7 @@ const FrontPage = ({ newsData }) => {
               width={500}
               height={500}
               quality={50}
-              priority={false}
+              priority={true}
               onClick={() => router.push(`/story/${item.slug.current}`)}
             />
 
@@ -141,6 +141,7 @@ const FrontPage = ({ newsData }) => {
                           width={300}
                           height={220}
                           quality={50}
+                          priority={true}
                         />
                       </ActiveLink>
                     </div>
