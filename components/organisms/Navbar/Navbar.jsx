@@ -124,17 +124,15 @@ export default function Navbar() {
                       Subscribe
                     </Typography>
                   </Button> */}
-                  <IconButton
-                    className={styles.searchIconContainer}
-                    href="/search"
-                    aria-label="searchButton"
-                    aria-selected="false"
-                  >
-                    <SearchIcon
-                      aria-label="search button"
-                      className={styles.searchIcon}
-                    />
-                  </IconButton>
+
+                  <Link href="/search">
+                    <button className={styles.searchIconContainer}>
+                      <SearchIcon
+                        aria-label="search button"
+                        className={styles.searchIcon}
+                      />
+                    </button>
+                  </Link>
                 </Stack>
               </div>
             </Grid>
