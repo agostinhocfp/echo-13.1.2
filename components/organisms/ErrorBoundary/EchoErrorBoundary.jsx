@@ -16,7 +16,7 @@ class EchoErrorBoundary extends React.Component {
   }
   componentDidCatch(error, errorInfo) {
     // You can use your own error logging service here
-    console.log({ error, errorInfo });
+    return res.status(400).json({ code: { error }, message: { errorInfo } });
   }
   render() {
     // Check if the error is thrown

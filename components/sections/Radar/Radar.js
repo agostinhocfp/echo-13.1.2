@@ -19,7 +19,9 @@ const Radar = ({ post }) => {
     try {
       queryClient.prefetchQuery(["radar"], () => getData(radarQuery));
     } catch (error) {
-      console.log(error);
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

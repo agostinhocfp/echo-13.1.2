@@ -45,7 +45,9 @@ export default function Story(props) {
     try {
       queryClient.prefetchQuery(["post"], () => getData(sanityPostQuery));
     } catch (error) {
-      console.log(error);
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
     if (data) {
       setPost(data[0]);

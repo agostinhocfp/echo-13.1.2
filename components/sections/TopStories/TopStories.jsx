@@ -26,7 +26,9 @@ const TopStories = () => {
     try {
       queryClient.prefetchQuery(["topStories"], () => fetchPosts());
     } catch (error) {
-      console.log(error);
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

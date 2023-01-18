@@ -19,7 +19,6 @@ async function fetchPosts() {
 }
 
 const Hero9 = () => {
-  // logger.info(`Request headers: ${JSON.stringify(req.headers)}`);
   const queryClient = useQueryClient();
 
   const router = useRouter();
@@ -29,11 +28,9 @@ const Hero9 = () => {
     try {
       queryClient.prefetchQuery(["hero"], () => fetchPosts());
     } catch (error) {
-      console.log(error);
-      // logger.error(error.stack);
-      // return res
-      //   .status(400)
-      //   .json({ code: "oops", message: "there was an error" });
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

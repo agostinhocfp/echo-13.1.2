@@ -22,7 +22,9 @@ const fetchLatestNews = async () => {
     const response = await client.fetch(latestNewsQuery);
     return response;
   } catch (error) {
-    console.log(error);
+    return res
+      .status(400)
+      .json({ code: "oops", message: "there was an error" });
   }
 };
 

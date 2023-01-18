@@ -48,7 +48,9 @@ const MostPopular = () => {
         fetchMostPopularPosts()
       );
     } catch (error) {
-      console.log(error);
+      return res
+        .status(400)
+        .json({ code: "oops", message: "there was an error" });
     }
 
     setDomLoaded(true);
