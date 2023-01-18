@@ -36,14 +36,6 @@ const FrontPage = ({ newsData }) => {
               [theme.breakpoints.down("md")]: { justifyContent: "center" },
             }}
           >
-            {/* <Image
-              className={styles.leftImage}
-              {...GetImageProps(item.mainImage)}
-              alt={`Article: ${item.title}`}
-              // layout="fill"
-              priority={false}
-              onClick={() => router.push(`/story/${item.slug.current}`)}
-            /> */}
             <SanityImage
               className={styles.leftImage}
               imageRef={item.mainImage}
@@ -56,7 +48,7 @@ const FrontPage = ({ newsData }) => {
             />
 
             <div className={styles.leftCategoryContainer}>
-              <Typography variant="h6" className={styles.leftCategory}>
+              <Typography variant="body1" className={styles.leftCategory}>
                 <span className={styles.leftCategorySpan}>
                   {item.categories[0].titlePT}
                 </span>

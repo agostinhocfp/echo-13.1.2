@@ -93,7 +93,7 @@ export default function Navbar() {
               className={styles.actionButtonsGridContainer}
             >
               <div className={styles.actionButtonsContainer}>
-                <Stack direction="row">
+                <Stack direction="row" aria-label="Button Tabs">
                   {/* <Button
                     className={styles.buttonSignIn}
                     href="/login"
@@ -127,7 +127,8 @@ export default function Navbar() {
                   <IconButton
                     className={styles.searchIconContainer}
                     href="/search"
-                    aria-details="search button"
+                    aria-controls="search-button"
+                    aria-selected="false"
                   >
                     <SearchIcon
                       aria-label="search button"
