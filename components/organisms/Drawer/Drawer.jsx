@@ -32,12 +32,14 @@ export default function TemporaryDrawer() {
     setOpen(open);
   };
 
-  const handleMouseOver = (e) => {};
-
   return (
     <div>
       <React.Fragment>
-        <button className={styles.menuButton} onClick={toggleDrawer(true)}>
+        <button
+          className={styles.menuButton}
+          type="button"
+          onClick={toggleDrawer(true)}
+        >
           <SlMenu className={styles.iconButton} />
         </button>
         <Drawer open={open} onClose={toggleDrawer(false)}>
@@ -51,8 +53,7 @@ export default function TemporaryDrawer() {
                 <Link href={route.link} key={route.index}>
                   <ListItem
                     key={route.index}
-                    className={`${styles.listItem} ${mouseoverStatus}`}
-                    onMouseOver={handleMouseOver}
+                    className={`${styles.listItem} ${styles.mouseoverStatus}`}
                     onClick={() =>
                       routeValue.onCurrentIndexChange({
                         selectedIndex: route.index,

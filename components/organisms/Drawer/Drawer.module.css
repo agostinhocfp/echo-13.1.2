@@ -19,7 +19,7 @@
     height: 50px;
   }
   .listItem:hover:focus {
-    background-color: #f6f6f6;
+    background-color: red #f7f7f7;
     transition: 0.3s ease-in-out;
     transform: scale(1.1, 1.1);
   }

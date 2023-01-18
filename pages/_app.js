@@ -24,22 +24,22 @@ export default function Echo({
 
   return (
     // <EchoErrorBoundary>
-    <GlobalCssPriority>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <SessionProvider session={session}>
-            <RouteTabStore>
-              <ThemeProvider theme={theme}>
-                <MainLayout>
-                  <Component {...pageProps} />
-                  <ReactQueryDevtools />
-                </MainLayout>
-              </ThemeProvider>
-            </RouteTabStore>
-          </SessionProvider>
-        </Hydrate>
-      </QueryClientProvider>
-    </GlobalCssPriority>
+    // <GlobalCssPriority>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <SessionProvider session={session}>
+          <RouteTabStore>
+            <ThemeProvider theme={theme}>
+              <MainLayout>
+                <Component {...pageProps} />
+                <ReactQueryDevtools />
+              </MainLayout>
+            </ThemeProvider>
+          </RouteTabStore>
+        </SessionProvider>
+      </Hydrate>
+    </QueryClientProvider>
+    // </GlobalCssPriority>
     // </EchoErrorBoundary>
   );
 }

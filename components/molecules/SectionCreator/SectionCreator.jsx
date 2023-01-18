@@ -16,12 +16,7 @@ const SectionCreator = ({
   const width = useWindowSize();
 
   return (
-    <div
-      className={styles.root}
-      style={{
-        background: bkgroundColor ? theme.palette.grey[100] : "#fff",
-      }}
-    >
+    <div className={styles.root}>
       <Typography
         className={`${styles.title}`}
         variant={width < 400 ? "h5" : "h4"}
