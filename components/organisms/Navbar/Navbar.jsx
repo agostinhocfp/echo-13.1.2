@@ -127,7 +127,7 @@ export default function Navbar() {
                   <IconButton
                     className={styles.searchIconContainer}
                     href="/search"
-                    aria-controls="search-button"
+                    aria-label="searchButton"
                     aria-selected="false"
                   >
                     <SearchIcon
