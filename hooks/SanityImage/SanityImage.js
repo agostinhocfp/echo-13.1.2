@@ -30,6 +30,8 @@ export default function SanityImage({
       width={width}
       height={height}
       priority={priority ? true : false}
+      placeholder="blur"
+      blurDataURL={`${imageRef}?auto=format,compress&q=1&blur=500&w=2`}
       // placeholder="blur"
       sizes={sizes}
       {...options}
