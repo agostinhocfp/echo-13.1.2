@@ -12,7 +12,7 @@ import Message from "../../components/molecules/Message/Message";
 import styles from "./Category.module.css";
 import Radar from "../../components/sections/Radar/Radar";
 import RouteTabContext from "../../contexts/RouteTabContext";
-import { MAIN_ROUTES } from "../../constants/ROUTES";
+import MAIN_ROUTES from "../../constants/ROUTES";
 import useWindowSize from "../../util/hooks/useWindowSize";
 import theme from "../../ui/theme";
 import NewsCard1 from "../../components/molecules/NewsCard1/NewsCard1";

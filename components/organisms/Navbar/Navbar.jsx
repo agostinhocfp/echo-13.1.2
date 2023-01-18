@@ -21,10 +21,12 @@ import {
 import { FaSearch as SearchIcon } from "react-icons/fa";
 
 import RouteTabContext from "../../../contexts/RouteTabContext";
-import { MAIN_ROUTES } from "../../../constants/ROUTES";
+import MAIN_ROUTES from "../../../constants/ROUTES";
 import theme from "../../../ui/theme";
 import styles from "./Navbar.module.css";
 import useWindowSize from "../../../util/hooks/useWindowSize";
+import { SlMenu } from "react-icons/sl";
+import Drawer from "../Drawer/Drawer";
 
 export default function Navbar() {
   const value = useContext(RouteTabContext);
@@ -63,16 +65,12 @@ export default function Navbar() {
         <Toolbar disableGutters>
           <Grid container className={styles.rootGridContainer}>
             {/* Empty Grid */}
-            <Grid
-              item
-              xs={12}
-              md={3}
-              className={styles.emptyGridContainer}
-              // sx={{ [theme.breakpoints.down("md")]: { display: "none" } }}
-            ></Grid>
+            <Grid item xs={3} md={3} className={styles.leftGridContainer}>
+              <Drawer />
+            </Grid>
 
             {/* Logo  */}
-            <Grid item xs={12} md={6}>
+            <Grid item xs={6} md={6}>
               <Link href="/" aria-label="To article home page">
                 <div className={styles.logoContainer}>
                   <Typography
@@ -88,7 +86,7 @@ export default function Navbar() {
             {/* Action Buttons Container */}
             <Grid
               item
-              xs={12}
+              xs={3}
               md={3}
               className={styles.actionButtonsGridContainer}
             >

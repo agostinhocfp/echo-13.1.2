@@ -2,6 +2,8 @@
   background-color: #fff;
   position: relative;
   display: flex;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -19,13 +21,35 @@
   justify-content: space-between;
 }
 
-.emptyGridContainer {
-}
 @media screen and (max-width: 900px) {
-  .emptyGridContainer {
+  .leftGridContainer {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+  }
+  .menuButton {
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .menuButton:hover {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1, 1.1);
+  }
+  .iconButton {
+    font-weight: 900;
+    font-size: 1.2em;
+  }
+  .routesMenuContainer {
+    all: initial;
     display: none;
   }
 }
+
 .logoContainer {
   display: flex;
   justify-content: center;
@@ -39,6 +63,7 @@
 
 .actionButtonsGridContainer {
   display: flex;
+  align-items: center;
 }
 
 .actionButtonsContainer {
@@ -46,8 +71,7 @@
   justify-content: right;
   flex-grow: 1;
   position: absolute;
-  top: 10px;
-  right: 20px;
+  right: 10px;
   width: 48px;
   height: 48px;
   justify-content: center;

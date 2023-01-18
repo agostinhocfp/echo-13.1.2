@@ -1,0 +1,53 @@
+@media screen and (max-width: 900px) {
+  .menuButton {
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .menuButton:hover {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1, 1.1);
+  }
+  .iconButton {
+    font-weight: 900;
+    font-size: 1.2em;
+  }
+
+  .listItem {
+    height: 50px;
+  }
+  .listItem:hover:focus {
+    background-color: #f6f6f6;
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1, 1.1);
+  }
+
+  .listItemIcon {
+    all: unset;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.4em;
+    margin-right: 8px;
+  }
+
+  .true {
+    background-color: red !important;
+  }
+
+  .listItemText {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .menuButton {
+    display: none;
+  }
+  .iconButton {
+    display: none;
+  }
+}

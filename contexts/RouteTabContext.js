@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { MAIN_ROUTES } from "../constants/ROUTES";
+import MAIN_ROUTES from "../constants/ROUTES";
 
 const Context = React.createContext(null);
 

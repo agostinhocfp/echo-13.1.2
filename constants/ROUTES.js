@@ -6,7 +6,7 @@ import { MdSportsBasketball } from "react-icons/md";
 import { MdScience } from "react-icons/md";
 import { GiNothingToSay } from "react-icons/gi";
 
-export const MAIN_ROUTES = [
+const MAIN_ROUTES = [
   {
     title: "News",
     titlePT: "Notícias",
@@ -58,3 +58,5 @@ export const MAIN_ROUTES = [
     icon: <GiNothingToSay />,
   },
 ];
+
+export default MAIN_ROUTES;
