@@ -32,9 +32,7 @@ export default function TemporaryDrawer() {
     setOpen(open);
   };
 
-  const handleMouseOver = (e) => {
-    window.alert("test");
-  };
+  const handleMouseOver = (e) => {};
 
   return (
     <div>
