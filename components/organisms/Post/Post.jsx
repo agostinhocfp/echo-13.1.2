@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { lazy, useState, useEffect } from "react";
 import { PortableText } from "@portabletext/react";
 import { Grid, Typography } from "@mui/material";
-import Disqus from "../Disqus/Disqus";
+import dynamic from "next/dynamic";
 
+const Disqus = dynamic(() => import("../Disqus/Disqus"));
+const Radar = dynamic(() => import("../../sections/Radar/Radar"));
 import styles from "./Post.module.css";
-import Radar from "../../sections/Radar/Radar";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
-import { formatDate } from "../../../util/formatDate";
-import Message from "../../molecules/Message/Message";
 import DateFormatterDF from "../../../util/DateFormatterDF";
 
 const components = {
@@ -33,8 +32,6 @@ const Post = ({ post }) => {
     }
     setDomLoaded(true);
   }, [post]);
-
-  // console.log(post);
 
   return (
     <>
@@ -70,7 +67,8 @@ const Post = ({ post }) => {
                     imageRef={currentPost.mainImage}
                     alt={currentPost.title}
                     priority={true}
-                    // onClick={handleClick}
+                    width={900}
+                    height={420}
                     onClick={() =>
                       router.push(`/news/${currentPost.slug.current}`)
                     }
@@ -102,7 +100,6 @@ const Post = ({ post }) => {
               </Grid>
               <Grid item xs={12} md={3} className={styles.radarContainer}>
                 {domLoaded === true ? <Radar post={post} /> : null}
-                {/* <Radar post={post} /> */}
               </Grid>
             </Grid>
 

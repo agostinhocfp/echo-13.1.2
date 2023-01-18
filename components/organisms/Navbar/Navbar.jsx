@@ -37,7 +37,6 @@ export default function Navbar() {
 
   const { data: session } = useSession();
   // const { user } = session;
-  // console.log(user);
 
   const handleClick = (e, popoverId) => {
     setAnchorEl(e.target);

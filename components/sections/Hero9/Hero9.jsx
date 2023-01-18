@@ -88,7 +88,7 @@ const Hero9 = () => {
 
           <div className={styles.contentContainer} onClick={handleClick}>
             <Typography
-              variant={width > 1200 ? "h2" : "h3"}
+              variant={width < 900 ? "h4" : width < 1200 ? "h3" : "h2"}
               className={styles.headline}
             >
               {data[0].title}
