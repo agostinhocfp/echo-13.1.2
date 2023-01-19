@@ -15,6 +15,9 @@ import { Grid, Typography } from "@mui/material";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+
+  console.log(value);
 
   const routeValue = useContext(RouteTabContext);
   const { selectedIndex } = routeValue;
@@ -57,12 +60,15 @@ export default function TemporaryDrawer() {
           <hr className={styles.divider} />
 
           <div className={styles.contentContainer}>
-            <List>
+            <List className={styles.list}>
               {MAIN_ROUTES.map((route) => (
                 <Link href={route.link} key={route.index}>
                   <ListItem
+                    className={`${styles.listItem} ${
+                      selectedIndex === route.index ? styles.selected : ""
+                    }`}
                     key={route.index}
-                    className={`${styles.listItem} ${styles.mouseoverStatus}`}
+                    value={route.index}
                     onClick={() =>
                       routeValue.onCurrentIndexChange({
                         selectedIndex: route.index,

@@ -220,10 +220,14 @@ const Category = (props) => {
                           {isSuccess &&
                             data.pages.map((group, i) => (
                               <React.Fragment key={i}>
-                                {group.slice(1).map((post) => (
+                                {group.slice(1).map((post, i, { length }) => (
                                   <React.Fragment key={post._id}>
                                     <NewsCard1 post={post} />
-                                    <hr className={styles.divider} />
+                                    {length - 1 === i ? null : (
+                                      <>
+                                        <hr className={styles.divider} />
+                                      </>
+                                    )}
                                   </React.Fragment>
                                 ))}
                               </React.Fragment>

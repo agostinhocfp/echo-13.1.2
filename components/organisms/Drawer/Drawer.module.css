@@ -31,7 +31,6 @@
     font-family: plaster;
     font-weight: 700;
     color: #212121;
-    margin-bottom: 20px;
     cursor: pointer;
   }
 
@@ -46,14 +45,19 @@
     transition: transform 0.5s ease-in-out;
     transform: scale(1.1, 1.1);
   }
+
   .iconButton {
     font-weight: 900;
     font-size: 1.2em;
   }
 
+  .list {
+    padding: 0 !important;
+  }
+
   .listItem {
     height: 80px;
-    margin-left: 15px;
+    padding-left: 15px;
     margin-bottom: 10px;
   }
   .listItem:hover:focus {
@@ -72,11 +76,17 @@
     color: #212121;
   }
 
+  .selected {
+    margin-left: 0;
+    width: 300px;
+    background-color: #f7f7f7;
+  }
+
   .true {
   }
 
   .listItemText {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 700;
     color: #212121;
   }
