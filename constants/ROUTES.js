@@ -47,7 +47,7 @@ const MAIN_ROUTES = [
   {
     title: "Culture",
     titlePT: "Cultura",
-    link: "/culture",
+    link: "/category/culture",
     index: 3,
     icon: <FaPeopleCarry />,
   },

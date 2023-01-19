@@ -264,7 +264,6 @@ const Category = (props) => {
                   ) : null}
                   <div>
                     <div>{isFetchingNextPage ? "Loading more... " : null}</div>
-
                     {isLoading && (
                       <>
                         <Loader />
