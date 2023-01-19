@@ -42,17 +42,19 @@ const Footer = () => {
           ))}
         </Tabs> */}
       <div className={styles.tabContainer}>
-        <div
-          className={`${styles.tab} ${
-            selectedIndex === null ? styles.selected : ""
-          }`}
-        >
-          <Link href="/">
-            <Typography className={styles.tabText2} variant="body1">
-              Home
-            </Typography>
-          </Link>
-        </div>
+        <Link href="/">
+          <div
+            className={`${styles.tab} ${
+              selectedIndex === null ? styles.selected : ""
+            }`}
+          >
+            <button className={styles.tabButton}>
+              <Typography className={styles.tabText} variant="body1">
+                Home
+              </Typography>
+            </button>
+          </div>
+        </Link>
         {MAIN_ROUTES.map((route) => (
           <Link href={route.link} key={route.index}>
             <div
@@ -60,9 +62,11 @@ const Footer = () => {
                 selectedIndex === route.index ? styles.selected : ""
               }`}
             >
-              <Typography className={styles.tabText2} variant="body1">
-                {route.titlePT}
-              </Typography>
+              <button className={styles.tabButton}>
+                <Typography className={styles.tabText} variant="body1">
+                  {route.titlePT}
+                </Typography>
+              </button>
             </div>
           </Link>
         ))}

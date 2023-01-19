@@ -51,7 +51,6 @@
 } */
 
 .tab:hover:focus {
-  background-color: red;
   transition: 0.3s ease-in-out;
   transform: scale(1.1, 1.1);
 }
@@ -69,7 +68,15 @@
   padding-bottom: 2px;
 }
 
-.tabText2 {
+.tabButton {
+  all: unset;
+}
+.tabButton:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1, 1.1);
+}
+
+.tabText {
   color: #424242;
   text-transform: capitalize;
   font-size: 0.7em;
