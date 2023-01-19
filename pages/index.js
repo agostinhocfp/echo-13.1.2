@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { useEffect, Suspense, use } from "react";
 import dynamic from "next/dynamic";
 
 import Hero9 from "../components/sections/Hero9/Hero9";
@@ -16,11 +16,50 @@ const MoreStories = dynamic(() =>
 );
 import styles from "../styles/Home.module.css";
 import Loader from "../components/nano/Loader/Loader";
+import getData from "../util/hooks/GetData";
+import {
+  useQueryClient,
+  useQuery,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 
-const Home = () => {
+import Message from "../components/molecules/Message/Message";
+
+const Home = ({ allPosts, dehydratedState }) => {
+  const { data, isError, error, isLoading } = useQuery(
+    ["allPosts"],
+    getAllPosts,
+    { cacheTime: 5000, keepPreviousData: true, refetchOnWindowFocus: false }
+  );
+
+  console.log(dehydratedState);
+  console.log(data);
+
+  if (isLoading) {
+    return (
+      <div className={`${styles.loaderContainer} ${styles.status}`}>
+        <Loader className={styles.loader} />
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div className={styles.messageContainer}>
+        <Message
+          className={`${styles.alertMessage} ${styles.status}`}
+          severity={"error"}
+          alertTitle="Oops, something went wrong"
+        >
+          {error.toString()}
+        </Message>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
-      <Hero9 />
+      <Hero9 posts={data.filter((post) => post.landingPage == true)} />
       <Suspense fallback={<Loader />}>
         <MostPopular />
       </Suspense>
@@ -36,5 +75,29 @@ const Home = () => {
     </div>
   );
 };
+
+const sanityPostQuery =
+  "*[editorApproved]{_id, mainImage, image23, frontPage, landingPage, title, subtitle, slug, frontPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+
+async function getAllPosts() {
+  const response = await getData(sanityPostQuery);
+
+  return response;
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["allPosts"], getAllPosts);
+
+  const allPosts = await getAllPosts();
+
+  return {
+    props: {
+      allPosts,
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 export default Home;

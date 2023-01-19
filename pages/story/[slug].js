@@ -10,21 +10,7 @@ import SectionLayout from "../../components/layouts/SectionLayout";
 import SanityImage from "../../hooks/SanityImage/SanityImage";
 import Post from "../../components/organisms/Post/Post";
 
-export async function getServerSideProps({ query }) {
-  const sanityPostQuery = `*[_type == "post" && slug.current == '${query.slug}']{_id, body, mainImage, title, subtitle, slug, author->{name}, comments[]->{_id, _createdAt, author->{name}, text, likes, dislikes}, editorApproved, _createdAt}`;
-
-  const post = await getData(sanityPostQuery);
-
-  return {
-    props: {
-      post,
-      sanityPostQuery,
-    },
-  };
-}
-
 export default function Story(props) {
-  // const [post, setPost] = useImmer(null);
   const [post, setPost] = useState(null);
 
   const queryClient = useQueryClient();
@@ -81,4 +67,17 @@ export default function Story(props) {
       </Box>
     </SectionLayout>
   );
+}
+
+export async function getServerSideProps({ query }) {
+  const sanityPostQuery = `*[_type == "post" && slug.current == '${query.slug}']{_id, body, mainImage, title, subtitle, slug, author->{name}, comments[]->{_id, _createdAt, author->{name}, text, likes, dislikes}, editorApproved, _createdAt}`;
+
+  const post = await getData(sanityPostQuery);
+
+  return {
+    props: {
+      post,
+      sanityPostQuery,
+    },
+  };
 }

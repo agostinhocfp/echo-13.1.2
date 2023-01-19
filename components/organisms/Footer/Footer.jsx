@@ -12,8 +12,6 @@ const Footer = () => {
   const routeValue = useContext(RouteContextTab);
   const { selectedIndex } = routeValue;
 
-  console.log(selectedIndex);
-
   return (
     <div className={styles.root}>
       <Typography className={styles.footerTitle} variant="h5">

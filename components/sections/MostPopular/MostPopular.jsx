@@ -15,10 +15,12 @@ import useWindowSize from "../../../util/hooks/useWindowSize";
 import getData from "../../../util/hooks/GetData";
 import { motion } from "framer-motion";
 
-const MostPopular = () => {
+const MostPopular = ({ posts }) => {
   const [domLoaded, setDomLoaded] = useState(false);
   const [visibleSlides, setVisibleSlides] = useState(5);
   const queryClient = useQueryClient();
+
+  console.log(posts);
 
   const width = useWindowSize();
 
