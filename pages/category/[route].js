@@ -167,7 +167,7 @@ const Category = (props) => {
                           alt={`Article: ${frontItem.title}`}
                           priority={true}
                           quality={50}
-                          width={width > 900 ? 900 : 600}
+                          width={width > 900 ? 900 : 700}
                           height={400}
                           onClick={() =>
                             router.push(`/news/${frontItem.slug.current}`)

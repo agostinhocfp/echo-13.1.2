@@ -23,23 +23,23 @@ export default function Echo({
   const [queryClient] = React.useState(() => new QueryClient());
 
   return (
-    // <EchoErrorBoundary>
-    // <GlobalCssPriority>
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <SessionProvider session={session}>
-          <RouteTabStore>
-            <ThemeProvider theme={theme}>
-              <MainLayout>
-                <Component {...pageProps} />
-                <ReactQueryDevtools />
-              </MainLayout>
-            </ThemeProvider>
-          </RouteTabStore>
-        </SessionProvider>
-      </Hydrate>
-    </QueryClientProvider>
-    // </GlobalCssPriority>
-    // </EchoErrorBoundary>
+    <EchoErrorBoundary>
+      {/* <GlobalCssPriority> */}
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <SessionProvider session={session}>
+            <RouteTabStore>
+              <ThemeProvider theme={theme}>
+                <MainLayout>
+                  <Component {...pageProps} />
+                  <ReactQueryDevtools />
+                </MainLayout>
+              </ThemeProvider>
+            </RouteTabStore>
+          </SessionProvider>
+        </Hydrate>
+      </QueryClientProvider>
+      {/* </GlobalCssPriority> */}
+    </EchoErrorBoundary>
   );
 }

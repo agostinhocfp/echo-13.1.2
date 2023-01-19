@@ -24,11 +24,18 @@
 .frontPostContainer {
   width: 100%;
   margin-bottom: 2em;
-  max-width: 900px;
   overflow: hidden;
   position: relative;
   margin-right: 20px;
+  background-color: red;
 }
+
+@media screen and (max-width: 900px) {
+  .frontPostContainer {
+    margin-right: 0;
+  }
+}
+
 .frontImageContainer {
   display: flex;
   width: 100%;
@@ -59,24 +66,29 @@
   line-height: 1.2;
   text-rendering: optimizeLegibility;
 }
+
 .postContainer {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
+
 .postImageContainer {
   max-width: 220px;
   max-height: 120px;
   margin-right: 1em;
   margin-bottom: 2em;
 }
+
 .postImage {
   border-radius: 5px;
 }
+
 .postTag {
   font-size: 0.9em;
   margin-bottom: 5px;
 }
+
 .postTitle {
   letter-spacing: 0;
   padding-right: 20px;
@@ -92,18 +104,12 @@
   flex-direction: column;
   margin-left: 15px;
 }
+
 .sideContainer {
   display: flex;
   position: relative;
 }
-@media screen and (min-width: 900px) {
-  /* .sideContainer {
-    position: fixed;
-    top: 0;
-    margin-top: 200px;
-    visibility: visible;
-  } */
-}
+
 .loaderContainer {
   display: flex;
   margin-top: 6em;
