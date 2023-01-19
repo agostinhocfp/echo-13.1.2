@@ -87,7 +87,8 @@ const MostPopular = () => {
                     variants={stat}
                     whileInView={{ y: [100, 0], opacity: [0, 1] }}
                     transition={{ duration: 0.5 }}
-                    aria-valuetext={`Article: ${story.title}`}
+                    aria-label={`Carousel article: ${story.title}`}
+                    role={"listitem"}
                   >
                     <div className={styles.listItem}>
                       <Link

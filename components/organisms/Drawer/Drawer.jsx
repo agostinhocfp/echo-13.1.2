@@ -38,6 +38,7 @@ export default function TemporaryDrawer() {
         <button
           className={styles.menuButton}
           type="button"
+          aria-label="Navigation menu"
           onClick={toggleDrawer(true)}
         >
           <SlMenu className={styles.iconButton} />

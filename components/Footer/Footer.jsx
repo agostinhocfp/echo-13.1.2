@@ -72,7 +72,7 @@ const Footer = () => {
         ))}
       </div>
       <Typography className={styles.rights} variant="caption">
-        All Rights Reserved
+        © All Rights Reserved
       </Typography>
     </div>
   );
