@@ -26,15 +26,12 @@ import {
 
 import Message from "../components/molecules/Message/Message";
 
-const Home = ({ allPosts, dehydratedState }) => {
+const Home = () => {
   const { data, isError, error, isLoading } = useQuery(
     ["allPosts"],
     getAllPosts,
     { cacheTime: 5000, keepPreviousData: true, refetchOnWindowFocus: false }
   );
-
-  console.log(dehydratedState);
-  console.log(data);
 
   if (isLoading) {
     return (
@@ -61,7 +58,7 @@ const Home = ({ allPosts, dehydratedState }) => {
     <div className={styles.container}>
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
       <Suspense fallback={<Loader />}>
-        <MostPopular />
+        <MostPopular posts={data} />
       </Suspense>
       <Suspense fallback={<Loader />}>
         <TopStories />
@@ -77,7 +74,7 @@ const Home = ({ allPosts, dehydratedState }) => {
 };
 
 const sanityPostQuery =
-  "*[editorApproved]{_id, mainImage, image23, frontPage, landingPage, title, subtitle, slug, frontPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+  "*[editorApproved]{_id, mainImage, image23, frontPage, landingPage, title, subtitle, slug, frontPage, author->{name}, _createdAt, views, categories[]->, tags[]->}";
 
 async function getAllPosts() {
   const response = await getData(sanityPostQuery);

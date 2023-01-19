@@ -41,7 +41,7 @@ const FrontPage = ({ newsData }) => {
               imageRef={item.mainImage}
               alt={`Article ${item.title}`}
               width={500}
-              height={500}
+              height={450}
               quality={50}
               priority={true}
               onClick={() => router.push(`/story/${item.slug.current}`)}
