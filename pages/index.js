@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, use } from "react";
+import React, { useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import Hero9 from "../components/sections/Hero9/Hero9";
@@ -17,13 +17,7 @@ const MoreStories = dynamic(() =>
 import styles from "../styles/Home.module.css";
 import Loader from "../components/nano/Loader/Loader";
 import getData from "../util/hooks/GetData";
-import {
-  useQueryClient,
-  useQuery,
-  QueryClient,
-  dehydrate,
-} from "@tanstack/react-query";
-
+import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import Message from "../components/molecules/Message/Message";
 
 const Home = () => {

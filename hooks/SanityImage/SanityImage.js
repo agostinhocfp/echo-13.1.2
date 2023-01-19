@@ -25,12 +25,12 @@ export default function SanityImage({
       {...imageProps}
       alt={alt}
       className={styles.image}
-      style={style}
       quality={quality}
       width={width}
       height={height}
       priority={priority}
       placeholder="blur"
+      style={{ objectFit: "cover" }}
       blurDataURL={`${imageRef}?auto=format,compress&q=1&blur=500&w=2`}
       sizes={sizes}
       {...options}

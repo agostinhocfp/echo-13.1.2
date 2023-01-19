@@ -23,14 +23,14 @@ const MostPopular = ({ posts }) => {
     .filter((post) => post.landingPage !== true && post.frontPage !== true)
     .map((post) => post)
     .sort((a, b) => b.views - a.views)
-    .slice(0, 6);
+    .slice(0, 8);
 
   const width = useWindowSize();
 
   let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
   useEffect(() => {
-    if (width <= 400) setVisibleSlides(1);
+    if (width <= 450) setVisibleSlides(1);
     else if (width < 550) setVisibleSlides(2);
     else if (width <= 850) setVisibleSlides(3);
     else if (width <= 1400) setVisibleSlides(4);
@@ -73,12 +73,7 @@ const MostPopular = ({ posts }) => {
                           <SanityImage
                             className={styles.image}
                             alt={`Carousel article: ${story.title}`}
-                            imageRef={
-                              story.image23 != null
-                                ? story.image23
-                                : story.mainImage
-                            }
-                            objectFit="cover"
+                            imageRef={story.mainImage}
                             priority={false}
                             quality={50}
                             width={400}

@@ -239,7 +239,7 @@ const Category = (props) => {
                             {isSuccess &&
                               data.pages.map((group, i) => (
                                 <React.Fragment key={i}>
-                                  {group.slice(1).map((post) => (
+                                  {group.slice(1).map((post, i, { length }) => (
                                     <Grid
                                       item
                                       xs={12}
