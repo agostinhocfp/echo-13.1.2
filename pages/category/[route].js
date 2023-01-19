@@ -248,7 +248,11 @@ const Category = (props) => {
                                       key={post._id}
                                     >
                                       <NewsCard1 post={post} key={post._id} />
-                                      <hr className={styles.divider} />
+                                      {length - 1 === i ? null : (
+                                        <>
+                                          <hr className={styles.divider} />
+                                        </>
+                                      )}
                                     </Grid>
                                   ))}
                                 </React.Fragment>
