@@ -41,9 +41,9 @@ const Footer = () => {
             </>
           ))}
         </Tabs> */}
-      <div className={styles.tab2Container}>
+      <div className={styles.tabContainer}>
         <div
-          className={`${styles.tab2} ${
+          className={`${styles.tab} ${
             selectedIndex === null ? styles.selected : ""
           }`}
         >
@@ -56,7 +56,7 @@ const Footer = () => {
         {MAIN_ROUTES.map((route) => (
           <Link href={route.link} key={route.index}>
             <div
-              className={`${styles.tab2} ${
+              className={`${styles.tab} ${
                 selectedIndex === route.index ? styles.selected : ""
               }`}
             >
