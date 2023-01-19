@@ -10,14 +10,6 @@ import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import logger from "../../../services/logger";
 
-const sanityPostQuery =
-  "*[landingPage][0...1]{_id, mainImage, title, subtitle, slug, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
-
-async function fetchPosts() {
-  const response = await client.fetch(sanityPostQuery);
-  return response;
-}
-
 const Hero9 = () => {
   const queryClient = useQueryClient();
 
@@ -96,3 +88,11 @@ const Hero9 = () => {
 };
 
 export default Hero9;
+
+const sanityPostQuery =
+  "*[landingPage][0...1]{_id, mainImage, title, subtitle, slug, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+
+async function fetchPosts() {
+  const response = await client.fetch(sanityPostQuery);
+  return response;
+}

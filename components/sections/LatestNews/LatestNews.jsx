@@ -15,15 +15,6 @@ import Link from "next/link";
 import getData from "../../../util/hooks/GetData";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 
-const latestNewsQuery = `*[editorApproved] | order(_createdAt asc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
-
-const fetchLatestNews = async () => {
-  try {
-    const response = await client.fetch(latestNewsQuery);
-    return response;
-  } catch (error) {}
-};
-
 const LatestNews = () => {
   const router = useRouter();
 
@@ -125,3 +116,12 @@ const LatestNews = () => {
 };
 
 export default LatestNews;
+
+const latestNewsQuery = `*[editorApproved] | order(_createdAt asc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
+
+const fetchLatestNews = async () => {
+  try {
+    const response = await client.fetch(latestNewsQuery);
+    return response;
+  } catch (error) {}
+};

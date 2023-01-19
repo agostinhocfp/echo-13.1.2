@@ -15,16 +15,6 @@ import useWindowSize from "../../../util/hooks/useWindowSize";
 import getData from "../../../util/hooks/GetData";
 import { motion } from "framer-motion";
 
-// const sanityPostQuery =
-//   "*[editorApproved][0...5] | order(views desc){mainImage, title, slug}";
-const sanityPostQuery =
-  "*[editorApproved][0...6] | order(views desc){_id, mainImage, title, subtitle, slug, frontPage, author->{name}, _createdAt, categories[]->, tags[]->}";
-
-async function fetchMostPopularPosts() {
-  const response = await getData(sanityPostQuery);
-  return response;
-}
-
 const MostPopular = () => {
   const [domLoaded, setDomLoaded] = useState(false);
   const [visibleSlides, setVisibleSlides] = useState(5);
@@ -99,7 +89,11 @@ const MostPopular = () => {
                           <SanityImage
                             className={styles.image}
                             alt={`Carousel article: ${story.title}`}
-                            imageRef={story.mainImage}
+                            imageRef={
+                              story.image23 != null
+                                ? story.image23
+                                : story.mainImage
+                            }
                             objectFit="cover"
                             priority={false}
                             quality={50}
@@ -139,3 +133,11 @@ const MostPopular = () => {
 };
 
 export default MostPopular;
+
+const sanityPostQuery =
+  "*[editorApproved][0...6] | order(views desc){_id, mainImage, image23, title, subtitle, slug, frontPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+
+async function fetchMostPopularPosts() {
+  const response = await getData(sanityPostQuery);
+  return response;
+}

@@ -4,8 +4,7 @@ import { Box, CssBaseline } from "@mui/material";
 
 import styles from "./MainLayout.module.css";
 import Navbar from "../organisms/Navbar/Navbar";
-import Footer from "../Footer/Footer";
-// import { Footer } from "../Fo  oter/Footer";
+import Footer from "../organisms/Footer/Footer";
 
 const MainLayout = ({ children }) => {
   return (

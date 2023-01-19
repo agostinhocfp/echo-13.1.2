@@ -8,17 +8,6 @@ import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
 import FrontPage from "./FrontPage/FrontPage";
 
-// const sanityPostQuery =
-//   "*[editorApproved ]{_id, mainImage, title, author->{name}, tags[]->}";
-
-const sanityPostQuery =
-  "*[editorApproved]{_id, mainImage, title, subtitle, slug, frontPage, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
-
-async function fetchPosts() {
-  const response = await client.fetch(sanityPostQuery);
-  return response;
-}
-
 const TopStories = () => {
   const queryClient = useQueryClient();
 
@@ -63,3 +52,11 @@ const TopStories = () => {
 };
 
 export default TopStories;
+
+const sanityPostQuery =
+  "*[editorApproved]{_id, mainImage, title, subtitle, slug, frontPage, landingPage, author->{name}, _createdAt, categories[]->, tags[]->}";
+
+async function fetchPosts() {
+  const response = await client.fetch(sanityPostQuery);
+  return response;
+}

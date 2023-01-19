@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 
 import styles from "./Footer.module.css";
 import { Tab, Tabs, Typography } from "@mui/material";
-import RouteContextTab from "../../contexts/RouteTabContext";
-import MAIN_ROUTES from "../../constants/ROUTES";
+import RouteContextTab from "../../../contexts/RouteTabContext";
+import MAIN_ROUTES from "../../../constants/ROUTES";
 import { FaLessThanEqual } from "react-icons/fa";
 import Link from "next/link";
 
