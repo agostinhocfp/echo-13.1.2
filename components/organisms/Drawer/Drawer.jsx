@@ -50,7 +50,7 @@ export default function TemporaryDrawer() {
           onKeyDown={toggleDrawer(false)}
         >
           <div className={styles.logoContainer}>
-            <Link href="./">
+            <Link href="/">
               <Typography className={styles.logoTitle} variant="h5">
                 echo
               </Typography>{" "}
