@@ -14,31 +14,10 @@ const Footer = () => {
 
   return (
     <div className={styles.root}>
+      <hr className={styles.divider} />
       <Typography className={styles.footerTitle} variant="h5">
         echo
       </Typography>
-      {/* <Tabs
-          className={styles.tabs}
-          variant="standard"
-          value={selectedIndex === null ? "home" : selectedIndex}
-          aria-label="navigation tabs"
-        >
-          {MAIN_ROUTES.map((route) => (
-            <>
-              <Tab
-                className={styles.tab}
-                key={route.index}
-                label={route.titlePT}
-              >
-                <div className={styles.tabContainer}>
-                  <Typography className={styles.tabText} variant="body1">
-                    {route.titlePT}
-                  </Typography>
-                </div>
-              </Tab>
-            </>
-          ))}
-        </Tabs> */}
       <div className={styles.tabContainer}>
         <Link href="/">
           <div

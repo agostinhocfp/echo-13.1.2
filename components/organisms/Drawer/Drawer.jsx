@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -12,12 +11,10 @@ import MAIN_ROUTES from "../../../constants/ROUTES";
 import { SlMenu } from "react-icons/sl";
 import styles from "./Drawer.module.css";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
-  const [mouseoverStatus, setMouseOverStatus] = useState(false);
 
   const routeValue = useContext(RouteTabContext);
   const { selectedIndex } = routeValue;
@@ -33,22 +30,33 @@ export default function TemporaryDrawer() {
   };
 
   return (
-    <div>
-      <React.Fragment>
-        <button
-          className={styles.menuButton}
-          type="button"
-          aria-label="Navigation menu"
-          onClick={toggleDrawer(true)}
+    <div className={styles.root}>
+      <button
+        className={styles.menuButton}
+        type="button"
+        aria-label="Navigation menu"
+        onClick={toggleDrawer(true)}
+      >
+        <SlMenu className={styles.iconButton} />
+      </button>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        <div
+          className={styles.drawerContainer}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
         >
-          <SlMenu className={styles.iconButton} />
-        </button>
-        <Drawer open={open} onClose={toggleDrawer(false)}>
-          <div
-            role="presentation"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
+          <div className={styles.logoContainer}>
+            <Link href="./">
+              <Typography className={styles.logoTitle} variant="h5">
+                echo
+              </Typography>{" "}
+            </Link>
+          </div>
+
+          <hr className={styles.divider} />
+
+          <div className={styles.contentContainer}>
             <List>
               {MAIN_ROUTES.map((route) => (
                 <Link href={route.link} key={route.index}>
@@ -67,10 +75,7 @@ export default function TemporaryDrawer() {
                         {route.icon}
                       </ListItemIcon>
                       {/* <ListItemText primary={route.titlePT} /> */}
-                      <Typography
-                        className={styles.listItemText}
-                        variant="body1"
-                      >
+                      <Typography className={styles.listItemText} variant="h4">
                         {route.titlePT}
                       </Typography>
                     </ListItemButton>
@@ -79,8 +84,18 @@ export default function TemporaryDrawer() {
               ))}
             </List>
           </div>
-        </Drawer>
-      </React.Fragment>
+
+          {/* <div className={styles.bottomContainer}>
+            <hr className={styles.divider} />
+
+            <Link href="./">
+              <Typography className={styles.logoTitle} variant="h5">
+                echo
+              </Typography>{" "}
+            </Link>
+          </div> */}
+        </div>
+      </Drawer>
     </div>
   );
 }

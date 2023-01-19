@@ -1,4 +1,40 @@
 @media screen and (max-width: 900px) {
+  .drawerContainer {
+    width: 300px;
+    position: relative;
+  }
+
+  .logoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    text-align: center;
+  }
+
+  .contentContainer {
+    display: flex;
+  }
+
+  .bottomContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 300px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .logoTitle {
+    font-family: plaster;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
   .menuButton {
     width: 48px;
     height: 48px;
@@ -16,7 +52,9 @@
   }
 
   .listItem {
-    height: 50px;
+    height: 80px;
+    margin-left: 15px;
+    margin-bottom: 10px;
   }
   .listItem:hover:focus {
     background-color: #f7f7f7;
@@ -28,17 +66,19 @@
     all: unset;
     display: flex;
     align-items: center;
-    font-weight: 700;
-    font-size: 1.4em;
-    margin-right: 8px;
+    font-weight: 600;
+    font-size: 1.8em;
+    margin-right: 20px;
+    color: #212121;
   }
 
   .true {
   }
 
   .listItemText {
-    font-size: 1.1em;
-    font-weight: 500;
+    font-size: 2em;
+    font-weight: 700;
+    color: #212121;
   }
 }
 

@@ -13,6 +13,8 @@
   font-family: plaster;
   font-weight: 700;
   color: #212121;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .tabContainer {
@@ -21,6 +23,7 @@
   align-items: center;
   flex-direction: row;
   height: 50px;
+  margin-bottom: 20px;
 }
 
 .tab {
@@ -28,7 +31,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-right: 2em;
+  margin-right: 1em;
   cursor: pointer;
   width: 65px;
   height: 35px;
@@ -89,4 +92,12 @@
 .rights {
   font-weight: 500;
   color: #424242;
+}
+
+.divider {
+  color: #424242;
+  height: 2px;
+  width: 60%;
+  margin-top: 5px;
+  margin: 20px 0;
 }
