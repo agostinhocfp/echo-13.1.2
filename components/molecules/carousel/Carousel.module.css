@@ -1,3 +1,7 @@
 .root {
-  display: flex;
+  all: unset;
+}
+
+.slider {
+  all: unset;
 }

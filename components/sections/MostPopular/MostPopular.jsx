@@ -99,6 +99,7 @@ const MostPopular = ({ posts }) => {
     <SectionLayout>
       <SectionCreator title="Destaques" justifyTitle="left">
         <Carousel
+          className={styles.root}
           totalSlides={6}
           visibleSlides={visibleSlides}
           isPlaying

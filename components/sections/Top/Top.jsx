@@ -21,7 +21,7 @@ const Top = ({ posts }) => {
   const render1200PlusContent = () => {
     return (
       <>
-        <Grid container spacing={1} className={styles.root}>
+        <Grid container spacing={0.25} className={styles.root}>
           {/* Left side content */}
           <Grid item xs={6} className={styles.leftGridContainer}>
             {/* Top left item */}

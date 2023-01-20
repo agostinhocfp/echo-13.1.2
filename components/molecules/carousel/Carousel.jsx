@@ -14,7 +14,7 @@ const Carousel = (props) => {
       currentSlide={props.currentSlide}
       visibleSlides={props.visibleSlides}
     >
-      <Slider>{props.children}</Slider>
+      <Slider className={styles.slider}>{props.children}</Slider>
     </CarouselProvider>
   );
 };

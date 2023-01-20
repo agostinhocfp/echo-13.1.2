@@ -17,8 +17,6 @@ export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
 
-  console.log(value);
-
   const routeValue = useContext(RouteTabContext);
   const { selectedIndex } = routeValue;
 

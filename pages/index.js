@@ -1,12 +1,9 @@
-import React, { useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import Hero9 from "../components/sections/Hero9/Hero9";
 const MostPopular = dynamic(() =>
   import("../components/sections/MostPopular/MostPopular")
-);
-const TopStories = dynamic(() =>
-  import("../components/sections/TopStories/TopStories")
 );
 const LatestNews = dynamic(() =>
   import("../components/sections/LatestNews/LatestNews")
@@ -52,8 +49,8 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
-      <Top posts={data} />
       <MostPopular posts={data} />
+      <Top posts={data} />
       {/* <Suspense fallback={<Loader />}>
         <TopStories />
       </Suspense> */}

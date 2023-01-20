@@ -14,7 +14,6 @@ export default function SanityImage({
   width,
   quality,
   sizes,
-  options,
 }) {
   const imageProps = useNextSanityImage(client, href);
 

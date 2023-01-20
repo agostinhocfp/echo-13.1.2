@@ -1,3 +1,10 @@
+.root {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px !important;
+}
+
 /* scroll snap takes care of restoring scroll position */
 .list {
   display: flex;
