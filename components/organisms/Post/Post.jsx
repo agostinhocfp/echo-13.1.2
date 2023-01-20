@@ -64,7 +64,7 @@ const Post = ({ post }) => {
               >
                 <div className={styles.imageContainer}>
                   <SanityImage
-                    imageRef={currentPost.mainImage}
+                    href={currentPost.mainImage}
                     alt={currentPost.title}
                     priority={true}
                     width={900}

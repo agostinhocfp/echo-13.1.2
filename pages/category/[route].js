@@ -163,7 +163,7 @@ const Category = (props) => {
                     <div className={styles.frontImageContainer}>
                       {frontItem && (
                         <SanityImage
-                          imageRef={frontItem.mainImage}
+                          href={frontItem.mainImage}
                           alt={`Article: ${frontItem.title}`}
                           priority={true}
                           quality={50}

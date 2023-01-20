@@ -29,7 +29,7 @@ const Hero9 = ({ posts }) => {
           <SanityImage
             className={styles.image}
             alt={`Landing page image of article: ${landingPagePost.title}`}
-            imageRef={landingPagePost?.mainImage}
+            href={landingPagePost?.mainImage}
             priority={true}
             quality={50}
             blue={true}

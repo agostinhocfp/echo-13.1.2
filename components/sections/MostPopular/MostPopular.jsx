@@ -73,7 +73,7 @@ const MostPopular = ({ posts }) => {
                           <SanityImage
                             className={styles.image}
                             alt={`Carousel article: ${story.title}`}
-                            imageRef={story.mainImage}
+                            href={story.mainImage}
                             priority={false}
                             quality={50}
                             width={400}

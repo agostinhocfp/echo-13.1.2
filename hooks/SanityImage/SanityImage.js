@@ -6,11 +6,11 @@ import { client } from "../../sanity_client/config/client";
 import styles from "./SanityImage.module.css";
 
 export default function SanityImage({
-  imageRef,
+  href,
   alt,
   priority,
   placeholder,
-  objectFit,
+  fit,
   height,
   width,
   quality,
@@ -18,7 +18,7 @@ export default function SanityImage({
   sizes,
   options,
 }) {
-  const imageProps = useNextSanityImage(client, imageRef);
+  const imageProps = useNextSanityImage(client, href);
 
   return (
     <Image
@@ -30,8 +30,8 @@ export default function SanityImage({
       height={height}
       priority={priority}
       placeholder="blur"
-      style={{ objectFit: "cover" }}
-      blurDataURL={`${imageRef}?auto=format,compress&q=1&blur=500&w=2`}
+      style={{ objectFit: fit != null ? fit : "cover" }}
+      blurDataURL={`${href}?auto=format,compress&q=1&blur=500&w=2`}
       sizes={sizes}
       {...options}
     />

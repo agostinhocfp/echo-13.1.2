@@ -19,6 +19,7 @@ import Loader from "../components/nano/Loader/Loader";
 import getData from "../util/hooks/GetData";
 import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import Message from "../components/molecules/Message/Message";
+import Top from "../components/sections/Top/Top";
 
 const Home = () => {
   const { data, isError, error, isLoading } = useQuery(
@@ -53,6 +54,9 @@ const Home = () => {
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
       <Suspense fallback={<Loader />}>
         <MostPopular posts={data} />
+      </Suspense>
+      <Suspense fall={<Loader />}>
+        <Top posts={data} />
       </Suspense>
       <Suspense fallback={<Loader />}>
         <TopStories />

@@ -96,7 +96,7 @@ const MoreStories = () => {
                         {/* <a> */}
                         <div className={styles.imageContainer}>
                           <SanityImage
-                            imageRef={story.mainImage}
+                            href={story.mainImage}
                             alt={`Article: ${story.title}`}
                             priority={false}
                             quality={50}

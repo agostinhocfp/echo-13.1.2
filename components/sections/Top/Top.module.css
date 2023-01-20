@@ -1,0 +1,235 @@
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.leftGridContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.topLeftItemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: black;
+}
+
+.topLeftImageContainer {
+  display: flex;
+  position: relative;
+  height: 377px;
+  background-color: black;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.topLeftImage {
+  position: relative;
+  opacity: 0.4;
+}
+/* .topLeftImage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.topLeftImage:hover:focus {
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transform: scale(1.03);
+} */
+
+.topLeftHeader {
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+}
+
+.topLeftTag {
+  color: #fff;
+  font-size: 0.8em;
+  opacity: 0.9;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0.5px 1px black;
+}
+
+.topLeftTitle {
+  color: #fff;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 5px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+}
+
+.bottomLeftContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #000;
+}
+
+.bottomLeftImage {
+}
+
+.bottomLeftContent {
+  position: absolute;
+  top: 0;
+  padding: 24px;
+}
+
+.bottomLeftTitle {
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: 2.1em;
+  margin-bottom: 0.75rem;
+}
+
+.bottomLeftSubtitle {
+  color: #fff;
+  font-size: 1.1em;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.bottomLeftButton {
+  position: absolute;
+  bottom: 0;
+  margin: 0 0 24px 24px;
+}
+
+.rightGridContainer {
+  width: 100%;
+}
+
+/* Top right */
+.topRightContainer {
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+  margin-bottom: 5px;
+}
+
+.topRightItemContainer {
+  width: 320px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.topRightItemContainer:first-child {
+  padding-left: 0;
+}
+.topRightItemContainer:last-child {
+  padding: 0;
+}
+
+.topRightImageContainer {
+  display: flex;
+  position: relative;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.topRightImage {
+  position: relative;
+}
+.topRightImage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.topRightImage:hover:focus {
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transform: scale(1.03);
+}
+
+.topRightHeader {
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+}
+
+.topRightTag {
+  color: #fff;
+  font-size: 0.8em;
+  opacity: 0.9;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0.5px 1px black;
+}
+
+.topRightTitle {
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: 1.1em;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+}
+
+.bottomRightContainer {
+  height: 377px;
+}
+
+.bottomRightImageContainer {
+  height: 377px;
+  position: relative;
+}
+
+.bottomRightImage {
+  position: relative;
+}
+.bottomRightImage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.bottomRightImage:hover:focus {
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transform: scale(1.03);
+}
+
+.bottomRightHeader {
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+}
+
+.bottomRightTag {
+  color: #fff;
+  font-size: 0.8em;
+  opacity: 0.9;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0.5px 1px black;
+}
+
+.bottomRightTitle {
+  color: #fff;
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 5px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+}

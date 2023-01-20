@@ -31,7 +31,7 @@ const NewsCard1 = ({ post }) => {
           <div className={styles.postImageContainer}>
             <SanityImage
               className={styles.postImage}
-              imageRef={post.mainImage}
+              href={post.mainImage}
               alt={`Article: ${post.title}`}
               height={180}
               width={400}

@@ -38,7 +38,7 @@ const FrontPage = ({ newsData }) => {
           >
             <SanityImage
               className={styles.leftImage}
-              imageRef={item.mainImage}
+              href={item.mainImage}
               alt={`Article ${item.title}`}
               width={500}
               height={450}
@@ -137,7 +137,7 @@ const FrontPage = ({ newsData }) => {
                         <SanityImage
                           className={styles.featuredImage}
                           alt={`Image for article: ${item.title}`}
-                          imageRef={item.mainImage}
+                          href={item.mainImage}
                           width={300}
                           height={220}
                           quality={50}
