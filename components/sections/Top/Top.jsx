@@ -117,21 +117,18 @@ const Top = ({ posts }) => {
                     height={377}
                   />
                 </Link>
-                <div className={styles.bottomRightHeader}>
-                  {topPosts[3].tags && (
-                    <Typography className={styles.bottomRightTag} variant="h6">
-                      {topPosts[3].tags[0].titlePT}
-                    </Typography>
-                  )}
-                  <Link href={`/story/${topPosts[3].slug.current}`}>
-                    <Typography
-                      className={styles.bottomRightTitle}
-                      variant="h4"
-                    >
-                      {topPosts[3].title}
-                    </Typography>
-                  </Link>
-                </div>
+              </div>
+              <div className={styles.bottomRightHeader}>
+                {topPosts[3].tags && (
+                  <Typography className={styles.bottomRightTag} variant="h6">
+                    {topPosts[3].tags[0].titlePT}
+                  </Typography>
+                )}
+                <Link href={`/story/${topPosts[3].slug.current}`}>
+                  <Typography className={styles.bottomRightTitle} variant="h4">
+                    {topPosts[3].title}
+                  </Typography>
+                </Link>
               </div>
             </div>
           </Grid>
