@@ -9,12 +9,10 @@ export default function SanityImage({
   href,
   alt,
   priority,
-  placeholder,
   fit,
   height,
   width,
   quality,
-  style,
   sizes,
   options,
 }) {
@@ -33,7 +31,6 @@ export default function SanityImage({
       style={{ objectFit: fit != null ? fit : "cover" }}
       blurDataURL={`${href}?auto=format,compress&q=1&blur=500&w=2`}
       sizes={sizes}
-      {...options}
     />
   );
 }

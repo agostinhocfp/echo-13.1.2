@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Box, Typography } from "@mui/material";
+import React from "react";
+import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { client } from "../../../sanity_client/config/client";
 import styles from "./Hero9.module.css";
-import Loader from "../../nano/Loader/Loader";
-import Message from "../../molecules/Message/Message";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
-import logger from "../../../services/logger";
 
 // Refactor
 const Hero9 = ({ posts }) => {
@@ -22,34 +17,34 @@ const Hero9 = ({ posts }) => {
     router.push(`/story/${landingPagePost.slug.current}`);
   };
 
-  return (
-    <>
-      {posts != null ? (
-        <div className={styles.root}>
-          <SanityImage
-            className={styles.image}
-            alt={`Landing page image of article: ${landingPagePost.title}`}
-            href={landingPagePost?.mainImage}
-            priority={true}
-            quality={50}
-            blue={true}
-            height={width < 900 ? 300 : 600}
-            width={width < 900 ? 900 : 1350}
-            placeholder={"blur"}
-          />
+  const renderContent = () => {
+    return (
+      <div className={styles.root}>
+        <SanityImage
+          className={styles.image}
+          alt={`Landing page image of article: ${landingPagePost.title}`}
+          href={landingPagePost?.mainImage}
+          priority={true}
+          quality={50}
+          blue={true}
+          height={width < 900 ? 300 : 600}
+          width={width < 900 ? 900 : 1350}
+          placeholder={"blur"}
+        />
 
-          <div className={styles.contentContainer} onClick={handleClick}>
-            <Typography
-              variant={width < 900 ? "h4" : width < 1200 ? "h3" : "h2"}
-              className={styles.headline}
-            >
-              {landingPagePost.title}
-            </Typography>
-          </div>
+        <div className={styles.contentContainer} onClick={handleClick}>
+          <Typography
+            variant={width < 900 ? "h4" : width < 1200 ? "h3" : "h2"}
+            className={styles.headline}
+          >
+            {landingPagePost.title}
+          </Typography>
         </div>
-      ) : null}
-    </>
-  );
+      </div>
+    );
+  };
+
+  return <>{posts != null ? <>{renderContent()}</> : null}</>;
 };
 
 export default Hero9;

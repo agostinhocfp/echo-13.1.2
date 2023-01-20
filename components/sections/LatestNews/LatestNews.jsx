@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import getData from "../../../util/hooks/GetData";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
+import NewsCard2 from "../../molecules/NewsCard2/NewsCard2";
 
 const LatestNews = () => {
   const router = useRouter();
@@ -46,7 +47,7 @@ const LatestNews = () => {
   }
 
   const renderData = (data) => {
-    if (data === null || undefined) return;
+    if (data === null) return;
     return (
       <>
         {data != null ? (
@@ -69,30 +70,7 @@ const LatestNews = () => {
                       transition={{ duration: 0.6 }}
                       className={styles.motionDiv}
                     >
-                      <Link
-                        href={`/story/${story.slug.current}`}
-                        aria-label="To article page"
-                      >
-                        <div className={styles.imageContainer}>
-                          <SanityImage
-                            href={story.mainImage}
-                            alt={`Article: ${story.title}`}
-                            priority={false}
-                            quality={50}
-                            width={360}
-                            height={260}
-                            onClick={() =>
-                              router.push(`/news/${story.slug.current}`)
-                            }
-                            onKeyDown={() =>
-                              router.push(`/news/${story.slug.current}`)
-                            }
-                          />
-                        </div>
-                        <Typography className={styles.itemTitle} variant="h6">
-                          {story.title}
-                        </Typography>
-                      </Link>
+                      <NewsCard2 story={story} />
                     </motion.div>
                   </Grid>
                 ))}

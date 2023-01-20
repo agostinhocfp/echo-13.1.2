@@ -7,23 +7,41 @@
 .leftGridContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .topLeftItemContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  background-color: black;
+  height: 90%;
+  opacity: 0.2;
+}
+
+.topLeftContainer {
+  background-color: #000;
+  position: relative;
+  margin-bottom: 5px;
+}
+.topLeftContainer:hover {
+  transition: 0.5s ease-in-out;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transform: translate(0px, -4px) scale(1.02);
+  transform: scale(1.03);
 }
 
 .topLeftImageContainer {
   display: flex;
   position: relative;
   height: 377px;
-  background-color: black;
+  opacity: 0.7;
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.topLeftItemContainer:hover {
+  transition: 0.5s ease-in-out;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transform: scale(1.03);
 }
 
 .topLeftImage {
@@ -76,6 +94,7 @@
 }
 
 .bottomLeftImage {
+  height: 245px;
 }
 
 .bottomLeftContent {
@@ -124,6 +143,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: #000;
+  position: relative;
 }
 .topRightItemContainer:first-child {
   padding-left: 0;
@@ -136,6 +157,7 @@
   display: flex;
   position: relative;
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
 }
 
 .topRightImage {

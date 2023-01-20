@@ -18,9 +18,9 @@ const Top = ({ posts }) => {
     (item) => item._id === "aaf43895-9e67-41f7-b92c-656ecc1e3139"
   );
 
-  return (
-    <SectionLayout>
-      {width > 900 ? (
+  const render1200PlusContent = () => {
+    return (
+      <>
         <Grid container spacing={1} className={styles.root}>
           {/* Left side content */}
           <Grid item xs={6} className={styles.leftGridContainer}>
@@ -35,18 +35,18 @@ const Top = ({ posts }) => {
                     height={377}
                   />
                 </Link>
-                <div className={styles.topLeftHeader}>
-                  {topPosts[0].tags && (
-                    <Typography className={styles.topLeftTag} variant="h6">
-                      {topPosts[0].tags[0].titlePT}
-                    </Typography>
-                  )}
-                  <Link href={`/story/${topPosts[0].slug.current}`}>
-                    <Typography className={styles.topLeftTitle} variant="h4">
-                      {topPosts[0].title}
-                    </Typography>
-                  </Link>
-                </div>
+              </div>
+              <div className={styles.topLeftHeader}>
+                {topPosts[0].tags && (
+                  <Typography className={styles.topLeftTag} variant="h6">
+                    {topPosts[0].tags[0].titlePT}
+                  </Typography>
+                )}
+                <Link href={`/story/${topPosts[0].slug.current}`}>
+                  <Typography className={styles.topLeftTitle} variant="h4">
+                    {topPosts[0].title}
+                  </Typography>
+                </Link>
               </div>
             </div>
 
@@ -91,21 +91,18 @@ const Top = ({ posts }) => {
                         height={250}
                       />
                     </Link>
-                    <div className={styles.topRightHeader}>
-                      {item.tags && (
-                        <Typography className={styles.topRightTag} variant="h6">
-                          {item.tags[0].titlePT}
-                        </Typography>
-                      )}
-                      <Link href={`/story/${item.slug.current}`}>
-                        <Typography
-                          className={styles.topRightTitle}
-                          variant="h5"
-                        >
-                          {item.title}
-                        </Typography>
-                      </Link>
-                    </div>
+                  </div>
+                  <div className={styles.topRightHeader}>
+                    {item.tags && (
+                      <Typography className={styles.topRightTag} variant="h6">
+                        {item.tags[0].titlePT}
+                      </Typography>
+                    )}
+                    <Link href={`/story/${item.slug.current}`}>
+                      <Typography className={styles.topRightTitle} variant="h5">
+                        {item.title}
+                      </Typography>
+                    </Link>
                   </div>
                 </Grid>
               ))}
@@ -139,6 +136,17 @@ const Top = ({ posts }) => {
             </div>
           </Grid>
         </Grid>
+        ;
+      </>
+    );
+  };
+
+  return (
+    <SectionLayout>
+      {width > 1200 ? (
+        <>{render1200PlusContent()}</>
+      ) : width > 900 ? (
+        <></>
       ) : (
         <></>
       )}

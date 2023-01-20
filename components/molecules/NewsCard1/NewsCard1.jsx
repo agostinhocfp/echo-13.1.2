@@ -36,7 +36,7 @@ const NewsCard1 = ({ post }) => {
               height={180}
               width={400}
               priority={false}
-              quality={50}
+              quality={70}
               onClick={() => router.push(`/story/${currentPost.slug.current}`)}
             />
           </div>

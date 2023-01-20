@@ -16,7 +16,7 @@ const Footer = () => {
     <div className={styles.root}>
       <hr className={styles.divider} />
       <Typography className={styles.footerTitle} variant="h5">
-        echo
+        Adiwassa
       </Typography>
       <div className={styles.tabContainer}>
         <Link href="/">

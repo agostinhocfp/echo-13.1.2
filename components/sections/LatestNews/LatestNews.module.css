@@ -43,27 +43,6 @@
   }
 }
 
-.imageContainer {
-  width: 100%;
-  height: 200px !important;
-  min-height: 200px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.itemTitle {
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 5px 0;
-  color: #000;
-}
-
 .motionDiv {
   margin: 0 !important;
   padding: 0 !important;
