@@ -52,15 +52,11 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
-      <Suspense fallback={<Loader />}>
-        <MostPopular posts={data} />
-      </Suspense>
-      <Suspense fall={<Loader />}>
-        <Top posts={data} />
-      </Suspense>
-      <Suspense fallback={<Loader />}>
+      <Top posts={data} />
+      <MostPopular posts={data} />
+      {/* <Suspense fallback={<Loader />}>
         <TopStories />
-      </Suspense>
+      </Suspense> */}
       <Suspense fallback={<Loader />}>
         <LatestNews />
       </Suspense>
