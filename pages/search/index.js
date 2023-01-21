@@ -9,7 +9,7 @@ import Loader from "../../components/nano/Loader/Loader";
 import NewsCard1 from "../../components/molecules/NewsCard1/NewsCard1";
 import Message from "../../components/molecules/Message/Message";
 import useWindowSize from "../../util/hooks/useWindowSize";
-import SectionLayout from "../../components/layouts/SectionLayout";
+import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 // import { ErrorBoundary } from "react-error-boundary";
 // import Error from "next/error";
 import Error from "../feed/error";

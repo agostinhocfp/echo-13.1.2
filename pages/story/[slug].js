@@ -6,8 +6,7 @@ import { Box } from "@mui/material";
 import getData from "../../util/hooks/GetData";
 import ModernLoader from "../../components/nano/ModernLoader/ModernLoader";
 import Message from "../../components/molecules/Message/Message";
-import SectionLayout from "../../components/layouts/SectionLayout";
-import SanityImage from "../../hooks/SanityImage/SanityImage";
+import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 import Post from "../../components/organisms/Post/Post";
 
 export default function Story(props) {

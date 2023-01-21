@@ -13,7 +13,7 @@ import GetImageProps from "../../../../util/hooks/GetImageProps";
 import useWindowSize from "../../../../util/hooks/useWindowSize.js";
 import theme from "../../../../ui/theme";
 import { formatDate } from "../../../../util/formatDate";
-import SectionLayout from "../../../layouts/SectionLayout";
+import SectionLayout from "../../../layouts/SectionLayout/SectionLayout";
 import ActiveLink from "../../../../hooks/ActiveLink/ActiveLink";
 import SanityImage from "../../../../hooks/SanityImage/SanityImage";
 

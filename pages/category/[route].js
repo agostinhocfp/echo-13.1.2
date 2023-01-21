@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Grid, Typography } from "@mui/material";
 
-import SectionLayout from "../../components/layouts/SectionLayout";
+import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 import { client } from "../../sanity_client/config/client";
 import getData from "../../util/hooks/GetData";
 import Loader from "../../components/nano/Loader/Loader";
