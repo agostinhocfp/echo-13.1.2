@@ -163,7 +163,7 @@ const theme = createTheme({
         '"Graphik", "Inter","Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
       fontSize: "1.3rem",
-      lineHeight: 1.3,
+      lineHeight: 1.2,
       letterSpacing: "0.0075em",
     },
     subtitle1: {

@@ -8,7 +8,7 @@ import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
 import SectionCreator from "../../molecules/SectionCreator/SectionCreator";
 import Carousel from "../../molecules/carousel/Carousel";
-import SectionLayout from "../../layouts/SectionLayout";
+import SectionLayout from "../../layouts/SectionLayout/SectionLayout";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import getData from "../../../util/hooks/GetData";
@@ -31,8 +31,8 @@ const MostPopular = ({ posts }) => {
 
   useEffect(() => {
     if (width <= 450) setVisibleSlides(1);
-    else if (width < 550) setVisibleSlides(2);
-    else if (width <= 850) setVisibleSlides(3);
+    else if (width < 550) setVisibleSlides(1);
+    else if (width <= 1024) setVisibleSlides(2);
     else if (width <= 1400) setVisibleSlides(4);
     else setVisibleSlides(5);
   }, [width]);

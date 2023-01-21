@@ -27,7 +27,6 @@
   overflow: hidden;
   position: relative;
   margin-right: 20px;
-  background-color: red;
 }
 
 @media screen and (max-width: 900px) {

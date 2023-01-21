@@ -5,7 +5,7 @@ import { RiHome2Line } from "react-icons/ri";
 import { Typography } from "@mui/material";
 
 import styles from "./error.module.css";
-import SectionLayout from "../../components/layouts/SectionLayout";
+import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 import MainButton from "../../components/nano/MainButton/MainButton";
 import ActiveLink from "../../hooks/ActiveLink/ActiveLink";
 

@@ -1,0 +1,55 @@
+.root {
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+  max-height: 450px;
+  background-color: #000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.itemImageContainer {
+  width: 100%;
+
+  opacity: 0.1;
+}
+
+.itemContent {
+  position: absolute;
+  bottom: 0;
+  padding: 24px;
+}
+
+.itemTag {
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: 800;
+  margin-bottom: 5px;
+  text-shadow: 0 0 2px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+  text-rendering: optimizeLegibility;
+}
+
+.itemTitle {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 5px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+  text-rendering: optimizeLegibility;
+}

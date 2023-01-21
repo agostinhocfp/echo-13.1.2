@@ -9,7 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { SessionProvider } from "next-auth/react";
 
 import { RouteTabStore } from "../contexts/RouteTabContext";
-import MainLayout from "../components/layouts/MainLayout";
+import MainLayout from "../components/layouts/MainLayout/MainLayout";
 import "../styles/globals.css";
 import theme from "../ui/theme";
 import GlobalCssPriority from "../util/GlobalCssPriority";

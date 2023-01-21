@@ -8,7 +8,7 @@ import styles from "./LatestNews.module.css";
 import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
 import SectionCreator from "../../molecules/SectionCreator/SectionCreator";
-import SectionLayout from "../../layouts/SectionLayout";
+import SectionLayout from "../../layouts/SectionLayout/SectionLayout";
 import { useRouter } from "next/router";
 
 import Link from "next/link";

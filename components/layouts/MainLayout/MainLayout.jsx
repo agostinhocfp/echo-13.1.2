@@ -3,8 +3,8 @@ import Head from "next/head";
 import { Box, CssBaseline } from "@mui/material";
 
 import styles from "./MainLayout.module.css";
-import Navbar from "../organisms/Navbar/Navbar";
-import Footer from "../organisms/Footer/Footer";
+import Navbar from "../../organisms/Navbar/Navbar";
+import Footer from "../../organisms/Footer/Footer";
 
 const MainLayout = ({ children }) => {
   return (
