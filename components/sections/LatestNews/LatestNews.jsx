@@ -53,28 +53,19 @@ const LatestNews = () => {
         {data != null ? (
           <>
             <Grid container className={styles.itemList}>
-              <motion.div initial="hidden" animate="show">
-                {data.map((story) => (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    className={styles.listItem}
-                    key={story._id}
-                  >
-                    <motion.div
-                      variants={stat}
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.6 }}
-                      className={styles.motionDiv}
-                    >
-                      <NewsCard2 story={story} />
-                    </motion.div>
-                  </Grid>
-                ))}
-              </motion.div>
+              {data.map((story) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                  className={styles.listItem}
+                  key={story._id}
+                >
+                  <NewsCard2 story={story} />
+                </Grid>
+              ))}
             </Grid>
           </>
         ) : null}

@@ -32,7 +32,7 @@ const MostPopular = ({ posts }) => {
     else if (width < 550) setVisibleSlides(1);
     else if (width <= 1024) setVisibleSlides(2);
     else if (width <= 1400) setVisibleSlides(4);
-    else setVisibleSlides(5);
+    else setVisibleSlides(4);
   }, [width]);
 
   let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };

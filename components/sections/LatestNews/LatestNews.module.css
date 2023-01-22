@@ -1,8 +1,8 @@
 .root {
   display: flex;
   justify-content: center;
+  padding: 0;
   margin: 2em 0;
-  background-color: transparent;
 }
 
 .itemList {
@@ -40,9 +40,4 @@
   .listItem {
     float: left;
   }
-}
-
-.motionDiv {
-  margin: 0 !important;
-  padding: 0 !important;
 }

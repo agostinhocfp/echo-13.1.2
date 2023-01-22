@@ -57,7 +57,7 @@ export default Hero9;
 //   const router = useRouter();
 //   const width = useWindowSize();
 
-//   console.log(posts);
+//   /(posts);
 
 //   useEffect(() => {
 //     try {
