@@ -7,7 +7,7 @@ import styles from "./Top.module.css";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import Link from "next/link";
 import MidScreenNewsGrid from "../../layouts/MidScreenNewsGrid/MidScreenNewsGrid";
-import SmallScreenNewsSlider from "../../layouts/MainLayout/SmallScreenNewsSlider/SmallScreenNewsSlider";
+import SmallScreenNewsSlider from "../../layouts/SmallScreenNewsSlider/SmallScreenNewsSlider";
 
 const Top = ({ posts }) => {
   const width = useWindowSize();

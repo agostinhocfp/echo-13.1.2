@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import styles from "./SmallScreenNewsSlider.module.css";
-import Carousel from "../../../molecules/carousel/Carousel";
+import Carousel from "../../molecules/carousel/Carousel";
 import Link from "next/link";
-import SanityImage from "../../../../hooks/SanityImage/SanityImage";
+import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import { Typography } from "@mui/material";
 
 const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {

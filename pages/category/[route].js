@@ -109,6 +109,8 @@ const Category = (props) => {
 
   let frontItem = props.topPost;
 
+  console.log(data);
+
   const renderContent = () => {
     if (selectedIndex != null) {
       return (
@@ -290,7 +292,7 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params: { route } }) {
-  const getTopCategoryPostQuery = `*['/${route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*30] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
+  const getTopCategoryPostQuery = `*['/${route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*60] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
   const topPost = await getData(getTopCategoryPostQuery);
 
