@@ -20,17 +20,19 @@ const Hero9 = ({ posts }) => {
   const renderContent = () => {
     return (
       <div className={styles.root}>
-        <SanityImage
-          className={styles.image}
-          alt={`Landing page image of article: ${landingPagePost?.title}`}
-          href={landingPagePost?.mainImage}
-          priority={true}
-          quality={50}
-          blue={true}
-          height={width < 900 ? 300 : 600}
-          width={width < 900 ? 900 : 1350}
-          placeholder={"blur"}
-        />
+        <div className={styles.imageContainer}>
+          <SanityImage
+            className={styles.image}
+            alt={`Landing page image of article: ${landingPagePost?.title}`}
+            href={landingPagePost?.mainImage}
+            priority={true}
+            quality={50}
+            blue={true}
+            height={width < 900 ? 300 : 600}
+            width={width < 900 ? 900 : 1350}
+            placeholder={"blur"}
+          />
+        </div>
 
         <div className={styles.contentContainer} onClick={handleClick}>
           <Typography
