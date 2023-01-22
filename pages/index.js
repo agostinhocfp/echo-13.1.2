@@ -51,13 +51,9 @@ const Home = () => {
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
       <MostPopular posts={data} />
       <Top posts={data} />
-      <Suspense fallback={<Loader />}>
-        <LatestNews />
-      </Suspense>
+      <LatestNews />
       {/* NewsLetter or s/omething else */}
-      <Suspense fallback={<Loader />}>
-        <MoreStories />
-      </Suspense>
+      <MoreStories />
     </div>
   );
 };
