@@ -46,7 +46,7 @@ const Category = (props) => {
   }) => {
     try {
       const response = await client.fetch(
-        `*[_type == "post" && '/${props.route}' in categories[]->route &&  (
+        `*[_type == "post" && (
       _createdAt > '${pageParam.lastCreatedAt}'
       || (_createdAt == '${pageParam.lastCreatedAt}' && _id > '${pageParam.lastId}')
     )] | order(_createdAt) [0...6] {mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`,

@@ -22,7 +22,7 @@ const Hero9 = ({ posts }) => {
       <div className={styles.root}>
         <SanityImage
           className={styles.image}
-          alt={`Landing page image of article: ${landingPagePost.title}`}
+          alt={`Landing page image of article: ${landingPagePost?.title}`}
           href={landingPagePost?.mainImage}
           priority={true}
           quality={50}
@@ -34,7 +34,7 @@ const Hero9 = ({ posts }) => {
 
         <div className={styles.contentContainer} onClick={handleClick}>
           <Typography
-            variant={width < 900 ? "h4" : width < 1200 ? "h3" : "h2"}
+            variant={width < 900 ? "h5" : width < 1200 ? "h4" : "h3"}
             className={styles.headline}
           >
             {landingPagePost.title}

@@ -60,7 +60,7 @@
     padding-left: 15px;
     margin-bottom: 10px;
   }
-  .listItem:hover:focus {
+  .listItem:hover {
     background-color: #f7f7f7;
     transition: 0.3s ease-in-out;
     transform: scale(1.1, 1.1);
@@ -70,8 +70,8 @@
     all: unset;
     display: flex;
     align-items: center;
-    font-weight: 600;
-    font-size: 1.8em;
+    font-weight: 500;
+    font-size: 1.6em;
     margin-right: 20px;
     color: #212121;
   }
@@ -79,15 +79,16 @@
   .selected {
     margin-left: 0;
     width: 300px;
-    background-color: #f7f7f7;
+    background-color: #e6e6e6;
+    font-weight: 900;
   }
 
   .true {
   }
 
   .listItemText {
-    font-size: 1.8em;
-    font-weight: 700;
+    font-size: 1.6em;
+    font-weight: 500;
     color: #212121;
   }
 }

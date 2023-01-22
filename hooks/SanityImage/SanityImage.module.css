@@ -5,6 +5,5 @@
 .image {
   width: 100%;
   max-height: 100%;
-}
-.image:hover:focus {
+  transition: 0.4s ease-out;
 }
