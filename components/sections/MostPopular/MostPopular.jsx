@@ -27,8 +27,6 @@ const MostPopular = ({ posts }) => {
 
   const width = useWindowSize();
 
-  let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };
-
   useEffect(() => {
     if (width <= 450) setVisibleSlides(1);
     else if (width < 550) setVisibleSlides(1);
@@ -36,6 +34,8 @@ const MostPopular = ({ posts }) => {
     else if (width <= 1400) setVisibleSlides(4);
     else setVisibleSlides(5);
   }, [width]);
+
+  let stat = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
   useEffect(() => {
     setDomLoaded(true);

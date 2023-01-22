@@ -5,9 +5,19 @@ import Carousel from "../../molecules/carousel/Carousel";
 import Link from "next/link";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import { Typography } from "@mui/material";
+import useWindowSize from "../../../util/hooks/useWindowSize";
 
 const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
   const [visibleSlides, setVisibleSlides] = useState(1);
+
+  const width = useWindowSize();
+
+  useEffect(() => {
+    if (width < 550) setVisibleSlides(1);
+    else if (width <= 1024) setVisibleSlides(2);
+    else if (width <= 1400) setVisibleSlides(4);
+    else setVisibleSlides(5);
+  }, [width]);
 
   return (
     <div className={styles.root}>
