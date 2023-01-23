@@ -85,7 +85,7 @@ const MoreStories = () => {
         {data != null ? (
           <>
             <Grid container className={styles.itemList}>
-              {data.pages.map((group, i) => (
+              {data.pages.slice(1).map((group, i) => (
                 <React.Fragment key={i}>
                   {group.map((story) => (
                     <Grid
