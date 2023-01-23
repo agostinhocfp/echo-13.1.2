@@ -108,18 +108,10 @@ const MoreStories = () => {
               ref={loadMoreRef}
               className={!hasNextPage ? styles.hidden : ""}
             >
-              {isFetchingNextPage ? (
-                <div className={styles.loadingStatusContainer}>
-                  <Loader />
-                </div>
-              ) : (
-                ""
-              )}
+              {isFetchingNextPage ? <Loader /> : ""}
             </div>
             <div>
-              {/* <div>{isFetchingNextPage ? "Loading more... " : null}</div> */}
-              {isLoading && <>?{"Loading"}</>}
-
+              {isLoading && <Loader />}
               {!hasNextPage && !isLoading && (
                 <div className={styles.loadingStatusContainer}>
                   <Typography className={styles.loadingStatus} variant="body1">
@@ -127,6 +119,9 @@ const MoreStories = () => {
                   </Typography>
                 </div>
               )}
+              <div>
+                {isFetching && !isFetchingNextPage ? "Fetching..." : null}
+              </div>
             </div>
           </>
         ) : null}
