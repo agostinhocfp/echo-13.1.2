@@ -1,6 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
 import {
   Accordion,
   AppBar,
@@ -27,6 +25,7 @@ import styles from "./Navbar.module.css";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import { SlMenu } from "react-icons/sl";
 import Drawer from "../Drawer/Drawer";
+import Link from "next/link";
 
 export default function Navbar() {
   const value = useContext(RouteTabContext);
@@ -36,9 +35,6 @@ export default function Navbar() {
   const { selectedIndex } = value;
 
   const width = useWindowSize();
-
-  const { data: session } = useSession();
-  // const { user } = session;
 
   const handleClick = (e, popoverId) => {
     setAnchorEl(e.target);
@@ -92,29 +88,6 @@ export default function Navbar() {
             >
               <div className={styles.actionButtonsContainer}>
                 <Stack direction="row" aria-label="Button Tabs">
-                  {/* <Button
-                    className={styles.buttonSignIn}
-                    href="/login"
-                    onClick={() => signOut()}
-                  >
-                    {session != null ? (
-                      <>
-                        <Typography
-                          className={`${styles.actionButtonText} ${styles.buttonSignInText}`}
-                        >
-                          {session.user.name.split(" ")[0]}
-                        </Typography>
-                      </>
-                    ) : (
-                      <>
-                        <Typography
-                          className={`${styles.actionButtonText} ${styles.buttonSignInText}`}
-                        >
-                          Sign in
-                        </Typography>
-                      </>
-                    )}
-                  </Button> */}
                   {/* <Button className={styles.buttonSubscribe} href="/subscribe">
                     <Typography
                       className={`${styles.actionButtonText} ${styles.buttonSubscribeText}`}

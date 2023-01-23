@@ -32,9 +32,13 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
           {newsArr.map((story) => (
             <div className={styles.itemContainer} key={story._id}>
               <div className={story.itemImageContainer}>
-                <Link href={`/story/${story.slug.current}`}>
+                <Link
+                  href={`/story/${story.slug.current}`}
+                  aria-label="Link to article page"
+                >
                   <SanityImage
                     className={styles.itemImage}
+                    alt={`Article: ${story.title}`}
                     href={story.mainImage}
                     width={450}
                     height={450}
@@ -47,7 +51,10 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
                     {story.tags[0].titlePT}
                   </Typography>
                 )}
-                <Link href={`/story/${story.slug.current}`}>
+                <Link
+                  href={`/story/${story.slug.current}`}
+                  aria-label="Text link to article page"
+                >
                   <Typography className={styles.itemTitle} variant="h5">
                     {story.title}
                   </Typography>

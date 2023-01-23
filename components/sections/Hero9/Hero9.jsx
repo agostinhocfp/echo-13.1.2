@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./Hero9.module.css";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
+import Link from "next/link";
 
 // Refactor
 const Hero9 = ({ posts }) => {
@@ -34,13 +35,15 @@ const Hero9 = ({ posts }) => {
           />
         </div>
 
-        <div className={styles.contentContainer} onClick={handleClick}>
-          <Typography
-            variant={width < 900 ? "h5" : width < 1200 ? "h4" : "h3"}
-            className={styles.headline}
-          >
-            {landingPagePost.title}
-          </Typography>
+        <div className={styles.contentContainer}>
+          <Link href={`/story/${landingPagePost.slug.current}`}>
+            <Typography
+              variant={width < 900 ? "h5" : width < 1200 ? "h4" : "h3"}
+              className={styles.headline}
+            >
+              {landingPagePost.title}
+            </Typography>
+          </Link>
         </div>
       </div>
     );

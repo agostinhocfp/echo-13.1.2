@@ -27,16 +27,16 @@ export default function Echo({
       {/* <GlobalCssPriority> */}
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <SessionProvider session={session}>
-            <RouteTabStore>
-              <ThemeProvider theme={theme}>
-                <MainLayout>
-                  <Component {...pageProps} />
-                  <ReactQueryDevtools />
-                </MainLayout>
-              </ThemeProvider>
-            </RouteTabStore>
-          </SessionProvider>
+          {/* <SessionProvider session={session}> */}
+          <RouteTabStore>
+            <ThemeProvider theme={theme}>
+              <MainLayout>
+                <Component {...pageProps} />
+                <ReactQueryDevtools />
+              </MainLayout>
+            </ThemeProvider>
+          </RouteTabStore>
+          {/* </SessionProvider> */}
         </Hydrate>
       </QueryClientProvider>
       {/* </GlobalCssPriority> */}

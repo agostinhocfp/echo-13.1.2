@@ -242,9 +242,7 @@ const Category = (props) => {
                       </>
                     )}
 
-                    {!hasNextPage && !isLoading && (
-                      <div>No more content to scroll</div>
-                    )}
+                    {!hasNextPage && !isLoading && <div>No more content.</div>}
                   </div>
                 </Grid>
               </>

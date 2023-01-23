@@ -1,19 +1,14 @@
 import React, { useEffect } from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { QueryClient, useQuery } from "@tanstack/react-query";
-import { motion } from "framer-motion";
 
-import { client, urlFor } from "../../../sanity_client/config/client";
+import { client } from "../../../sanity_client/config/client";
 import styles from "./LatestNews.module.css";
 import Loader from "../../nano/Loader/Loader";
 import Message from "../../molecules/Message/Message";
 import SectionCreator from "../../molecules/SectionCreator/SectionCreator";
 import SectionLayout from "../../layouts/SectionLayout/SectionLayout";
 import { useRouter } from "next/router";
-
-import Link from "next/link";
-import getData from "../../../util/hooks/GetData";
-import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import NewsCard2 from "../../molecules/NewsCard2/NewsCard2";
 
 const LatestNews = () => {
@@ -86,7 +81,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 
-const latestNewsQuery = `*[editorApproved] | order(_createdAt asc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
+const latestNewsQuery = `*[editorApproved] | order(_createdAt desc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
 
 const fetchLatestNews = async () => {
   try {
