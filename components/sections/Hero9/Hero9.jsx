@@ -29,7 +29,7 @@ const Hero9 = ({ posts }) => {
             priority={true}
             quality={50}
             blue={true}
-            height={width < 900 ? 300 : 600}
+            height={width < 900 ? 450 : 600}
             width={width < 900 ? 900 : 1350}
             placeholder={"blur"}
           />
