@@ -23,6 +23,12 @@
   position: relative;
   padding-right: 1em;
 }
+@media screen and (max-width: 900px) {
+  .contentContainer {
+    margin-right: 0;
+    padding: 0 10px;
+  }
+}
 
 .frontPostContainer {
   width: 100%;
@@ -32,10 +38,18 @@
   margin-right: 20px;
   background-color: #000;
 }
+@media screen and (max-width: 900px) {
+  .contentContainer {
+    margin-right: 0;
+  }
+  .frontPostContainer {
+    margin-right: 0;
+  }
+}
 
 @media screen and (min-width: 900px) {
   .frontPostContainer {
-    margin-right: 0;
+    margin-right: 1em;
     height: 500px;
   }
 }
