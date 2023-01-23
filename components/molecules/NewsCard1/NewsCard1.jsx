@@ -52,18 +52,15 @@ const NewsCard1 = ({ post }) => {
               href={`/story/${post.slug.current}`}
               aria-label="To article page"
             >
-              {/* <a> */}
               <Typography
                 className={styles.postTitle}
                 variant={width > 900 ? "h4" : "body1"}
               >
                 {post.title}
               </Typography>
-              {/* </a> */}
             </Link>
             <Typography className={styles.postAuthor} variant="body1">
-              {post.author.name} &#8226;{" "}
-              {/* {formatDate(post._createdAt).toLocaleDateString("pt-pt")} */}
+              {post.author?.name} &#8226;
               {DateFormatterDF(post._createdAt)}
             </Typography>
           </div>

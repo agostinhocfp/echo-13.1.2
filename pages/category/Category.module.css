@@ -15,10 +15,13 @@
 
 .contentContainer {
   display: flex;
+  justify-content: center;
   margin-top: 0;
   width: 100%;
   overflow: hidden;
   padding: 5px;
+  position: relative;
+  padding-right: 1em;
 }
 
 .frontPostContainer {
@@ -27,43 +30,58 @@
   overflow: hidden;
   position: relative;
   margin-right: 20px;
+  background-color: #000;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 900px) {
   .frontPostContainer {
     margin-right: 0;
+    height: 500px;
   }
 }
 
-.frontImageContainer {
+.frontPostImageContainer {
   display: flex;
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
+  position: relative;
+  opacity: 0.8;
 }
-.frontImage {
+
+.frontPostImage {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.frontTitleContainer {
+
+.frontPostTitleContainer {
   display: flex;
   position: absolute;
   bottom: 0;
   width: 100%;
-  max-height: 200px;
-  max-width: 1200px;
+  padding: 1em;
 }
-.frontTitle {
+
+.frontPostTitle {
   font-weight: 900;
-  color: white;
-  text-shadow: 0 0 8px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+  color: #fff;
   overflow: hidden;
-  max-width: 700px;
-  padding-left: 5px;
-  padding-bottom: 1em;
   box-sizing: border-box;
   line-height: 1.2;
   text-rendering: optimizeLegibility;
+  text-shadow: 0 0 8px black, 0 0 1px black, 0 0 1px black, 0 1px 1px black;
+}
+@media screen and (max-width: 480px) {
+  .frontPostTitle {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 900px) {
+  .frontPostTitle {
+    font-size: 1.6em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .frontPostTitle {
+    font-size: 1.8em;
+  }
 }
 
 .postContainer {
@@ -94,6 +112,7 @@
   font-weight: 500;
   max-width: 750px;
   margin-bottom: 5px;
+  color: #fff;
 }
 .postAuthor {
   font-size: 0.6em;
@@ -116,7 +135,6 @@
 
 .titleFig {
   width: 100%;
-  background-color: #0d2323;
   text-align: center;
   padding: 1em;
   max-height: 120px;
@@ -136,4 +154,19 @@
   margin-top: 5px;
   margin: 20px 0;
   margin-right: 2em;
+}
+
+.loadintStatusContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.loadingStatus {
+  margin: 1em 0;
+  font-weight: 600;
+  text-align: center;
 }

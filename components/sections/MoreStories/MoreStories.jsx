@@ -109,13 +109,8 @@ const MoreStories = () => {
               className={!hasNextPage ? styles.hidden : ""}
             >
               {isFetchingNextPage ? (
-                <div className={styles.loadintStatusContainer}>
-                  <Typography
-                    className={styles.loadingStatus}
-                    variant="caption"
-                  >
-                    Loading more...
-                  </Typography>
+                <div className={styles.loadingStatusContainer}>
+                  <Loader />
                 </div>
               ) : (
                 ""
@@ -123,15 +118,10 @@ const MoreStories = () => {
             </div>
             <div>
               {/* <div>{isFetchingNextPage ? "Loading more... " : null}</div> */}
-
-              {isLoading && (
-                <>
-                  <Loader />
-                </>
-              )}
+              {isLoading && <>?{"Loading"}</>}
 
               {!hasNextPage && !isLoading && (
-                <div className={styles.loadintStatusContainer}>
+                <div className={styles.loadingStatusContainer}>
                   <Typography className={styles.loadingStatus} variant="body1">
                     No more content.
                   </Typography>
