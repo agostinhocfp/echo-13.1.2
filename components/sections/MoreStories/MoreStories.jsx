@@ -54,10 +54,19 @@ const MoreStories = () => {
 
       console.log(pageParam);
 
-      const response = await client.fetch(
-        `*[editorApproved && _type == "post" && (_createdAt > '${pageParam.lastCreatedAt}' || (_createdAt == '${pageParam.lastCreatedAt}' && _id > '${pageParam.lastId}'))] | order(_createdAt) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
-        pageParam
-      );
+      var response = null;
+
+      if (pageParam.lastCreatedAt != "" || pageParam.lastId != "") {
+        response = await client.fetch(
+          `*[editorApproved && _type == "post" && (_createdAt < '${pageParam.lastCreatedAt}' || (_createdAt == '${pageParam.lastCreatedAt}' && _id < '${pageParam.lastId}'))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+          pageParam
+        );
+      } else {
+        response = await client.fetch(
+          `*[editorApproved && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+          pageParam
+        );
+      }
 
       if (response.length > 0) {
         pageParam.lastId = response[response.length - 1]._id;
@@ -67,6 +76,7 @@ const MoreStories = () => {
         pageParam.lastCreatedAt = null;
       }
 
+      console.log(pageParam);
       return response;
     } catch (error) {}
   };
@@ -81,7 +91,7 @@ const MoreStories = () => {
     isFetching,
     isFetchingNextPage,
   } = useInfiniteQuery(["moreStories"], fetchInfinitePosts, {
-    getNextPageParam: (lastPage, pages, lastId) => {
+    getNextPageParam: (lastPage, pages) => {
       console.log(pages);
       if (lastPage.length < 4) return undefined;
       return {
@@ -107,7 +117,7 @@ const MoreStories = () => {
   }
 
   const renderData = (data) => {
-    if (data === null || undefined) return;
+    if (data == null) return;
     return (
       <>
         {data != null ? (
