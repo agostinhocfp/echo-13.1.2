@@ -27,7 +27,6 @@ export default function Echo({
       {/* <GlobalCssPriority> */}
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          {/* <SessionProvider session={session}> */}
           <RouteTabStore>
             <ThemeProvider theme={theme}>
               <MainLayout>
@@ -36,7 +35,6 @@ export default function Echo({
               </MainLayout>
             </ThemeProvider>
           </RouteTabStore>
-          {/* </SessionProvider> */}
         </Hydrate>
       </QueryClientProvider>
       {/* </GlobalCssPriority> */}

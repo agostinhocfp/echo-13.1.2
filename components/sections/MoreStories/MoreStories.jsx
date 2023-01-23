@@ -19,26 +19,54 @@ import NewsCard2 from "../../molecules/NewsCard2/NewsCard2";
 const MoreStories = () => {
   const loadMoreRef = useRef();
 
-  let lastCreateddAt = "";
+  let lastCreatedAt = "";
   let lastId = "";
 
-  const fetchInfinitePosts = async ({ pageParam = "" }) => {
+  // const fetchInfinitePosts = async ({ pageParam = "" }) => {
+  //   try {
+  //     // const response = await client.fetch(
+  //     //   `*[editorApproved && _type == "post" && (_id > '${pageParam}')] | order(_id) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+  //     //   pageParam
+  //     // );
+
+  //     const response = await client.fetch(
+  //       `*[editorApproved && _type == "post" && (_createdAt > '${pageParam}')] | order(_id) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+  //       pageParam
+  //     );
+
+  //     if (response.length > 0) {
+  //       pageParam = response[response.length - 1]._id;
+  //     } else {
+  //       pageParam = null;
+  //     }
+  //     return response;
+  //   } catch (error) {}
+  // };
+
+  const fetchInfinitePosts = async ({
+    pageParam = { lastCreatedAt: "", lastId: "" },
+  }) => {
     try {
       // const response = await client.fetch(
       //   `*[editorApproved && _type == "post" && (_id > '${pageParam}')] | order(_id) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
       //   pageParam
       // );
 
+      console.log(pageParam);
+
       const response = await client.fetch(
-        `*[editorApproved && _type == "post" && (_createdAt > '${pageParam}')] | order(_id) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+        `*[editorApproved && _type == "post" && (_createdAt > '${pageParam.lastCreatedAt}' || (_createdAt == '${pageParam.lastCreatedAt}' && _id > '${pageParam.lastId}'))] | order(_createdAt) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
         pageParam
       );
 
       if (response.length > 0) {
-        pageParam = response[response.length - 1]._id;
+        pageParam.lastId = response[response.length - 1]._id;
+        pageParam.lastCreatedAt = response[response.length - 1]._createdAt;
       } else {
-        pageParam = null;
+        pageParam.lastId = null;
+        pageParam.lastCreatedAt = null;
       }
+
       return response;
     } catch (error) {}
   };
@@ -54,8 +82,12 @@ const MoreStories = () => {
     isFetchingNextPage,
   } = useInfiniteQuery(["moreStories"], fetchInfinitePosts, {
     getNextPageParam: (lastPage, pages, lastId) => {
+      console.log(pages);
       if (lastPage.length < 4) return undefined;
-      return lastPage[lastPage.length - 1]._id;
+      return {
+        lastId: lastPage[lastPage.length - 1]._id,
+        lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
+      };
     },
   });
 
@@ -81,7 +113,7 @@ const MoreStories = () => {
         {data != null ? (
           <>
             <Grid container className={styles.itemList}>
-              {data.pages.slice(1).map((group, i) => (
+              {data.pages.map((group, i) => (
                 <React.Fragment key={i}>
                   {group.map((story) => (
                     <Grid
