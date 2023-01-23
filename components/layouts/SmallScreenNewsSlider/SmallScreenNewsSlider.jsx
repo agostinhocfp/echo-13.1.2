@@ -30,7 +30,7 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
       >
         <div className={styles.list}>
           {newsArr.map((story) => (
-            <div className={styles.itemContainer} key={story._id}>
+            <div className={styles.itemContainer} key={story._id} alt="">
               <div className={story.itemImageContainer}>
                 <Link
                   href={`/story/${story.slug.current}`}
