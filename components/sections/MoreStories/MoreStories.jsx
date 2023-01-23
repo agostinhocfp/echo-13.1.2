@@ -40,7 +40,6 @@ const MoreStories = () => {
         pageParam.lastCreatedAt = null;
       }
 
-      console.log(pageParam);
       return response;
     } catch (error) {}
   };
@@ -56,7 +55,6 @@ const MoreStories = () => {
     isFetchingNextPage,
   } = useInfiniteQuery(["moreStories"], fetchInfinitePosts, {
     getNextPageParam: (lastPage, pages) => {
-      console.log(pages);
       if (lastPage.length < 4) return undefined;
       return {
         lastId: lastPage[lastPage.length - 1]._id,
