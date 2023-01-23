@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Grid } from "@mui/material";
+import React, { useEffect, useRef } from "react";
+import { Grid, Typography } from "@mui/material";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { client } from "../../../sanity_client/config/client";
 
@@ -79,7 +79,7 @@ const MoreStories = () => {
   }
 
   const renderData = (data) => {
-    if (data == null) return;
+    // if (data == null) return;
     return (
       <>
         {data != null ? (
@@ -102,13 +102,25 @@ const MoreStories = () => {
                   ))}
                 </React.Fragment>
               ))}
-              <div
-                ref={loadMoreRef}
-                className={!hasNextPage ? styles.hidden : ""}
-              >
-                {isFetchingNextPage ? "Loading more..." : ""}
-              </div>
             </Grid>
+
+            <div
+              ref={loadMoreRef}
+              className={!hasNextPage ? styles.hidden : ""}
+            >
+              {isFetchingNextPage ? (
+                <div className={styles.loadintStatusContainer}>
+                  <Typography
+                    className={styles.loadingStatus}
+                    variant="caption"
+                  >
+                    Loading more...
+                  </Typography>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
             <div>
               {/* <div>{isFetchingNextPage ? "Loading more... " : null}</div> */}
 
@@ -118,7 +130,13 @@ const MoreStories = () => {
                 </>
               )}
 
-              {!hasNextPage && !isLoading && <div>No more content.</div>}
+              {!hasNextPage && !isLoading && (
+                <div className={styles.loadintStatusContainer}>
+                  <Typography className={styles.loadingStatus} variant="body1">
+                    No more content.
+                  </Typography>
+                </div>
+              )}
             </div>
           </>
         ) : null}

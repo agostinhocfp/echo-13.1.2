@@ -23,9 +23,6 @@
   transform: scale(1.03);
 }
 
-.topImage {
-}
-
 .topContent {
   position: absolute;
   bottom: 0;
@@ -187,9 +184,6 @@
 
 .bottomRightImageContainer {
   width: 100%;
-}
-
-.bottomRightImage {
 }
 
 .bottomRightContent {

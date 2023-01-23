@@ -135,7 +135,7 @@
   }
 }
 @media screen and (max-width: 900px) {
-  .featuredImage {
+  z .featuredImage {
     height: 300px;
   }
 }

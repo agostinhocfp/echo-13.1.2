@@ -45,12 +45,12 @@
   .postImageContainer {
     margin-bottom: 5px;
   }
-  .postImage {
-  }
+
   .postInfoContainer {
     margin-left: 0 !important;
     padding: 0 5px;
   }
+
   .postTitle {
     width: 100%;
     padding-right: 0 !important;
@@ -62,9 +62,6 @@
   height: 180px;
   overflow: hidden;
   border-radius: 5px !important;
-}
-
-.postImage {
 }
 
 .postInfoContainer {
