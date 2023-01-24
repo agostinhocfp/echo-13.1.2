@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -20,7 +20,6 @@ import SanityImage from "../../hooks/SanityImage/SanityImage";
 import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
 
 const Category = (props) => {
-  const [currentPath, setCurrentPath] = useState("");
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
   const router = useRouter();
@@ -28,11 +27,9 @@ const Category = (props) => {
 
   const loadMoreRef = useRef();
 
-  useEffect(() => {
-    setCurrentPath(props.route);
-  }, [router, props.route]);
+  useEffect(() => {}, [router.asPath, selectedIndex]);
 
-  const getTopCategoryPostQuery = `*['/${currentPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
+  const getTopCategoryPostQuery = `*['/${router.asPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
   const {
     data: topData,
@@ -95,6 +92,7 @@ const Category = (props) => {
         lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
       };
     },
+    refetchOnMount: true,
   });
 
   useIntersectionObserver({
@@ -324,6 +322,7 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({ params: { route } }) {
   // const getTopCategoryPostQuery = `*['/${route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*60] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
   const getTopCategoryPostQuery = `*['/${route}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
+
   const topPost = await getData(getTopCategoryPostQuery);
 
   return {
