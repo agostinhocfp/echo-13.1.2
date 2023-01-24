@@ -227,7 +227,7 @@ const Category = (props) => {
                                       key={post._id}
                                     >
                                       <NewsCard1 post={post} key={post._id} />
-                                      {length - 1 === j ? null : (
+                                      {hasNextPage ? null : (
                                         <hr className={styles.divider} />
                                       )}
                                     </Grid>
