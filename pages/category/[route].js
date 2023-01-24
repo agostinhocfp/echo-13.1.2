@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery, useInfiniteQuery, QueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Grid, Typography } from "@mui/material";
@@ -227,7 +227,8 @@ const Category = (props) => {
                                       key={post._id}
                                     >
                                       <NewsCard1 post={post} key={post._id} />
-                                      {hasNextPage ? null : (
+                                      {length - 1 === j &&
+                                      !hasNextPage ? null : (
                                         <hr className={styles.divider} />
                                       )}
                                     </Grid>
@@ -320,10 +321,19 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params: { route } }) {
+  const queryClient = new QueryClient();
+
   // const getTopCategoryPostQuery = `*['/${route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*60] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
   const getTopCategoryPostQuery = `*['/${route}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
   const topPost = await getData(getTopCategoryPostQuery);
+
+  await queryClient.prefetchQuery(
+    ["moreStories"],
+    getData(
+      `*[editorApproved && '/${route}' in categories[]->route && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`
+    )
+  );
 
   return {
     props: {
