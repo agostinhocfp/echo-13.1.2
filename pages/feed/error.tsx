@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import styles from "./error.module.css";
 import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 import MainButton from "../../components/nano/MainButton/MainButton";
-import ActiveLink from "../../hooks/ActiveLink/ActiveLink";
+import Link from "next/link";
 
 export default function Error({
   error,
@@ -27,14 +27,14 @@ export default function Error({
           {`We're sorry, but something went wrong.`}
         </Typography>
 
-        <ActiveLink href="/">
+        <Link href="/">
           <MainButton
             className={styles.homeButton}
             buttonIcon={RiHome2Line}
             text="Home"
             onClick={() => this.setState({ hasError: false })}
           />
-        </ActiveLink>
+        </Link>
       </div>
     </SectionLayout>
   );

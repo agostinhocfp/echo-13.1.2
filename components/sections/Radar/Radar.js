@@ -3,7 +3,6 @@ import { Box, Typography } from "@mui/material";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
-import ActiveLink from "../../../hooks/ActiveLink/ActiveLink";
 import styles from "./Radar.module.css";
 import getData from "../../../util/hooks/GetData";
 import Loader from "../../nano/Loader/Loader";
@@ -62,7 +61,7 @@ const Radar = ({ post }) => {
           .slice(0, 5)
           .map((post, i) => (
             <div key={post._id} className={styles.radarItemContainer}>
-              <ActiveLink href={`/story/${post.slug.current}`}>
+              <Link href={`/story/${post.slug.current}`}>
                 <Typography
                   className={styles.rankNumber}
                   sx={{ fontFamily: "plaster" }}
@@ -76,7 +75,7 @@ const Radar = ({ post }) => {
                 >
                   {post.title}
                 </Typography>
-              </ActiveLink>
+              </Link>
             </div>
           ))}
       </div>
