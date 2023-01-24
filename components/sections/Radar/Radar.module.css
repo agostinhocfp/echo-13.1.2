@@ -3,9 +3,7 @@
 
 @media screen and (min-width: 1024px) {
   .root {
-    position: fixed;
-    top: 0;
-    margin-top: 8em;
+    position: sticky;
   }
 }
 .wrapper {

@@ -31,7 +31,7 @@ export default function Story(props) {
     if (data) {
       setPost(data[0]);
     }
-  }, [sanityPostQuery, queryClient]);
+  }, [data, sanityPostQuery, queryClient]);
 
   if (isLoading) {
     return (
