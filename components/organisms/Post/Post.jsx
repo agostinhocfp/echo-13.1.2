@@ -10,16 +10,6 @@ import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import DateFormatterDF from "../../../util/DateFormatterDF";
 
-const components = {
-  types: {
-    code: (props) => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
-      </pre>
-    ),
-  },
-};
-
 const Post = ({ post }) => {
   const [currentPost, setCurrentPost] = useState(null);
   const [domLoaded, setDomLoaded] = useState(false);
@@ -77,6 +67,7 @@ const Post = ({ post }) => {
                     }
                   />
                 </div>
+
                 <Grid className={styles.socialsContainer} item xs={12} md={3}>
                   <Typography
                     className={styles.subsectionTitle}
@@ -89,6 +80,7 @@ const Post = ({ post }) => {
                     {currentPost.author?.name}
                   </Typography>
                 </Grid>
+
                 <Grid item xs={12} md={9}>
                   <div className={styles.mainContent}>
                     <PortableText
@@ -98,19 +90,32 @@ const Post = ({ post }) => {
                   </div>
                 </Grid>
               </Grid>
+
               <Grid item xs={12} md={3} className={styles.radarContainer}>
                 {domLoaded === true ? <Radar post={post} /> : null}
               </Grid>
             </Grid>
 
-            <div className={styles.commentsSection}>
-              <Disqus />
-            </div>
+            {domLoaded && (
+              <div className={styles.commentsSection}>
+                <Disqus />
+              </div>
+            )}
           </div>
         </>
       ) : null}
     </>
   );
+};
+
+const components = {
+  types: {
+    code: (props) => (
+      <pre data-language={props.node.language}>
+        <code>{props.node.code}</code>
+      </pre>
+    ),
+  },
 };
 
 export default Post;
