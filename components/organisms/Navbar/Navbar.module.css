@@ -2,8 +2,6 @@
   background-color: #fff;
   position: relative;
   display: flex;
-  padding: 0 !important;
-  margin: 0 !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -14,11 +12,17 @@
 
 .navbarContainer {
   max-width: 1536px;
+  height: 100%;
+}
+
+.navbarToolbar {
+  height: 100%;
 }
 
 .rootGridContainer {
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
 @media screen and (max-width: 900px) {
@@ -35,6 +39,8 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    align-items: center;
+    display: flex;
   }
   .menuButton:hover {
     transition: transform 0.5s ease-in-out;
@@ -53,7 +59,9 @@
 .logoContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-grow: 1;
+  height: 100%;
 }
 .navbarLogoText {
   font-family: plaster;
@@ -75,6 +83,7 @@
   width: 48px;
   height: 48px;
   justify-content: center;
+  align-items: center;
 }
 
 .actionButtonText {

@@ -58,7 +58,7 @@ export default function Navbar() {
   return (
     <AppBar className={styles.root} elevation={1}>
       <div className={styles.navbarContainer}>
-        <Toolbar disableGutters>
+        <Toolbar className={styles.navbarToolbar} disableGutters>
           <Grid container className={styles.rootGridContainer}>
             {/* Empty Grid */}
             <Grid item xs={3} md={3} className={styles.leftGridContainer}>
