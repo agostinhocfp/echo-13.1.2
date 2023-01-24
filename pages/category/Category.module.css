@@ -32,11 +32,13 @@
 
 .frontPostContainer {
   width: 100%;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
   overflow: hidden;
   position: relative;
   margin-right: 20px;
   background-color: #000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 @media screen and (max-width: 900px) {
   .contentContainer {

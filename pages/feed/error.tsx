@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-// import ErrorBoundary from "../../components/organisms/ErrorBoundary/EchoErrorBoundary";
 import { RiHome2Line } from "react-icons/ri";
 import { Typography } from "@mui/material";
 

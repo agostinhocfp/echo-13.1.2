@@ -53,24 +53,31 @@ const Top = ({ posts }) => {
             </div>
 
             {/* Bottom left item */}
-            <div className={styles.bottomLeftContainer}>
-              <SanityImage
-                className={styles.bottomLeftImage}
-                href={announcePost[0].mainImage}
-                width={320}
-                height={250}
-                fit={"contain"}
-              />
-              <div className={styles.bottomLeftContent}>
-                <Typography className={styles.bottomLeftTitle} variant="h4">
-                  {announcePost[0].title}
-                </Typography>
+            {announcePost[0] && (
+              <>
+                <div className={styles.bottomLeftContainer}>
+                  <SanityImage
+                    className={styles.bottomLeftImage}
+                    href={announcePost[0]?.mainImage}
+                    width={320}
+                    height={250}
+                    fit={"contain"}
+                  />
+                  <div className={styles.bottomLeftContent}>
+                    <Typography className={styles.bottomLeftTitle} variant="h4">
+                      {announcePost[0].title}
+                    </Typography>
 
-                <Typography className={styles.bottomLeftSubtitle} variant="h6">
-                  {announcePost[0].subtitle}
-                </Typography>
-              </div>
-            </div>
+                    <Typography
+                      className={styles.bottomLeftSubtitle}
+                      variant="h6"
+                    >
+                      {announcePost[0].subtitle}
+                    </Typography>
+                  </div>
+                </div>
+              </>
+            )}
           </Grid>
 
           {/* Right side content */}
