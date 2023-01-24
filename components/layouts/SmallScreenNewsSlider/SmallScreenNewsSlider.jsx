@@ -25,11 +25,11 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
         className={styles.root}
         totalSlides={6}
         visibleSlides={visibleSlides}
-        isPlaying
+        isPlaying={true}
         interval="100"
       >
         <div className={styles.list}>
-          {newsArr.slice(0, 4).map((story) => (
+          {newsArr.slice(0, 6).map((story) => (
             <div className={styles.itemContainer} key={story._id} alt="">
               <div className={story.itemImageContainer}>
                 <Link

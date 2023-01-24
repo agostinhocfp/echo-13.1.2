@@ -102,7 +102,7 @@ const MostPopular = ({ posts }) => {
           className={styles.root}
           totalSlides={6}
           visibleSlides={visibleSlides}
-          isPlaying
+          isPlaying={false}
           interval="100"
         >
           <div>{renderContent(mostPopularPosts)}</div>

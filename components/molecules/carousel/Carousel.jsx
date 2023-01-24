@@ -13,6 +13,7 @@ const Carousel = (props) => {
       totalSlides={props.totalSlides}
       currentSlide={props.currentSlide}
       visibleSlides={props.visibleSlides}
+      isPlaying={props.isPlaying}
     >
       <Slider className={styles.slider}>{props.children}</Slider>
     </CarouselProvider>
