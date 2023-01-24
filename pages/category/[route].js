@@ -29,21 +29,24 @@ const Category = (props) => {
   const loadMoreRef = useRef();
 
   useEffect(() => {
-    setCurrentPath(router.asPath);
-  }, [router]);
+    setCurrentPath(props.route);
+  }, [router, props.route]);
 
-  const getTopCategoryPostQuery = `*['/${props.route}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
+  const getTopCategoryPostQuery = `*['/${currentPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
   const {
     data: topData,
     isError: topIsError,
     error: topError,
     isLoading: topIsLoading,
-  } = useQuery({
-    querykey: ["topPost"],
-    queryFn: () => getData(getTopCategoryPostQuery),
-    initialData: props.topPost,
-  });
+  } = useQuery(
+    {
+      querykey: ["topPost"],
+      queryFn: () => getData(getTopCategoryPostQuery),
+      initialData: props.topPost,
+    },
+    { refetchOnMount: true }
+  );
 
   const fetchInfinitePosts = async ({
     pageParam = { lastCreatedAt: "", lastId: "" },
@@ -321,7 +324,6 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({ params: { route } }) {
   // const getTopCategoryPostQuery = `*['/${route}' in categories[]->route && dateTime(_createdAt) < dateTime(now()) - 60*60*24*60] | order(views desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
   const getTopCategoryPostQuery = `*['/${route}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
-
   const topPost = await getData(getTopCategoryPostQuery);
 
   return {
