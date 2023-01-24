@@ -62,9 +62,10 @@ const Index = () => {
         <Message
           className={`${styles.alertMessage} ${styles.status}`}
           severity={"error"}
-          alertTitle="Oops, something went wrong"
+          alertTitle="Oops, Ocorreu um erro."
         >
-          {error.toString()}
+          Não podemos mostrar este conteúdo. Pedimos as nossas sinceras
+          desculpas.
         </Message>
       </Box>
     );

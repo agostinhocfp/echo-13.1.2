@@ -73,7 +73,8 @@ const MoreStories = () => {
   if (isError) {
     return (
       <Message severity={"error"} alertTitle="Oops, something went wrong">
-        {error.toString()}
+        Ocorreu um erro. Não podemos mostrar este conteúdo. Pedimos as nossas
+        sinceras desculpas.
       </Message>
     );
   }

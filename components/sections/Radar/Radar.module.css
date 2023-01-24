@@ -3,7 +3,9 @@
 
 @media screen and (min-width: 1024px) {
   .root {
-    position: sticky !important;
+    position: fixed;
+    top: 0;
+    margin-top: 8em;
   }
 }
 .wrapper {
@@ -19,18 +21,18 @@
   flex-direction: column;
 }
 .radarItemContainer {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .radarContainer:last-child {
   padding-bottom: 0;
 }
 .rankNumber {
   color: #264653;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: 500;
 }
 .radarItemTitle {
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: 600;
   color: #264653;
 }

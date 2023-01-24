@@ -13,7 +13,7 @@ const Radar = ({ post }) => {
   const queryClient = new QueryClient();
 
   const radarQuery =
-    "*[editorApproved][0...6] | order(views desc){_id, title, author->{name}, slug}";
+    "*[editorApproved][0...5] | order(views desc){_id, title, author->{name}, slug}";
 
   useEffect(() => {
     try {
@@ -44,7 +44,8 @@ const Radar = ({ post }) => {
           severity={"error"}
           alertTitle="Oops, something went wrong"
         >
-          {error.toString()}
+          Ocorreu um erro. Não podemos mostrar este conteúdo. Pedimos as nossas
+          sinceras desculpas.
         </Message>
       </Box>
     );
@@ -58,7 +59,7 @@ const Radar = ({ post }) => {
       <div className={styles.radarContainer}>
         {data
           .filter((item) => item.slug.current !== post?.slug.current)
-          .slice(0, 6)
+          .slice(0, 5)
           .map((post, i) => (
             <div key={post._id} className={styles.radarItemContainer}>
               <ActiveLink href={`/story/${post.slug.current}`}>

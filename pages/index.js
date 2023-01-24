@@ -28,7 +28,7 @@ const Home = () => {
   if (isLoading) {
     return (
       <div className={`${styles.loaderContainer} ${styles.status}`}>
-        <Loader className={styles.loader} />
+        <Loader />
       </div>
     );
   }
@@ -38,9 +38,10 @@ const Home = () => {
         <Message
           className={`${styles.alertMessage} ${styles.status}`}
           severity={"error"}
-          alertTitle="Oops, something went wrong"
+          alertTitle="Oops, Ocorreu um erro."
         >
-          {error.toString()}
+          Não podemos mostrar este conteúdo. Pedimos as nossas sinceras
+          desculpas.
         </Message>
       </div>
     );

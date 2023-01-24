@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -20,12 +20,17 @@ import SanityImage from "../../hooks/SanityImage/SanityImage";
 import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
 
 const Category = (props) => {
+  const [currentPath, setCurrentPath] = useState("");
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
   const router = useRouter();
   const width = useWindowSize();
 
   const loadMoreRef = useRef();
+
+  useEffect(() => {
+    setCurrentPath(router.asPath);
+  }, [router]);
 
   const getTopCategoryPostQuery = `*['/${props.route}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
@@ -98,8 +103,8 @@ const Category = (props) => {
   if (isLoading) return <Loader />;
   if (isError) {
     return (
-      <Message severity={"error"} alertTitle="Oops, something went wrong">
-        {error.toString()}
+      <Message severity={"error"} alertTitle="Oops, Ocorreu um erro.">
+        Não podemos mostrar este conteúdo. Pedimos as nossas sinceras desculpas.
       </Message>
     );
   }

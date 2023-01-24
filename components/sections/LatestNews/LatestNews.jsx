@@ -36,7 +36,8 @@ const LatestNews = () => {
   if (isError) {
     return (
       <Message severity={"error"} alertTitle="Oops, something went wrong">
-        {error.toString()}
+        Ocorreu um erro. Não podemos mostrar este conteúdo. Pedimos as nossas
+        sinceras desculpas.
       </Message>
     );
   }
@@ -81,7 +82,7 @@ const LatestNews = () => {
 
 export default LatestNews;
 
-const latestNewsQuery = `*[editorApproved] | order(_createdAt desc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
+const latestNewsQuery = `*[editorApproved && frontPage != true] | order(_createdAt desc)[0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`;
 
 const fetchLatestNews = async () => {
   try {

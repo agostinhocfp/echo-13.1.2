@@ -2,22 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import styles from "./Story.module.css";
-import { Box } from "@mui/material";
 import getData from "../../util/hooks/GetData";
-import ModernLoader from "../../components/nano/ModernLoader/ModernLoader";
 import Message from "../../components/molecules/Message/Message";
 import SectionLayout from "../../components/layouts/SectionLayout/SectionLayout";
 import Post from "../../components/organisms/Post/Post";
+import Loader from "../../components/nano/Loader/Loader";
 
 export default function Story(props) {
   const [post, setPost] = useState(null);
 
   const queryClient = useQueryClient();
-  const { slug } = props;
 
   const { sanityPostQuery } = props;
 
-  const { data, isError, error, isLoading, isFetching } = useQuery(
+  const { data, isError, error, isLoading } = useQuery(
     {
       queryKey: ["post"],
       queryFn: () => getData(props.sanityPostQuery),
@@ -33,27 +31,27 @@ export default function Story(props) {
     if (data) {
       setPost(data[0]);
     }
-  }, [setPost, sanityPostQuery, data, queryClient]);
+  }, [sanityPostQuery, queryClient]);
 
   if (isLoading) {
     return (
-      <Box className={`${styles.loaderContainer} ${styles.status}`}>
-        {/* <Loader className={styles.loader} /> */}
-        <ModernLoader />
-      </Box>
+      <div className={`${styles.loaderContainer} ${styles.status}`}>
+        <Loader className={styles.loader} />
+      </div>
     );
   }
   if (isError) {
     return (
-      <Box className={styles.messageContainer}>
+      <div className={styles.messageContainer}>
         <Message
           className={`${styles.alertMessage} ${styles.status}`}
           severity={"error"}
-          alertTitle="Oops, something went wrong"
+          alertTitle="Oops, Ocorreu um erro."
         >
-          {error.toString()}
+          Não podemos mostrar este conteúdo. Pedimos as nossas sinceras
+          desculpas.
         </Message>
-      </Box>
+      </div>
     );
   }
 
@@ -61,9 +59,9 @@ export default function Story(props) {
 
   return (
     <SectionLayout>
-      <Box className={styles.root}>
+      <div className={styles.root}>
         {post != null ? <Post post={post} id={post._id} /> : null}
-      </Box>
+      </div>
     </SectionLayout>
   );
 }
