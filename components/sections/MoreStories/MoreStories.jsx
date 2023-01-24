@@ -27,7 +27,7 @@ const MoreStories = () => {
         );
       } else {
         response = await client.fetch(
-          `*[editorApproved && _type == "post" && _type != "announcement" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+          `*[editorApproved && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
           pageParam
         );
       }

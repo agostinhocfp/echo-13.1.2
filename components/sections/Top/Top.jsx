@@ -12,9 +12,11 @@ import SmallScreenNewsSlider from "../../layouts/SmallScreenNewsSlider/SmallScre
 const Top = ({ posts }) => {
   const width = useWindowSize();
 
-  const topPosts = posts.filter(
-    (item) => item.landingPage !== true && item.frontPage === true
-  );
+  let topPosts = posts
+    .filter((item) => item.landingPage !== true && item.frontPage === true)
+    .sort((a, b) => {
+      return new Date(b._createdAt) - new Date(a._createdAt);
+    });
 
   const announcePost = posts.filter(
     (item) => item._id === "aaf43895-9e67-41f7-b92c-656ecc1e3139"
