@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useQuery, useInfiniteQuery, QueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -20,6 +20,8 @@ import SanityImage from "../../hooks/SanityImage/SanityImage";
 import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
 
 const Category = (props) => {
+  // const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
+  const [domLoaded, setDomLoaded] = useState(false);
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
   const router = useRouter();
@@ -29,6 +31,7 @@ const Category = (props) => {
 
   useEffect(() => {
     fetchInfinitePosts({});
+    setDomLoaded(true);
   }, [router.asPath, selectedIndex]);
 
   const getTopCategoryPostQuery = `*['/${router.asPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
@@ -68,9 +71,29 @@ const Category = (props) => {
       if (response.length > 0) {
         pageParam.lastId = response[response.length - 1]._id;
         pageParam.lastCreatedAt = response[response.length - 1]._createdAt;
+        // setPageParam((prevState) => {
+        //   return {
+        //     ...prevState,
+        //     pageParam: {
+
+        //       lastId: response[response.length - 1]._id,
+        //       lastCreatedAt: response[response.length - 1]._createdAt,
+        //     },
+        //   };
+        // });
       } else {
         pageParam.lastId = null;
         pageParam.lastCreatedAt = null;
+        // setPageParam((prevState) => {
+        //   return {
+        //     ...prevState,
+        //     pageParam: {
+        //       ...prevState.pageParam,
+        //       lastId: null,
+        //       lastCreatedAt: null,
+        //     },
+        //   };
+        // });
       }
 
       return response;
@@ -300,7 +323,7 @@ const Category = (props) => {
 
   return (
     <SectionLayout>
-      <div className={styles.root}>{renderContent()}</div>
+      {domLoaded && <div className={styles.root}>{renderContent()}</div>}
     </SectionLayout>
   );
 };
