@@ -27,7 +27,9 @@ const Category = (props) => {
 
   const loadMoreRef = useRef();
 
-  useEffect(() => {}, [router.asPath, selectedIndex]);
+  useEffect(() => {
+    fetchInfinitePosts({});
+  }, [router.asPath, selectedIndex]);
 
   const getTopCategoryPostQuery = `*['/${router.asPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 

@@ -85,7 +85,7 @@ const MoreStories = () => {
       <>
         {data != null ? (
           <>
-            <Grid container className={styles.itemList}>
+            <Grid container className={styles.itemList} ref={loadMoreRef}>
               {data.pages.slice(1).map((group, i) => (
                 <React.Fragment key={i}>
                   {group.map((story) => (
@@ -107,12 +107,14 @@ const MoreStories = () => {
 
             <div
               ref={loadMoreRef}
-              className={!hasNextPage ? styles.hidden : ""}
+              className={
+                !hasNextPage ? styles.hidden : styles.loadingStatusContainer
+              }
             >
               {isFetchingNextPage ? <Loader /> : ""}
+              {isLoading && <Loader />}
             </div>
             <div>
-              {isLoading && <Loader />}
               {!hasNextPage && !isLoading && (
                 <div className={styles.loadingStatusContainer}>
                   <Typography className={styles.loadingStatus} variant="body1">
@@ -120,8 +122,10 @@ const MoreStories = () => {
                   </Typography>
                 </div>
               )}
-              <div>
-                {isFetching && !isFetchingNextPage ? "Fetching..." : null}
+              <div className={styles.loadingStatusContainer}>
+                {isFetching && !isFetchingNextPage && hasNextPage
+                  ? "Loading.."
+                  : null}
               </div>
             </div>
           </>
