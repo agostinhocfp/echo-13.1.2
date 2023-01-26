@@ -8,7 +8,7 @@ const Carousel = (props) => {
   return (
     <CarouselProvider
       className={styles.root}
-      naturalSlideWidth={100}
+      naturalSlideWidth={200}
       naturalSlideHeight={125}
       totalSlides={props.totalSlides}
       currentSlide={props.currentSlide}

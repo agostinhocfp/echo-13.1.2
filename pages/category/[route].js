@@ -1,5 +1,10 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { useQuery, useInfiniteQuery, QueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useInfiniteQuery,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Grid, Typography } from "@mui/material";
@@ -21,56 +26,54 @@ import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
 
 const Category = (props) => {
   // const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
+  const [pageRoute, setPageRoute] = useState(props.route);
+  const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
   const [domLoaded, setDomLoaded] = useState(false);
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
   const router = useRouter();
   const width = useWindowSize();
 
-  const loadMoreRef = useRef();
+  const loadMoreRef = useRef(null);
 
-  useEffect(() => {
-    fetchInfinitePosts({});
-    setDomLoaded(true);
-  }, [router.asPath, selectedIndex]);
-
-  const getTopCategoryPostQuery = `*['/${router.asPath}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
+  const getTopCategoryPostQuery = `*['/${pageRoute}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
   const {
     data: topData,
     isError: topIsError,
     error: topError,
     isLoading: topIsLoading,
-  } = useQuery(
-    {
-      querykey: ["topPost"],
-      queryFn: () => getData(getTopCategoryPostQuery),
-      initialData: props.topPost,
-    },
-    { refetchOnMount: true }
-  );
+  } = useQuery({
+    querykey: ["topPost"],
+    queryFn: () => getData(getTopCategoryPostQuery),
+    initialData: props.topPost,
+  });
 
   const fetchInfinitePosts = async ({
-    pageParam = { lastCreatedAt: "", lastId: "" },
+    pageParam = { lastCreatedAt: "", lastId: "", pageRoute: "" },
   }) => {
     try {
       var response = null;
-
       if (pageParam.lastCreatedAt != "" || pageParam.lastId != "") {
         response = await client.fetch(
-          `*[editorApproved && '/${props.route}' in categories[]->route  && _type == "post" && (_createdAt < '${pageParam.lastCreatedAt}' || (_createdAt == '${pageParam.lastCreatedAt}' && _id < '${pageParam.lastId}'))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+          `*[editorApproved && '/${pageRoute}' in categories[]->route  && _type == "post" && (_createdAt < '${pageParam.lastCreatedAt}' || (_createdAt == '${pageParam.lastCreatedAt}' && _id < '${pageParam.lastId}'))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
           pageParam
         );
       } else {
         response = await client.fetch(
-          `*[editorApproved && '/${props.route}' in categories[]->route && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
+          `*[editorApproved && '/${pageRoute}' in categories[]->route && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`,
           pageParam
         );
       }
 
       if (response.length > 0) {
-        pageParam.lastId = response[response.length - 1]._id;
-        pageParam.lastCreatedAt = response[response.length - 1]._createdAt;
+        // pageParam.lastId = response[response.length - 1]._id;
+        // pageParam.lastCreatedAt = response[response.length - 1]._createdAt;
+        setPageParam({
+          lastCreatedAt: response[response.length - 1]._createdAt,
+          lastId: response[response.length - 1]._id,
+          pageRoute: props.route,
+        });
         // setPageParam((prevState) => {
         //   return {
         //     ...prevState,
@@ -82,8 +85,13 @@ const Category = (props) => {
         //   };
         // });
       } else {
-        pageParam.lastId = null;
-        pageParam.lastCreatedAt = null;
+        // pageParam.lastId = null;
+        // pageParam.lastCreatedAt = null;
+        setPageParam({
+          lastCreatedAt: null,
+          lastId: null,
+          pageRoute: props.route,
+        });
         // setPageParam((prevState) => {
         //   return {
         //     ...prevState,
@@ -109,16 +117,26 @@ const Category = (props) => {
     fetchNextPage,
     isFetching,
     isFetchingNextPage,
-  } = useInfiniteQuery(["moreStories"], fetchInfinitePosts, {
+  } = useInfiniteQuery(["infiniteCategoryPosts"], fetchInfinitePosts, {
     getNextPageParam: (lastPage, pages) => {
       if (lastPage.length < 4) return undefined;
       return {
         lastId: lastPage[lastPage.length - 1]._id,
         lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
+        pageRoute: props.route,
       };
+      // setPageParam({
+      //   lastId: lastPage[lastPage.length - 1]._id,
+      //   lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
+      // });
     },
-    refetchOnMount: true,
+    // refetchOnMount: true,
   });
+
+  useEffect(() => {
+    setDomLoaded(true);
+    setPageRoute(props.route);
+  }, [props.route]);
 
   useIntersectionObserver({
     target: loadMoreRef,
@@ -146,6 +164,8 @@ const Category = (props) => {
 
   let frontItem = props.topPost;
 
+  console.log(data);
+
   const renderContent = () => {
     if (selectedIndex != null) {
       return (
@@ -166,23 +186,19 @@ const Category = (props) => {
             >
               {/* Front Post */}
               <div className={styles.frontPostContainer}>
-                <div className={styles.frontPostImageContainer}>
-                  <SanityImage
-                    className={styles.frontPostImage}
-                    href={frontItem.mainImage}
-                    alt={`Article: ${frontItem.title}`}
-                    priority={true}
-                    quality={50}
-                    width={width > 900 ? 900 : 700}
-                    height={width > 900 ? 500 : 400}
-                    onClick={() =>
-                      router.push(`/news/${frontItem.slug.current}`)
-                    }
-                    onKeyDown={() =>
-                      router.push(`/news/${frontItem.slug.current}`)
-                    }
-                  />
-                </div>{" "}
+                <Link href={`/story/${frontItem.slug.current}`}>
+                  <div className={styles.frontPostImageContainer}>
+                    <SanityImage
+                      className={styles.frontPostImage}
+                      href={frontItem.mainImage}
+                      alt={`Article: ${frontItem.title}`}
+                      priority={true}
+                      quality={50}
+                      width={width > 900 ? 900 : 700}
+                      height={width > 900 ? 500 : 400}
+                    />
+                  </div>{" "}
+                </Link>
                 <div className={styles.frontPostTitleContainer}>
                   {width > 800 ? (
                     <Link
@@ -213,6 +229,7 @@ const Category = (props) => {
               </div>
 
               {/* Infinite content */}
+              {/* {data != null ? ( */}
               {data != null ? (
                 <>
                   {width > 900 ? (
@@ -235,36 +252,24 @@ const Category = (props) => {
                       ))}
                     </>
                   ) : (
-                    <>
-                      <Grid container>
-                        {data.pages.map((group, i) => (
-                          <React.Fragment key={i}>
-                            {group.map((post, j, { length }) => (
-                              <>
-                                {i === 0 && j === 0 ? null : (
-                                  <>
-                                    {" "}
-                                    <Grid
-                                      item
-                                      xs={12}
-                                      sm={6}
-                                      md={4}
-                                      key={post._id}
-                                    >
-                                      <NewsCard1 post={post} key={post._id} />
-                                      {length - 1 === j &&
-                                      !hasNextPage ? null : (
-                                        <hr className={styles.divider} />
-                                      )}
-                                    </Grid>
-                                  </>
-                                )}
-                              </>
-                            ))}
-                          </React.Fragment>
-                        ))}
-                      </Grid>
-                    </>
+                    <Grid container>
+                      {data.pages.map((group, i) => (
+                        <React.Fragment key={i}>
+                          {group.map((post, j, { length }) => (
+                            <>
+                              {i === 0 && j === 0 ? null : (
+                                <Grid item xs={12} sm={6} md={4} key={post._id}>
+                                  <NewsCard1 post={post} key={post._id} />
+                                  {length - 1 === j && !hasNextPage ? null : (
+                                    <hr className={styles.divider} />
+                                  )}
+                                </Grid>
+                              )}
+                            </>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </Grid>
                   )}
                 </>
               ) : null}
@@ -353,8 +358,8 @@ export async function getStaticProps({ params: { route } }) {
 
   const topPost = await getData(getTopCategoryPostQuery);
 
-  await queryClient.prefetchQuery(
-    ["moreStories"],
+  await queryClient.prefetchInfiniteQuery(
+    ["infiniteCategoryPosts"],
     getData(
       `*[editorApproved && '/${route}' in categories[]->route && _type == "post" && (_createdAt > '' || (_createdAt == '' && _id > ''))] | order(_createdAt desc) [0...4] {_id, _createdAt, title, mainImage, slug, frontPage, landingPage}`
     )
@@ -364,6 +369,7 @@ export async function getStaticProps({ params: { route } }) {
     props: {
       topPost,
       route,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }
