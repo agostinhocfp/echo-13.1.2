@@ -27,6 +27,8 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
         visibleSlides={visibleSlides}
         isPlaying={true}
         interval="100"
+        aria-label="Carousel - Destaques"
+        aria-live="polite"
       >
         <div className={styles.list}>
           {newsArr.slice(0, 6).map((story) => (

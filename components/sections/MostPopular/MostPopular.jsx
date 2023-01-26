@@ -104,6 +104,9 @@ const MostPopular = ({ posts }) => {
           visibleSlides={visibleSlides}
           isPlaying={false}
           interval="100"
+          aria-label="Carousel - Destaques"
+          aria-live="polite"
+          aria-labelledby={"Destaques"}
         >
           <div>{renderContent(mostPopularPosts)}</div>
         </Carousel>

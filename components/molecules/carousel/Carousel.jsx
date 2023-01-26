@@ -14,8 +14,11 @@ const Carousel = (props) => {
       currentSlide={props.currentSlide}
       visibleSlides={props.visibleSlides}
       isPlaying={props.isPlaying}
+      labelledby={props.labelledby}
     >
-      <Slider className={styles.slider}>{props.children}</Slider>
+      <Slider className={styles.slider} aria-label="Carousel" role={undefined}>
+        {props.children}
+      </Slider>
     </CarouselProvider>
   );
 };
