@@ -67,6 +67,7 @@ const MostPopular = ({ posts }) => {
                       <Link
                         href={`/story/${story.slug.current}`}
                         aria-label="To article page"
+                        prefetch={false}
                       >
                         {story?.slug.current ? (
                           <SanityImage

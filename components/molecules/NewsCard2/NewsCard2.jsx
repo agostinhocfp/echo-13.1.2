@@ -8,7 +8,11 @@ import styles from "./NewsCard2.module.css";
 const NewsCard2 = ({ story }) => {
   return (
     <>
-      <Link href={`/story/${story.slug.current}`} aria-label="To article page">
+      <Link
+        href={`/story/${story.slug.current}`}
+        aria-label="To article page"
+        prefetch={false}
+      >
         <div className={styles.imageContainer}>
           <SanityImage
             href={story.mainImage}
@@ -18,10 +22,16 @@ const NewsCard2 = ({ story }) => {
             width={360}
             height={260}
             style={{ objectFit: "contain" }}
-            onClick={() => router.push(`/news/${story.slug.current}`)}
-            onKeyDown={() => router.push(`/news/${story.slug.current}`)}
+            onClick={() => router.push(`/story/${story.slug.current}`)}
+            onKeyDown={() => router.push(`/story/${story.slug.current}`)}
           />
         </div>
+      </Link>
+      <Link
+        href={`/story/${story.slug.current}`}
+        aria-label="To article page"
+        prefetch={false}
+      >
         <Typography className={styles.itemTitle} variant="h6">
           {story.title}
         </Typography>

@@ -1,13 +1,18 @@
 import { Grid, Typography } from "@mui/material";
-import Reac from "react";
+import dynamic from "next/dynamic";
 
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import SectionLayout from "../../layouts/SectionLayout/SectionLayout";
 import styles from "./Top.module.css";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import Link from "next/link";
-import MidScreenNewsGrid from "../../layouts/MidScreenNewsGrid/MidScreenNewsGrid";
-import SmallScreenNewsSlider from "../../layouts/SmallScreenNewsSlider/SmallScreenNewsSlider";
+
+const MidScreenNewsGrid = dynamic(() =>
+  import("../../layouts/MidScreenNewsGrid/MidScreenNewsGrid")
+);
+const SmallScreenNewsSlider = dynamic(() =>
+  import("../../layouts/SmallScreenNewsSlider/SmallScreenNewsSlider")
+);
 
 const Top = ({ posts }) => {
   const width = useWindowSize();
@@ -31,7 +36,10 @@ const Top = ({ posts }) => {
             {/* Top left item */}
             <div className={styles.topLeftContainer}>
               <div className={styles.topLeftImageContainer}>
-                <Link href={`/story/${topPosts[0].slug.current}`}>
+                <Link
+                  href={`/story/${topPosts[0].slug.current}`}
+                  prefetch={false}
+                >
                   <SanityImage
                     className={styles.topLeftImage}
                     alt={`article: ${topPosts[0].title}`}
@@ -47,7 +55,10 @@ const Top = ({ posts }) => {
                     {topPosts[0].tags[0]?.titlePT}
                   </Typography>
                 )}
-                <Link href={`/story/${topPosts[0].slug.current}`}>
+                <Link
+                  href={`/story/${topPosts[0].slug.current}`}
+                  prefetch={false}
+                >
                   <Typography className={styles.topLeftTitle} variant="h5">
                     {topPosts[0].title}
                   </Typography>
@@ -95,7 +106,7 @@ const Top = ({ posts }) => {
                   key={item._id}
                 >
                   <div className={styles.topRightImageContainer}>
-                    <Link href={`/story/${item.slug.current}`}>
+                    <Link href={`/story/${item.slug.current}`} prefetch={false}>
                       <SanityImage
                         className={styles.topRightImage}
                         href={item.mainImage}
@@ -111,7 +122,7 @@ const Top = ({ posts }) => {
                         {item.tags[0]?.titlePT}
                       </Typography>
                     )}
-                    <Link href={`/story/${item.slug.current}`}>
+                    <Link href={`/story/${item.slug.current}`} prefetch={false}>
                       <Typography className={styles.topRightTitle} variant="h6">
                         {item.title}
                       </Typography>
@@ -122,7 +133,10 @@ const Top = ({ posts }) => {
             </Grid>
             <div className={styles.bottomRightContainer}>
               <div className={styles.bottomRightImageContainer}>
-                <Link href={`/story/${topPosts[3].slug.current}`}>
+                <Link
+                  href={`/story/${topPosts[3].slug.current}`}
+                  prefetch={false}
+                >
                   <SanityImage
                     className={styles.bottomRightImage}
                     href={topPosts[3].mainImage}
@@ -138,7 +152,10 @@ const Top = ({ posts }) => {
                     {topPosts[3].tags[0]?.titlePT}
                   </Typography>
                 )}
-                <Link href={`/story/${topPosts[3].slug.current}`}>
+                <Link
+                  href={`/story/${topPosts[3].slug.current}`}
+                  prefetch={false}
+                >
                   <Typography className={styles.bottomRightTitle} variant="h6">
                     {topPosts[3].title}
                   </Typography>
