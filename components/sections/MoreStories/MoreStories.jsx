@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Grid, Typography } from "@mui/material";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { client } from "../../../sanity_client/config/client";

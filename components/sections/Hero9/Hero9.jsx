@@ -1,22 +1,14 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import { useRouter } from "next/router";
 import styles from "./Hero9.module.css";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import Link from "next/link";
 
-// Refactor
 const Hero9 = ({ posts }) => {
-  const router = useRouter();
   const width = useWindowSize();
 
   const landingPagePost = posts[0];
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push(`/story/${landingPagePost.slug.current}`);
-  };
 
   const renderContent = () => {
     return (

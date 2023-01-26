@@ -1,17 +1,14 @@
 import { Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 
 import styles from "./MostPopular.module.css";
-import Loader from "../../nano/Loader/Loader";
-import Message from "../../molecules/Message/Message";
+
 import SectionCreator from "../../molecules/SectionCreator/SectionCreator";
 import Carousel from "../../molecules/carousel/Carousel";
 import SectionLayout from "../../layouts/SectionLayout/SectionLayout";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
-import getData from "../../../util/hooks/GetData";
 import { motion } from "framer-motion";
 
 // Refactor
@@ -121,8 +118,6 @@ export default MostPopular;
 //   const [domLoaded, setDomLoaded] = useState(false);
 //   const [visibleSlides, setVisibleSlides] = useState(5);
 //   const queryClient = useQueryClient();
-
-//   console.log(posts);
 
 //   const width = useWindowSize();
 

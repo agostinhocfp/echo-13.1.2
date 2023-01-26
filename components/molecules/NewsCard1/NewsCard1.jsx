@@ -4,10 +4,8 @@ import Link from "next/link";
 import { Typography } from "@mui/material";
 
 import styles from "./NewsCard1.module.css";
-import { urlFor } from "../../../sanity_client/config/client";
-import { formatDate } from "../../../util/formatDate";
 // import { ErrorBoundary } from "react-error-boundary";
-import Error from "next/error";
+// import Error from "next/error";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import DateFormatterDF from "../../../util/DateFormatterDF";
