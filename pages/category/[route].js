@@ -164,8 +164,6 @@ const Category = (props) => {
 
   let frontItem = props.topPost;
 
-  console.log(data);
-
   const renderContent = () => {
     if (selectedIndex != null) {
       return (

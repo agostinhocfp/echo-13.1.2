@@ -52,7 +52,6 @@ const MostPopular = ({ posts }) => {
               variants={parent}
               initial="hidden"
               animate="show"
-              role="slider"
             >
               {data?.slice(0, 6).map((story) => {
                 return (

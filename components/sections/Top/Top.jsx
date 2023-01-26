@@ -108,7 +108,6 @@ const Top = ({ posts }) => {
                   <div className={styles.topRightHeader}>
                     {item.tags && (
                       <Typography className={styles.topRightTag} variant="h6">
-                        {console.log(item.tags[0])}
                         {item.tags[0]?.titlePT}
                       </Typography>
                     )}

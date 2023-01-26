@@ -11,12 +11,12 @@ const LatestNews = dynamic(() =>
 const MoreStories = dynamic(() =>
   import("../components/sections/MoreStories/MoreStories")
 );
+const Top = dynamic(() => import("../components/sections/Top/Top"));
 import styles from "../styles/Home.module.css";
 import Loader from "../components/nano/Loader/Loader";
 import getData from "../util/hooks/GetData";
 import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import Message from "../components/molecules/Message/Message";
-import Top from "../components/sections/Top/Top";
 
 const Home = () => {
   const { data, isError, error, isLoading } = useQuery(
@@ -50,10 +50,12 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Hero9 posts={data.filter((post) => post.landingPage == true)} />
-      <MostPopular posts={data} />
-      <Top posts={data} />
-      <LatestNews />
-      <MoreStories />
+      <Suspense fallback={<Loader />}>
+        <MostPopular posts={data} />
+        <Top posts={data} />
+        <LatestNews />
+        <MoreStories />
+      </Suspense>
       {/* NewsLetter or s/omething else */}
     </div>
   );
