@@ -23,7 +23,7 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
     <div className={styles.root}>
       <Carousel
         className={styles.root}
-        totalSlides={6}
+        totalSlides={5}
         visibleSlides={visibleSlides}
         isPlaying={true}
         interval="100"
@@ -31,24 +31,26 @@ const SmallScreenNewsSlider = ({ newsArr, announcePost }) => {
         <div className={styles.list}>
           {newsArr.slice(0, 6).map((story) => (
             <div className={styles.itemContainer} key={story._id} alt="">
-              <div className={story.itemImageContainer}>
-                <Link
-                  href={`/story/${story.slug.current}`}
-                  aria-label="Link to article page"
-                >
+              <Link
+                href={`/story/${story.slug.current}`}
+                aria-label="Link to article page"
+              >
+                <div className={story.itemImageContainer}>
                   <SanityImage
                     className={styles.itemImage}
                     alt={`Article: ${story.title}`}
-                    href={story.mainImage}
+                    href={
+                      story.image23 != null ? story.image23 : story.mainImage
+                    }
                     width={450}
                     height={450}
                   />
-                </Link>
-              </div>
+                </div>
+              </Link>
               <div className={styles.itemContent}>
                 {story.tags && (
                   <Typography className={styles.itemTag} variant="h6">
-                    {story.tags[0].titlePT}
+                    {story.tags[0]?.titlePT}
                   </Typography>
                 )}
                 <Link

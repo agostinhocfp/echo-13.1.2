@@ -34,6 +34,7 @@ const Top = ({ posts }) => {
                 <Link href={`/story/${topPosts[0].slug.current}`}>
                   <SanityImage
                     className={styles.topLeftImage}
+                    alt={`article: ${topPosts[0].title}`}
                     href={topPosts[0].mainImage}
                     width={320}
                     height={377}
@@ -43,7 +44,7 @@ const Top = ({ posts }) => {
               <div className={styles.topLeftHeader}>
                 {topPosts[0].tags && (
                   <Typography className={styles.topLeftTag} variant="h6">
-                    {topPosts[0].tags[0].titlePT}
+                    {topPosts[0].tags[0]?.titlePT}
                   </Typography>
                 )}
                 <Link href={`/story/${topPosts[0].slug.current}`}>
@@ -61,6 +62,7 @@ const Top = ({ posts }) => {
                   <SanityImage
                     className={styles.bottomLeftImage}
                     href={announcePost[0]?.mainImage}
+                    alt={`article: ${announcePost[0].title}`}
                     width={320}
                     height={250}
                     fit={"contain"}
@@ -97,6 +99,7 @@ const Top = ({ posts }) => {
                       <SanityImage
                         className={styles.topRightImage}
                         href={item.mainImage}
+                        alt={`article: ${item.title}`}
                         width={320}
                         height={250}
                       />
@@ -105,7 +108,8 @@ const Top = ({ posts }) => {
                   <div className={styles.topRightHeader}>
                     {item.tags && (
                       <Typography className={styles.topRightTag} variant="h6">
-                        {item.tags[0].titlePT}
+                        {console.log(item.tags[0])}
+                        {item.tags[0]?.titlePT}
                       </Typography>
                     )}
                     <Link href={`/story/${item.slug.current}`}>
@@ -123,6 +127,7 @@ const Top = ({ posts }) => {
                   <SanityImage
                     className={styles.bottomRightImage}
                     href={topPosts[3].mainImage}
+                    alt={`article: ${topPosts[3].title}`}
                     width={320}
                     height={377}
                   />
@@ -131,7 +136,7 @@ const Top = ({ posts }) => {
               <div className={styles.bottomRightHeader}>
                 {topPosts[3].tags && (
                   <Typography className={styles.bottomRightTag} variant="h6">
-                    {topPosts[3].tags[0].titlePT}
+                    {topPosts[3].tags[0]?.titlePT}
                   </Typography>
                 )}
                 <Link href={`/story/${topPosts[3].slug.current}`}>
