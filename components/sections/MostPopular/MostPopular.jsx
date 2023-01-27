@@ -16,6 +16,8 @@ const MostPopular = ({ posts }) => {
   const [domLoaded, setDomLoaded] = useState(false);
   const [visibleSlides, setVisibleSlides] = useState(5);
 
+  // Loops through posts filtering out the hero and front page posts
+  // sorts by number of views. Returns 8 items.
   const mostPopularPosts = posts
     .filter((post) => post.landingPage !== true && post.frontPage !== true)
     .map((post) => post)

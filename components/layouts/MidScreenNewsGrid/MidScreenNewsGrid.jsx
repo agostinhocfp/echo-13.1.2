@@ -17,6 +17,7 @@ const MidScreenNewsGrid = ({ newsArr, announcePost }) => {
             <SanityImage
               className={styles.topImage}
               href={newsArr[0].mainImage}
+              alt={`Article: ${newsArr[0].title}`}
               width={1000}
               height={400}
             />
@@ -48,6 +49,7 @@ const MidScreenNewsGrid = ({ newsArr, announcePost }) => {
               <SanityImage
                 className={styles.midLeftImage}
                 href={newsArr[1].mainImage}
+                alt={`Article: ${newsArr[1].title}`}
                 width={640}
                 height={200}
               />
@@ -74,6 +76,7 @@ const MidScreenNewsGrid = ({ newsArr, announcePost }) => {
               <SanityImage
                 className={styles.midRightImage}
                 href={newsArr[2].mainImage}
+                alt={`Article: ${newsArr[2].title}`}
                 width={320}
                 height={200}
               />
@@ -102,6 +105,7 @@ const MidScreenNewsGrid = ({ newsArr, announcePost }) => {
               <SanityImage
                 className={styles.bottomLeftImage}
                 href={newsArr[3].mainImage}
+                alt={`Article: ${newsArr[3].title}`}
                 width={640}
                 height={200}
               />
@@ -128,6 +132,7 @@ const MidScreenNewsGrid = ({ newsArr, announcePost }) => {
               <SanityImage
                 className={styles.bottomRightImage}
                 href={announcePost.mainImage}
+                alt={`Article: ${announcePost.title}`}
                 width={320}
                 height={200}
               />

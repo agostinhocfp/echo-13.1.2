@@ -58,7 +58,7 @@ const Home = () => {
         <LatestNews />
         <MoreStories />
       </Suspense>
-      {/* NewsLetter or s/omething else */}
+      {/* NewsLetter or something else */}
     </div>
   );
 };
