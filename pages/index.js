@@ -49,8 +49,10 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <Hero9 posts={data.filter((post) => post.landingPage == true)} />{" "}
-      <MostPopular posts={data} />
+      <Suspense fallback={<Loader />}>
+        <Hero9 posts={data.filter((post) => post.landingPage == true)} />
+        <MostPopular posts={data} />
+      </Suspense>
       <Suspense fallback={<Loader />}>
         <Top posts={data} />
         <LatestNews />

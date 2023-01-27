@@ -6,7 +6,6 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "@mui/material/styles";
-import { SessionProvider } from "next-auth/react";
 
 import { RouteTabStore } from "../contexts/RouteTabContext";
 import MainLayout from "../components/layouts/MainLayout/MainLayout";

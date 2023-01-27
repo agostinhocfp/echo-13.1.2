@@ -31,10 +31,9 @@ const Category = (props) => {
   const [domLoaded, setDomLoaded] = useState(false);
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
-  const router = useRouter();
   const width = useWindowSize();
 
-  const loadMoreRef = useRef(null);
+  const loadMoreRef = useRef();
 
   const getTopCategoryPostQuery = `*['/${pageRoute}' in categories[]->route] | order(_createdAt desc)[0]{mainImage, title, subtitle, slug, author->{name}, tags[]->{title}, editorApproved, _createdAt}`;
 
@@ -74,16 +73,6 @@ const Category = (props) => {
           lastId: response[response.length - 1]._id,
           pageRoute: props.route,
         });
-        // setPageParam((prevState) => {
-        //   return {
-        //     ...prevState,
-        //     pageParam: {
-
-        //       lastId: response[response.length - 1]._id,
-        //       lastCreatedAt: response[response.length - 1]._createdAt,
-        //     },
-        //   };
-        // });
       } else {
         // pageParam.lastId = null;
         // pageParam.lastCreatedAt = null;
@@ -92,16 +81,6 @@ const Category = (props) => {
           lastId: null,
           pageRoute: props.route,
         });
-        // setPageParam((prevState) => {
-        //   return {
-        //     ...prevState,
-        //     pageParam: {
-        //       ...prevState.pageParam,
-        //       lastId: null,
-        //       lastCreatedAt: null,
-        //     },
-        //   };
-        // });
       }
 
       return response;
@@ -125,12 +104,8 @@ const Category = (props) => {
         lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
         pageRoute: props.route,
       };
-      // setPageParam({
-      //   lastId: lastPage[lastPage.length - 1]._id,
-      //   lastCreatedAt: lastPage[lastPage.length - 1]._createdAt,
-      // });
     },
-    // refetchOnMount: true,
+    refetchOnMount: true,
   });
 
   useEffect(() => {
