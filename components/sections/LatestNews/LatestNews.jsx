@@ -47,23 +47,21 @@ const LatestNews = () => {
     return (
       <>
         {data != null ? (
-          <>
-            <Grid container className={styles.itemList}>
-              {data.map((story) => (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  className={styles.listItem}
-                  key={story._id}
-                >
-                  <NewsCard2 story={story} />
-                </Grid>
-              ))}
-            </Grid>
-          </>
+          <Grid container className={styles.itemList}>
+            {data.map((story) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                className={styles.listItem}
+                key={story._id}
+              >
+                <NewsCard2 story={story} />
+              </Grid>
+            ))}
+          </Grid>
         ) : null}
       </>
     );

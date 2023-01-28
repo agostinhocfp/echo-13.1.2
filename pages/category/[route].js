@@ -5,7 +5,6 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Grid, Typography } from "@mui/material";
 
@@ -282,16 +281,9 @@ const Category = (props) => {
 
             {/* Radar */}
             {width > 900 ? (
-              <>
-                <Grid
-                  item
-                  xs={12}
-                  md={3}
-                  sx={{ [theme.breakpoints.down("md")]: { display: "none" } }}
-                >
-                  <Radar post={frontItem} />
-                </Grid>
-              </>
+              <Grid className={styles.radarGridContainer} item xs={12} md={3}>
+                <Radar post={frontItem} />
+              </Grid>
             ) : null}
           </Grid>
         </>

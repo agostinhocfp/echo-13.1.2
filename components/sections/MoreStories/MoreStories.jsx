@@ -125,9 +125,10 @@ const MoreStories = () => {
                 </div>
               )}
               <div className={styles.loadingStatusContainer}>
-                {isFetching && !isFetchingNextPage && hasNextPage
-                  ? "Loading.."
-                  : null}
+                <Typography className={styles.loadingStatus} variant="body1">
+                  {" "}
+                  {isFetching && !isFetchingNextPage ? "Loading.." : ""}
+                </Typography>
               </div>
             </div>
           </>

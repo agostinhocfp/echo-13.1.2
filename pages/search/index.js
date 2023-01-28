@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import { Grid, TextField, Typography } from "@mui/material";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 
 import styles from "./Search.module.css";
@@ -51,14 +51,14 @@ const Index = () => {
 
   if ((isLoading && isFetching) || isFetching) {
     return (
-      <Box className={`${styles.loaderContainer} ${styles.status}`}>
+      <div className={`${styles.loaderContainer} ${styles.status}`}>
         <Loader className={styles.loader} />
-      </Box>
+      </div>
     );
   }
   if (isError) {
     return (
-      <Box className={styles.messageContainer}>
+      <div className={styles.messageContainer}>
         <Message
           className={`${styles.alertMessage} ${styles.status}`}
           severity={"error"}
@@ -67,7 +67,7 @@ const Index = () => {
           Não podemos mostrar este conteúdo. Pedimos as nossas sinceras
           desculpas.
         </Message>
-      </Box>
+      </div>
     );
   }
 
@@ -90,14 +90,25 @@ const Index = () => {
           className={styles.searchContainer}
           onSubmit={submitHandler}
         >
-          <TextField
+          {/* <TextField
             className={styles.searchField}
             id="standard-search"
             type="search"
             variant="outlined"
             helperText="Procurar"
             onChange={(e) => setKeyword(e.target.value)}
-          />
+          /> */}
+          <label>
+            <Typography variant="body1">Procurar</Typography>
+            <input
+              className={styles.searchField}
+              id="standard-search"
+              type="search"
+              onChange={(e) => setKeyword(e.target.value)}
+              alt="search"
+            />
+          </label>
+
           {searched === true ? (
             <div className={styles.resultsMessageContainer}>
               <Typography
