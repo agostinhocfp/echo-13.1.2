@@ -139,8 +139,13 @@ export default {
     },
     {
       name: "body",
-      title: "Body",
+      title: "Body Text",
       type: "blockContent",
+    },
+    {
+      name: "bodyTest",
+      title: "Body Text Test",
+      type: "richText",
     },
   ],
   preview: {

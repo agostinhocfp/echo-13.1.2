@@ -18,7 +18,6 @@ import Radar from "../../components/sections/Radar/Radar";
 import RouteTabContext from "../../contexts/RouteTabContext";
 import MAIN_ROUTES from "../../constants/ROUTES";
 import useWindowSize from "../../util/hooks/useWindowSize";
-import theme from "../../ui/theme";
 import NewsCard1 from "../../components/molecules/NewsCard1/NewsCard1";
 import SanityImage from "../../hooks/SanityImage/SanityImage";
 import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
@@ -105,6 +104,7 @@ const Category = (props) => {
       };
     },
     refetchOnMount: true,
+    enabled,
   });
 
   useEffect(() => {

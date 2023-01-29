@@ -13,6 +13,7 @@ import tag from "./tag";
 import comment from "./comment";
 import review from "./review";
 import topStory from "./topStory";
+import richText from "./richText";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,6 +31,7 @@ export default createSchema({
     comment,
     review,
     topStory,
+    richText,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

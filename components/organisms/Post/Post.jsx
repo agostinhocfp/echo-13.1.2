@@ -1,5 +1,4 @@
 import React, { lazy, useState, useEffect } from "react";
-import { PortableText } from "@portabletext/react";
 import { Grid, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 
@@ -9,6 +8,7 @@ import styles from "./Post.module.css";
 import SanityImage from "../../../hooks/SanityImage/SanityImage";
 import useWindowSize from "../../../util/hooks/useWindowSize";
 import DateFormatterDF from "../../../util/DateFormatterDF";
+import EchoPortableText from "../../molecules/usePortableText/EchoPortableText";
 
 const Post = ({ post }) => {
   const [currentPost, setCurrentPost] = useState(null);
@@ -83,10 +83,11 @@ const Post = ({ post }) => {
 
                 <Grid item xs={12} md={9}>
                   <div className={styles.mainContent}>
-                    <PortableText
-                      value={currentPost.body}
-                      components={components}
-                    />
+                    <EchoPortableText value={currentPost.body} />
+                    ---.
+                    <EchoPortableText value={currentPost.bodyTest} />
+                    ---.
+                    {currentPost.bodyTest}
                   </div>
                 </Grid>
               </Grid>
@@ -106,16 +107,6 @@ const Post = ({ post }) => {
       ) : null}
     </>
   );
-};
-
-const components = {
-  types: {
-    code: (props) => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
-      </pre>
-    ),
-  },
 };
 
 export default Post;
