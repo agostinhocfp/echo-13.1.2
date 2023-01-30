@@ -8,6 +8,7 @@
  *    type: 'blockContent'
  *  }
  */
+
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -36,7 +37,10 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
-          { title: "Linebreak", value: "<br>" },
+          {
+            title: "Hard Break",
+            value: "hardBreak",
+          },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [

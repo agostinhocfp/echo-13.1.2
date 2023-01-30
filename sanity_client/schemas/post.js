@@ -142,11 +142,6 @@ export default {
       title: "Body Text",
       type: "blockContent",
     },
-    {
-      name: "bodyTest",
-      title: "Body Text Test",
-      type: "richText",
-    },
   ],
   preview: {
     select: {

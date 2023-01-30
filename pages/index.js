@@ -17,6 +17,7 @@ import Loader from "../components/nano/Loader/Loader";
 import getData from "../util/hooks/GetData";
 import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import Message from "../components/molecules/Message/Message";
+import Tags from "../components/sections/Tags/Tags";
 
 const Home = () => {
   const { data, isError, error, isLoading } = useQuery(
@@ -56,6 +57,7 @@ const Home = () => {
       <Suspense fallback={<Loader />}>
         <Top posts={data} />
         <LatestNews />
+        <Tags posts={data} />
         <MoreStories />
       </Suspense>
       {/* NewsLetter or something else */}

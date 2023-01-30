@@ -23,14 +23,12 @@ const components = {
 
 const serializers = {
   types: {
-    break: (props) => {
-      const { style } = props.node;
-      if (style === "lineBreak") {
-        return <br className="lineBreak" />;
-      }
-
-      return null;
-    },
+    code: (props) => (
+      <pre data-language={props.node.language}>
+        <code>{props.node.code}</code>
+      </pre>
+    ),
+    lineBreak: (props) => <br />,
   },
 };
 

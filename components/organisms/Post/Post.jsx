@@ -84,10 +84,6 @@ const Post = ({ post }) => {
                 <Grid item xs={12} md={9}>
                   <div className={styles.mainContent}>
                     <EchoPortableText value={currentPost.body} />
-                    ---.
-                    <EchoPortableText value={currentPost.bodyTest} />
-                    ---.
-                    {currentPost.bodyTest}
                   </div>
                 </Grid>
               </Grid>
