@@ -23,7 +23,6 @@ import SanityImage from "../../hooks/SanityImage/SanityImage";
 import useIntersectionObserver from "../../util/hooks/useIntersectionObserver";
 
 const Category = (props) => {
-  // const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
   const [pageRoute, setPageRoute] = useState(props.route);
   const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
   const [domLoaded, setDomLoaded] = useState(false);
@@ -104,7 +103,6 @@ const Category = (props) => {
       };
     },
     refetchOnMount: true,
-    enabled,
   });
 
   useEffect(() => {
