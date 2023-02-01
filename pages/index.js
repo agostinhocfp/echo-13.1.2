@@ -57,7 +57,7 @@ const Home = () => {
       <Suspense fallback={<Loader />}>
         <Top posts={data} />
         <LatestNews />
-        <Tags posts={data} />
+        {/* <Tags posts={data} /> */}
         <MoreStories />
       </Suspense>
       {/* NewsLetter or something else */}

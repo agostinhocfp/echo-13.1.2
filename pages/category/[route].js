@@ -26,6 +26,7 @@ const Category = (props) => {
   const [pageRoute, setPageRoute] = useState(props.route);
   const [pageParam, setPageParam] = useState({ lastCreatedAt: "", lastId: "" });
   const [domLoaded, setDomLoaded] = useState(false);
+
   const value = useContext(RouteTabContext);
   const { selectedIndex } = value;
   const width = useWindowSize();
