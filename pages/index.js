@@ -60,7 +60,7 @@ const Home = () => {
         {/* <Tags posts={data} /> */}
         <MoreStories />
       </Suspense>
-      {/* NewsLetter or something else */}
+      {/* NewsLetter */}
     </div>
   );
 };

@@ -90,14 +90,6 @@ const Index = () => {
           className={styles.searchContainer}
           onSubmit={submitHandler}
         >
-          {/* <TextField
-            className={styles.searchField}
-            id="standard-search"
-            type="search"
-            variant="outlined"
-            helperText="Procurar"
-            onChange={(e) => setKeyword(e.target.value)}
-          /> */}
           <label>
             <Typography variant="body1">Procurar</Typography>
             <input

@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
         <title>Echo</title>
         <meta
           name="description"
-          content="Website de noticias de Angola para o Mundo."
+          content="Website de noticias de Angola para o Mundo. Notícias de última hora."
         />
       </Head>
       <header>
